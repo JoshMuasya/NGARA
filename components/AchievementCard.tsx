@@ -10,7 +10,7 @@ const AchievementCard = () => {
         <div className='w-full relative'>
             {/* Bottom */}
             <div className=''>
-                <Card className="w-[300px] rounded-3xl md:h-full bg-ring">
+                <Card className="md:w-[300px] w-[250px] rounded-3xl md:h-full bg-ring">
                     <CardContent className="w-full h-full p-3 md:p-5">
                         {/* Title */}
                         <h3 className='text-center font-bold text-2xl'>
@@ -34,8 +34,8 @@ const AchievementCard = () => {
             </div>
 
             {/* Top */}
-            <div className='absolute top-16 left-28'>
-                <Card className="w-[300px] rounded-3xl md:h-full bg-primary">
+            <div className='absolute top-16 left-24'>
+                <Card className="md:w-[300px] w-[250px] rounded-3xl md:h-full bg-primary">
                     <CardContent className="w-full h-full p-3 md:p-5">
                         {/* Content */}
                         <div className='pt-12 font-bold text-xl'>
