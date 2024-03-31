@@ -8,7 +8,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
-        <div className='flex flex-row justify-between md:justify-around items-center align-middle w-full bg-accent h-5 fixed top-0 left-0 text-primary py-8 md:px-0 px-3'>
+        <div className='flex flex-row justify-between md:justify-around items-center align-middle w-full bg-accent h-5 fixed top-0 left-0 text-primary py-8 md:px-0 px-3 z-20'>
             {/* Logo */}
             <div className='text-2xl font-black'>
                 NGARA

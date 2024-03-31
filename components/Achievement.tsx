@@ -4,7 +4,7 @@ import PartnerCircle from './PartnerCircle'
 
 const Achievement = () => {
     return (
-        <div className='pt-3 pb-8 px-2 md:px-5 w-full'>
+        <div className='pt-14 pb-8 px-2 md:px-5 w-full'>
             {/* Top */}
             <div className='flex flex-col md:flex-row justify-around items-center align-middle w-full'>
                 {/* Left */}
