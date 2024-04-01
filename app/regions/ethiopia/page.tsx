@@ -1,16 +1,14 @@
+'use client'
+import { buttonVariants } from '@/components/ui/button'
 import Link from 'next/link'
 import React from 'react'
-import { buttonVariants } from './ui/button'
 
-const CountryPage = ({ countryname }: { countryname: string }) => {
-    const uppercaseCountryname = countryname.toUpperCase()
-    const lowercaseCountryname = countryname.toLowerCase()
-
+const Ethiopia = () => {
     return (
-        <div className='w-full'>
+        <div className='flex flex-col justify-center items-center align-middle pt-16 h-screen'>
             {/* Title */}
             <h1 className='text-primary font-bold text-3xl text-center pb-2'>
-                {uppercaseCountryname}
+                ETHIOPIA
             </h1>
 
             {/* underline */}
@@ -22,8 +20,8 @@ const CountryPage = ({ countryname }: { countryname: string }) => {
                 {/* Left */}
                 <div className='md:w-1/3 w-full pr-0 md:pr-5'>
                     <img
-                        src={`/${lowercaseCountryname}.jpg`}
-                        alt={countryname}
+                        src='/ethiopia.jpg'
+                        alt='ethiopia'
                         className="w-full h-full object-cover"
                     />
                 </div>
@@ -32,14 +30,14 @@ const CountryPage = ({ countryname }: { countryname: string }) => {
                 <div>
                     <div className='md:w-1/3 w-full pr-0 md:pr-5'>
                         <h1 className='font-bold text-2xl pb-2'>
-                            Recent Publications of {uppercaseCountryname}
+                            Recent Publications of Ethiopia
                         </h1>
 
                         <Link
                             href=''
                             className='hover:underline'
                         >
-                            {uppercaseCountryname} Publications
+                            Ethiopia Publications 001
                         </Link>
 
                         {/* Button */}
@@ -67,45 +65,11 @@ const CountryPage = ({ countryname }: { countryname: string }) => {
                     {/* Contacts */}
                     <div className='flex flex-col justify-center align-middle items-start'>
                         <div className='flex flex-col justify-start align-middle items-start'>
-                            <h1 className='font-bold text-lg py-2'>
-                                Administrative Contacts
-                            </h1>
 
                             <p>
-                                Name: Meshack Muga <br />
-                                Telephone: +254 722237193 <br />
-                                Email: meshackmuga@hotmail.com
-                            </p>
-
-                        </div>
-
-                        <div className='flex flex-col justify-start align-middle items-start'>
-                            <h1 className='font-bold text-lg py-2'>
-                                Private Sector
-                            </h1>
-
-                            <p>
-                                Name: Waheed Chaudhry <br />
-                                Telephone: +254 722531025 <br />
-                                Email: waheedc@hotmail.com
-                            </p>
-                        </div>
-
-                        <div className='flex flex-col justify-start align-middle items-start'>
-                            <h1 className='font-bold text-lg py-2'>
-                                NGARA Executive Board
-                            </h1>
-
-                            <p>
-                                Name: Dr. Ben Chikamai <br />
-                                Telephone:  +254 722756483 <br />
-                                Email: bnchikamai@gmail.com
-                            </p>
-
-                            <p className='pt-3'>
-                                Name: Ms. Sheila Mbiru <br />
-                                Telephone: +254 721527994 <br />
-                                Email: sheilambiru@gmail.com
+                                Name: Wubalem Tadese <br />
+                                Email:  wubalem16@gmail.com <br />
+                                Phone Contact: +251 91 213 2303
                             </p>
                         </div>
                     </div>
@@ -117,4 +81,4 @@ const CountryPage = ({ countryname }: { countryname: string }) => {
     )
 }
 
-export default CountryPage
+export default Ethiopia

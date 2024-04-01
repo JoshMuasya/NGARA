@@ -1,16 +1,14 @@
+'use client'
+import { buttonVariants } from '@/components/ui/button'
 import Link from 'next/link'
 import React from 'react'
-import { buttonVariants } from './ui/button'
 
-const CountryPage = ({ countryname }: { countryname: string }) => {
-    const uppercaseCountryname = countryname.toUpperCase()
-    const lowercaseCountryname = countryname.toLowerCase()
-
+const Kenya = () => {
     return (
-        <div className='w-full'>
+        <div className='flex flex-col justify-center items-center align-middle pt-16 h-screen'>
             {/* Title */}
             <h1 className='text-primary font-bold text-3xl text-center pb-2'>
-                {uppercaseCountryname}
+                KENYA
             </h1>
 
             {/* underline */}
@@ -22,8 +20,8 @@ const CountryPage = ({ countryname }: { countryname: string }) => {
                 {/* Left */}
                 <div className='md:w-1/3 w-full pr-0 md:pr-5'>
                     <img
-                        src={`/${lowercaseCountryname}.jpg`}
-                        alt={countryname}
+                        src='/kenya.jpg'
+                        alt='kenya'
                         className="w-full h-full object-cover"
                     />
                 </div>
@@ -32,14 +30,14 @@ const CountryPage = ({ countryname }: { countryname: string }) => {
                 <div>
                     <div className='md:w-1/3 w-full pr-0 md:pr-5'>
                         <h1 className='font-bold text-2xl pb-2'>
-                            Recent Publications of {uppercaseCountryname}
+                            Recent Publications of Kenya
                         </h1>
 
                         <Link
                             href=''
                             className='hover:underline'
                         >
-                            {uppercaseCountryname} Publications
+                            Kenya Publications 001
                         </Link>
 
                         {/* Button */}
@@ -70,13 +68,11 @@ const CountryPage = ({ countryname }: { countryname: string }) => {
                             <h1 className='font-bold text-lg py-2'>
                                 Administrative Contacts
                             </h1>
-
                             <p>
                                 Name: Meshack Muga <br />
                                 Telephone: +254 722237193 <br />
                                 Email: meshackmuga@hotmail.com
                             </p>
-
                         </div>
 
                         <div className='flex flex-col justify-start align-middle items-start'>
@@ -117,4 +113,4 @@ const CountryPage = ({ countryname }: { countryname: string }) => {
     )
 }
 
-export default CountryPage
+export default Kenya
