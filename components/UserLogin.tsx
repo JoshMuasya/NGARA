@@ -5,7 +5,6 @@ import React from 'react'
 import { buttonVariants } from './ui/button'
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import { auth } from '@/lib/firebase'
-import { loginWithGoogle } from '@/lib/userlogin'
 import { handleSignIn } from './GoogleLogin'
 
 const provider = new GoogleAuthProvider()
