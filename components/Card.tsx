@@ -9,16 +9,13 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { HomeCarousel } from "./HomeCarousel"
 
 export function HomeCard() {
     return (
         <Card className="bg-primary w-full rounded-3xl h-screen md:h-full">
             <CardContent className="w-full h-full p-3 md:p-5">
-                <img
-                    src="/gum.jpg"
-                    alt="Gum Picture"
-                    className="w-full h-full object-cover"
-                />
+                <HomeCarousel />
             </CardContent>
         </Card>
     )
