@@ -5,7 +5,7 @@ import React from 'react'
 
 const Kenya = () => {
     return (
-        <div className='flex flex-col justify-center items-center align-middle pt-16 h-screen'>
+        <div className='flex flex-col justify-center items-center align-middle pt-16 md:h-screen h-full'>
             {/* Title */}
             <h1 className='text-primary font-bold text-3xl text-center pb-2'>
                 KENYA
