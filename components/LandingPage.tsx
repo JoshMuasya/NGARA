@@ -6,7 +6,8 @@ import { HomeCarousel } from './HomeCarousel'
 
 const LandingPage = () => {
     return (
-        <div className='flex flex-col md:flex-row justify-center md:justify-around align-middle items-center w-full md:h-screen md:px-5 px-2'>
+        <div className='flex flex-col md:flex-row justify-center md:justify-around align-middle items-center w-full md:h-screen md:px-5 px-2'
+        id='home'>
             {/* Left */}
             <div className='md:w-1/2 h-full'>
                 <HomeCarousel />

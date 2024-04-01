@@ -7,6 +7,10 @@ import React, { useState } from 'react'
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
 
+    const handleClick = () => {
+        setIsOpen(false)
+    }
+
     return (
         <div className='flex flex-row justify-between md:justify-around items-center align-middle w-full bg-accent h-5 fixed top-0 left-0 text-primary py-8 md:px-0 px-3 z-20'>
             {/* Logo */}
@@ -33,47 +37,55 @@ const Navbar = () => {
                     {isOpen && (
                         <div className="flex flex-col justify-around align-middle items-center lg:hidden bg-accent h-fit fixed top-36 right-0 bottom-0 w-3/5 rounded-s-md">
                             <Link
-                                href=''
+                                href='/#home'
                                 className='hover:italic hover:text-primary py-5'
+                                onClick={handleClick}
                             >
                                 Home
                             </Link>
 
                             <Link
-                                href=''
+                                href='/about'
                                 className='hover:italic hover:text-primary py-5'
+                                onClick={handleClick}
                             >
                                 About Us
                             </Link>
                             <Link
                                 href='/regions'
                                 className='hover:italic hover:text-primary py-5'
+                                onClick={handleClick}
                             >
                                 Regions
                             </Link>
                             <Link
-                                href=''
-                                className='hover:italic hover:text-primary py-5'
-                            >
-                                Projects
-                            </Link>
-                            <Link
                                 href='/gallery'
                                 className='hover:italic hover:text-primary py-5'
+                                onClick={handleClick}
                             >
                                 Gallery
                             </Link>
 
                             <Link
-                                href=''
+                                href='/publications'
                                 className='hover:italic hover:text-primary py-5'
+                                onClick={handleClick}
                             >
                                 Publications
                             </Link>
 
                             <Link
-                                href=''
+                                href='/blogs'
                                 className='hover:italic hover:text-primary py-5'
+                                onClick={handleClick}
+                            >
+                                Blogs
+                            </Link>
+
+                            <Link
+                                href='/regions'
+                                className='hover:italic hover:text-primary py-5'
+                                onClick={handleClick}
                             >
                                 Contact Us
                             </Link>
@@ -107,14 +119,14 @@ const Navbar = () => {
                 {/* Links for large screens */}
                 <div className="hidden lg:flex font-semibold text-base flex-row justify-around align-middle items-center w-full">
                     <Link
-                        href=''
+                        href='/#home'
                         className='hover:italic hover:text-primary px-4'
                     >
                         Home
                     </Link>
 
                     <Link
-                        href=''
+                        href='/about'
                         className='hover:italic hover:text-primary px-4'
                     >
                         About Us
@@ -126,10 +138,10 @@ const Navbar = () => {
                         Regions
                     </Link>
                     <Link
-                        href=''
+                        href='/blogs'
                         className='hover:italic hover:text-primary px-4'
                     >
-                        Projects
+                        Blogs
                     </Link>
                     <Link
                         href='/gallery'
@@ -139,14 +151,14 @@ const Navbar = () => {
                     </Link>
 
                     <Link
-                        href=''
+                        href='/publications'
                         className='hover:italic hover:text-primary px-4'
                     >
                         Publications
                     </Link>
 
                     <Link
-                        href=''
+                        href='/regions'
                         className='hover:italic hover:text-primary px-4'
                     >
                         Contact Us

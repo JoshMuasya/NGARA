@@ -15,7 +15,7 @@ export function GalleryCarousel() {
       opts={{
         align: "start",
       }}
-      className="w-full max-w-5xl"
+      className="w-4/5 md:w-full md:max-w-5xl max-w-md px-0"
     >
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (

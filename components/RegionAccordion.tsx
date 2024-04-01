@@ -21,43 +21,43 @@ const RegionAccordion = () => {
                         Kenya
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/tanzania'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Tanzania
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/uganda'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Uganda
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/ethiopia'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Ethiopia
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/eritrea'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Eritrea
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/somalia'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Somalia
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/southsudan'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         South Sudan
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/sudan'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Sudan
@@ -68,13 +68,13 @@ const RegionAccordion = () => {
                 <AccordionTrigger className='font-bold text-lg'>Central Africa</AccordionTrigger>
                 <AccordionContent className="w-full flex flex-row flex-wrap justify-center items-center align-middle text-base">
                     <Link
-                        href=''
+                        href='/regions/cameroon'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Cameroon
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/chad'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Chad
@@ -85,37 +85,37 @@ const RegionAccordion = () => {
                 <AccordionTrigger className='font-bold text-lg'>SAHEL</AccordionTrigger>
                 <AccordionContent className="w-full flex flex-row flex-wrap justify-center items-center align-middle text-base">
                     <Link
-                        href=''
+                        href='/regions/burkinafaso'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Burkina Faso
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/mali'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Mali
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/mauritania'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Mauritania
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/niger'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Niger
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/nigeria'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Nigeria
                     </Link>
                     <Link
-                        href=''
+                        href='/regions/senegal'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Senegal

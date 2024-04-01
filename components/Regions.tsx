@@ -3,7 +3,7 @@ import RegionAccordion from './RegionAccordion'
 
 const Regions = () => {
   return (
-    <div className='flex flex-col justify-center items-center align-middle px-5 w-full h-screen'>
+    <div className='flex pt-16 md:pt-0 pb-10 md:pb-0 flex-col justify-center items-center align-middle px-5 w-full h-full md:h-screen'>
       <h1 className='text-primary font-bold text-3xl text-center pb-5'>
         ROLE OF NGARA IN THE REGION
       </h1>
@@ -12,7 +12,7 @@ const Regions = () => {
         NGARA has implemented projects with partners at the country level and regionally.
       </h2>
 
-      <div className='flex flex-row justify-center align-middle items-center'>
+      <div className='flex flex-col md:flex-row justify-center align-middle items-center'>
         {/* Left */}
         <div className='md:w-3/5 w-full md:pr-7 pr-0'>
           <p className='text-center'>
