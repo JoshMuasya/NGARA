@@ -27,7 +27,7 @@ export function HomeCarousel() {
     return (
         <Carousel
             plugins={[plugin.current]}
-            className="w-full p-3 bg-primary rounded-xl"
+            className="w-full p-3 bg-gradient-to-r from-primary to-ring rounded-xl"
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.reset}
         >

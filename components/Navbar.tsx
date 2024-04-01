@@ -46,7 +46,7 @@ const Navbar = () => {
                                 About Us
                             </Link>
                             <Link
-                                href=''
+                                href='/regions'
                                 className='hover:italic hover:text-primary py-5'
                             >
                                 Regions
@@ -58,7 +58,7 @@ const Navbar = () => {
                                 Projects
                             </Link>
                             <Link
-                                href=''
+                                href='/gallery'
                                 className='hover:italic hover:text-primary py-5'
                             >
                                 Gallery
@@ -120,7 +120,7 @@ const Navbar = () => {
                         About Us
                     </Link>
                     <Link
-                        href=''
+                        href='/regions'
                         className='hover:italic hover:text-primary px-4'
                     >
                         Regions
@@ -132,7 +132,7 @@ const Navbar = () => {
                         Projects
                     </Link>
                     <Link
-                        href=''
+                        href='/gallery'
                         className='hover:italic hover:text-primary px-4'
                     >
                         Gallery
