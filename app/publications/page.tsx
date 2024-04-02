@@ -78,45 +78,37 @@ const PublicationsPage = () => {
             </h6>
 
             {/* Separator */}
-            <div className='pt-10 w-full h-full'>
-                <ResizablePanelGroup
-                    direction="horizontal"
-                    className="w-full rounded-lg border h-full"
-                >
-                    <ResizablePanel defaultSize={20}>
-                        <div className="flex flex-col h-full items-center justify-center p-10">
-                            <h2
-                                className='pt-3 pb-3 font-bold text-accent text-2xl hover:italic cursor-pointer'
-                                onClick={handleShowRecentPublications}
-                            >
-                                Recent Publications
-                            </h2>
+            <div className='pt-10 w-full h-full flex flex-col md:flex-row justify-center align-middle items-center'>
+                <div className="flex flex-col h-full items-center justify-center p-10">
+                    <h2
+                        className='pt-3 pb-3 font-bold text-accent text-2xl hover:italic cursor-pointer'
+                        onClick={handleShowRecentPublications}
+                    >
+                        Recent Publications
+                    </h2>
 
-                            <h2
-                                className='pt-3 pb-3 font-bold text-accent text-2xl hover:italic cursor-pointer'
-                                onClick={handleShowAllPublications}
-                            >
-                                All Publications
-                            </h2>
+                    <h2
+                        className='pt-3 pb-3 font-bold text-accent text-2xl hover:italic cursor-pointer'
+                        onClick={handleShowAllPublications}
+                    >
+                        All Publications
+                    </h2>
+                </div>
+                <div>
+                    {showAllPublications ? (
+                        <div className='flex flex-col justify-center align-middle py-3'>
+                            {dummyData.map((publication, index) => (
+                                <Publication key={index} {...publication} />
+                            ))}
                         </div>
-                    </ResizablePanel>
-                    <ResizableHandle />
-                    <ResizablePanel defaultSize={80}>
-                        {showAllPublications ? (
-                            <div className='flex flex-col md:flex-row flex-wrap justify-center items-center align-middle py-3'>
-                                {dummyData.map((publication, index) => (
-                                    <Publication key={index} {...publication} />
-                                ))}
-                            </div>
-                        ) : (
-                            <div className='flex flex-col md:flex-row flex-wrap justify-center items-center align-middle py-3'>
-                                {latestPublications.map((publication, index) => (
-                                    <Publication key={index} {...publication} />
-                                ))}
-                            </div>
-                        )}
-                    </ResizablePanel>
-                </ResizablePanelGroup>
+                    ) : (
+                        <div className='flex flex-col justify-center align-middle py-3'>
+                            {latestPublications.map((publication, index) => (
+                                <Publication key={index} {...publication} />
+                            ))}
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     )
