@@ -4,11 +4,11 @@ import PartnerCircle from './PartnerCircle'
 
 const Achievement = () => {
     return (
-        <div className='pt-14 pb-8 px-2 md:px-5 w-full'>
+        <div className='pt-14 pb-10 px-2 md:px-5 w-full'>
             {/* Top */}
             <div className='flex flex-col md:flex-row justify-around items-center align-middle w-full'>
                 {/* Left */}
-                <div className='md:w-1/2 w-full'>
+                <div className='md:w-1/3 w-full'>
                     {/* Title */}
                     <h3 className='text-primary font-lg'>
                         <span className='font-bold text-2xl text-accent'>NGARA’s Impact:</span>
@@ -29,7 +29,7 @@ const Achievement = () => {
                 </div>
 
                 {/* Right */}
-                <div className='md:w-1/2 pt-5 md:pl-10 md:pt-0 pl:0 w-full'>
+                <div className='md:w-1/3 pt-5 md:pl-5 md:pt-0 pl:0 w-full'>
                     <AchievementCard />
                 </div>
 

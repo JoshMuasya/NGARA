@@ -1,37 +1,23 @@
 import * as React from "react"
 
-import { Card, CardContent } from "@/components/ui/card"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel"
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
 
-export function GalleryCarousel() {
+export function GalleryCarousel({src, alt, description}: {src: string, alt: string, description: string}) {
   return (
-    <Carousel
-      opts={{
-        align: "start",
-      }}
-      className="w-4/5 md:w-full md:max-w-5xl max-w-md px-0"
-    >
-      <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-            <div className="p-1">
-              <Card>
-                <CardContent className="flex aspect-square items-center justify-center p-6">
-                  <span className="text-3xl font-semibold">{index + 1}</span>
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
+    <div className="p-5">
+      <Card>
+        <CardContent className="flex aspect-square items-center justify-center p-3">
+          <img 
+          src={src} 
+          alt={alt} 
+          className="w-full h-full object-cover"
+          style={{ width: '250px', height: '200px' }}
+          />
+        </CardContent>
+        <CardFooter>
+          {description}
+        </CardFooter>
+      </Card>
+    </div>
   )
 }

@@ -69,7 +69,7 @@ const Publications = () => {
                                 </div>
 
                                 {/* Date Time */}
-                                <div className='flex flex-row justify-center align-middle items-center w-full'>
+                                <div className='flex flex-row justify-start align-middle items-center w-full'>
                                     {/* Date */}
                                     <div className='pr-3'>
                                         31 Jan 2024
