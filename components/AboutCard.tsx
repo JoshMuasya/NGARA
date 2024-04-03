@@ -18,7 +18,7 @@ const AboutCard = ({ title, content }: { title: string, content: React.ReactNode
           <div className='border border-primary w-full' />
 
           {/* Content */}
-          <p className='pt-3 text-center'>
+          <p className='pt-3 text-justify'>
             {content}
           </p>
         </CardContent>

@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.back-pic {
+  background-image: url('/gumtree.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 
 @layer base {
   :root {

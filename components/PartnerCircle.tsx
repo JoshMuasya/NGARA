@@ -9,8 +9,8 @@ import {
 const PartnerCircle = () => {
     return (
         <div className='px-5'>
-            <Avatar className='bg-ring'>
-                <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+            <Avatar className=''>
+                <AvatarImage src='' alt="@shadcn" />
                 <AvatarFallback>CN</AvatarFallback>
             </Avatar>
         </div>

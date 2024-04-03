@@ -12,7 +12,7 @@ const Regions = () => {
         NGARA has implemented projects with partners at the country level and regionally.
       </h2>
 
-      <div className='flex flex-col md:flex-row justify-center align-middle items-center'>
+      <div className='flex flex-col md:flex-row-reverse justify-center align-middle items-center'>
         {/* Left */}
         <div className='md:w-3/5 w-full md:pr-7 pr-0'>
           <p className='text-center'>

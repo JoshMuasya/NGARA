@@ -11,24 +11,34 @@ import Link from 'next/link'
 interface Publication {
     title: string
     link: string
+    publish: string
+    author: string
+    abstract: string
 }
 
-const PublicationCard = ({ title, link }: Publication) => {
+const PublicationCard = ({ title, link, publish, author, abstract }: Publication) => {
     return (
-        <div>
-            {/* Details */}
-            <div className='pb-5 px-3'>
-                <ul className="">
-                    <li className='hover:italic hover:font-bold'>
-                        <Link
+        <div className='flex flex-col align-middle items-start p-3'>
+            {/* Top */}
+            <div className='flex flex-row flex-wrap justify-center align-middle items-start p-3'>
+                {/* Title */}
+                <h1 className='pr-1'>
+                    <Link
+                        className='hover:underline text-ring font-bold'
                         href={link}
-                        className='underline underline-offset-4'
-                        >
-                            {title}
-                        </Link>
-                    </li>
-                </ul>
+                    >
+                        {title}
+                    </Link>
+                </h1> 
+                <h4 className='font-semibold pr-1'>
+                    Published {publish} : <span className='text-lg text-accent font-bold'>{author}</span>
+                </h4>
             </div>
+
+            {/* Bottom */}
+            <p className='text-justify pl-7'>
+                {abstract}
+            </p>
         </div>
     )
 }

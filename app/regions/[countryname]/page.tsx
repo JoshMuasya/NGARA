@@ -124,8 +124,6 @@ const CountryDetails = ({ params }: { params: { countryname: string } }) => {
 
     const countryData = countries[selectedCountry];
 
-    console.log(countryData)
-
     return (
         <div className='flex flex-col justify-center items-center align-middle h-full md:h-screen '>
             <Region
