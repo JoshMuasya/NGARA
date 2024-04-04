@@ -56,7 +56,7 @@ const Navbar = () => {
                                 Home
                             </Link>
 
-                            <DropdownMenu className="py-2">
+                            <DropdownMenu>
                                 <DropdownMenuTrigger asChild>
                                     <h1 className='hover:italic hover:text-primary px-4 border-0 cursor-pointer'>
                                         About Us
