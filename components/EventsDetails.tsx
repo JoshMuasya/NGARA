@@ -11,7 +11,7 @@ interface Props {
 
 const EventsDetails = ({ title, link, author, date, abstract }: Props) => {
     return (
-        <div className='flex flex-col justify-center items-center px-3 py-5 w-1/3'>
+        <div className='flex flex-col justify-center items-center px-3 py-5 w-full md:w-1/3'>
             {/* Title */}
             <Link
                 href={link}

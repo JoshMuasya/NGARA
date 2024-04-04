@@ -3,7 +3,7 @@ import React from 'react'
 
 const VisionPage = () => {
   return (
-    <div className='pt-20 pb-8 flex flex-col justify-center items-center align-middle'>
+    <div className='pt-20 pb-8 px-5 flex flex-col justify-center items-center align-middle'>
       <AboutSection />
     </div>
   )

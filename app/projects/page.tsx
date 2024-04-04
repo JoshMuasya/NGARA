@@ -98,7 +98,7 @@ const Projects = () => {
             {/* Underline */}
             <div className='border border-accent w-1/3' />
 
-            <p className='pt-3 text-center md:pr-10'>
+            <p className='pt-3 text-center md:pr-10 px-5'>
             Strengthening Capacity among Stakeholders for Production and Trade in Gums and Resins in Africa – AFF, SDC. Four countries – Burkina Faso, Kenya, Niger & Tanzania.
             </p>
             
