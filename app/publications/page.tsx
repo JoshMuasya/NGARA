@@ -59,20 +59,23 @@ const dummyData: Publication[] = [
 ];
 
 const PublicationsPage = () => {
-    const [showAllPublications, setShowAllPublications] = useState(false);
-    const [latestPublications, setLatestPublications] = useState<Publication[]>([]);
+    const [publicationsToShow, setPublicationsToShow] = useState<Publication[]>([]);
+    const [showAllActive, setShowAllActive] = useState(true);
 
     useEffect(() => {
         const sortedData = dummyData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-        setLatestPublications(sortedData.slice(0, 3));
+        setPublicationsToShow(sortedData); // Initially show all publications
     }, []);
 
     const handleShowAllPublications = () => {
-        setShowAllPublications(true);
+        setPublicationsToShow(dummyData); // Show all publications
+        setShowAllActive(!showAllActive);
     };
 
     const handleShowRecentPublications = () => {
-        setShowAllPublications(false);
+        const sortedData = dummyData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        setPublicationsToShow(sortedData.slice(0, 3)); // Show only the latest 3
+        setShowAllActive(false);
     };
 
     return (
@@ -88,36 +91,26 @@ const PublicationsPage = () => {
             </h6>
 
             {/* Separator */}
-            <div className='pt-10 w-full h-full flex flex-col md:flex-row justify-center align-middle items-center'>
-                <div className="flex flex-col h-full items-center justify-center p-10">
+            <div className='pt-10 w-full h-full flex flex-col md:flex-row justify-center align-middle items-start'>
+                <div className="flex flex-col h-full items-start justify-center p-10">
                     <h2
-                        className={`pt-3 pb-3 font-bold ${showAllPublications ? 'text-accent' : 'text-primary'} text-2xl hover:italic cursor-pointer`}
+                        className={`pt-3 pb-3 font-bold ${showAllActive ? 'text-accent' : 'text-primary'} text-2xl hover:italic cursor-pointer`}
                         onClick={handleShowRecentPublications}
                     >
                         Recent Publications
                     </h2>
 
                     <h2
-                        className={`pt-3 pb-3 font-bold ${showAllPublications ? 'text-primary' : 'text-accent'} text-2xl hover:italic cursor-pointer`}
+                        className={`pt-3 pb-3 font-bold ${showAllActive ? 'text-primary' : 'text-accent'} text-2xl hover:italic cursor-pointer`}
                         onClick={handleShowAllPublications}
                     >
                         All Publications
                     </h2>
                 </div>
-                <div>
-                    {showAllPublications ? (
-                        <div className='flex flex-col justify-center align-middle py-3'>
-                            {dummyData.map((publication, index) => (
-                                <Publication key={index} {...publication} />
-                            ))}
-                        </div>
-                    ) : (
-                        <div className='flex flex-col justify-center align-middle py-3'>
-                            {latestPublications.map((publication, index) => (
-                                <Publication key={index} {...publication} />
-                            ))}
-                        </div>
-                    )}
+                <div className='flex flex-col justify-center align-middle py-3'>
+                    {publicationsToShow.map((publication, index) => (
+                        <Publication key={index} {...publication} />
+                    ))}
                 </div>
             </div>
         </div>

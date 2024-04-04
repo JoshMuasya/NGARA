@@ -71,41 +71,98 @@ const dummyData: Props[] = [
 
 const Priorities = () => {
     return (
-        <div className='py-5 px-5 flex flex-col justify-center items-center align-middle back-pic bg-fixed bg-cover w-full h-full'>
-            <Card className="w-full pb-5">
-                <CardHeader>
-                    <CardTitle>
-                        {/* Title */}
-                        <h1 className='text-primary font-bold text-3xl text-center pb-3'>
-                            Framework of NGARA Priorities and Strategy
-                        </h1>
-                    </CardTitle>
-                </CardHeader>
-                <CardContent>
-                    {/* Underline */}
-                    <div className='border border-primary w-1/3' />
+        <div className=''>
+            {/* Partners */}
+            <div className=' flex flex-col md:flex-row justify-center align-middle items-center w-full pt-14 pb-10'>
+                {/* Left */}
+                <div className='md:w-1/2'>
+                    <img src="/africa1.jpg" alt="about pic"
+                        style={{ width: '450px', height: '400px' }} />
+                </div>
 
-                    {/* Content */}
-                    <div>
-                        <p className='text-center'>
-                            In an effort to contribute to Sustainable Forest Management (SFM) in the region, United Nations Strategic Plan on Forests (UNSPF) 2030 and the Sustainable Development Goals (SDGs) while putting in place strong institutional mechanisms for better coordination of the sector, NGARA has developed a Framework of Priorities 2030. Through the support of the African Union Commission (AUC), FAO and Africa Forest Forum (AFF) NGARA organized two regional workshops in Nairobi (August 2015) and Dakar (March 2016) that resulted in the development of the NGARA Strategy: Overview and Framework of Priorities 2017–2030. The NGARA strategy has identiﬁed seven key result areas and resulting ojectives as follows;
+                {/* Right */}
+                <div className='flex flex-col justify-center align-middle items-center md:w-2/3'>
+                    {/* Top */}
+                    <div className='flex flex-col justify-center align-middle items-center'>
+                        {/* Title */}
+                        <h1 className='font-bold text-2xl p-3'>
+                            NGARA Regional Presence and its mission
+                        </h1>
+
+                        {/* Paragraph */}
+                        <p className='pt-3 text-justify'>
+                            Since its establishment in 2000, NGARA has collaborated with various key partners in the development and implementation of a wide range of projects.
                         </p>
                     </div>
 
-                </CardContent>
-            </Card>
+                    {/* Bottom */}
+                    <div className='flex flex-col justify-center align-middle items-center'>
+                        {/* Title */}
+                        <h1 className='font-bold text-xl p-3'>
+                            Partners
+                        </h1>
 
-            <div className='p-5 flex flex-col md:flex-row flex-wrap justify-center items-center align-middle'>
-                {dummyData.map((data) => (
-                    <PrioritiesCard
-                        key={data.title} 
-                        title={data.title}
-                        src={data.src}
-                        alt={data.alt}
-                        href={data.href}
-                        content={data.content}
-                    />
-                ))}
+                        {/* Underline */}
+                        <div className='border border-primary w-1/3' />
+
+                        {/* Partners */}
+                        <div className='flex flex-row flex-wrap justify-center align-middle items-center pt-5'>
+                            <div className='p-5'>
+                                <img src="/fao.png" alt="fao"
+                                    style={{ width: '100px', height: '100px' }} />
+                            </div>
+
+                            <div className='p-5'>
+                                <img src="/au.png" alt="fao"
+                                    style={{ width: '100px', height: '70px' }} />
+                            </div>
+
+                            <div className='p-5'>
+                                <img src="/aff.jpg" alt="fao"
+                                    style={{ width: '100px', height: '100px' }} />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div className='py-5 px-5 flex flex-col justify-center items-center align-middle back-pic bg-fixed bg-cover w-full h-full'>
+                <Card className="w-full pb-5">
+                    <CardHeader>
+                        <CardTitle>
+                            {/* Title */}
+                            <h1 className='text-primary font-bold text-3xl text-center pb-3'>
+                                Framework of NGARA Priorities and Strategy
+                            </h1>
+                        </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        {/* Underline */}
+                        <div className='border border-primary w-1/3' />
+
+                        {/* Content */}
+                        <div>
+                            <p className='text-center'>
+                                In an effort to contribute to Sustainable Forest Management (SFM) in the region, United Nations Strategic Plan on Forests (UNSPF) 2030 and the Sustainable Development Goals (SDGs) while putting in place strong institutional mechanisms for better coordination of the sector, NGARA has developed a Framework of Priorities 2030. Through the support of the African Union Commission (AUC), FAO and Africa Forest Forum (AFF) NGARA organized two regional workshops in Nairobi (August 2015) and Dakar (March 2016) that resulted in the development of the NGARA Strategy: Overview and Framework of Priorities 2017–2030. The NGARA strategy has identiﬁed seven key result areas and resulting ojectives as follows;
+                            </p>
+                        </div>
+
+                    </CardContent>
+                </Card>
+
+                <div className='p-5 flex flex-col md:flex-row flex-wrap justify-center items-center align-middle'>
+                    {dummyData.map((data) => (
+                        <PrioritiesCard
+                            key={data.title}
+                            title={data.title}
+                            src={data.src}
+                            alt={data.alt}
+                            href={data.href}
+                            content={data.content}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     )

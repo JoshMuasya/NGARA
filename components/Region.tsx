@@ -12,12 +12,12 @@ interface country {
     publicationsLink: string
 }
 
-const Region = ({countryname, email, cname, phone, publications, publicationsLink}: country) => {
+const Region = ({ countryname, email, cname, phone, publications, publicationsLink }: country) => {
     const upperCountryname = countryname.toUpperCase()
     const lowerCountryname = countryname.toLowerCase()
 
     return (
-        <div className='flex flex-col pt-20 md:pt-10 h-full pb-10 md:pb-5 px-5 md:justify-center md:align-middle md:items-center'>
+        <div className='flex flex-col pt-20 md:pt-10 h-full pb-10 md:pb-5 px-5 md:justify-center md:align-middle md:items-center w-full'>
             {/* Title */}
             <h1 className='text-primary font-bold text-3xl text-center pb-2'>
                 {upperCountryname}
@@ -26,8 +26,22 @@ const Region = ({countryname, email, cname, phone, publications, publicationsLin
             {/* underline */}
             <div className='border border-primary w-full' />
 
+            <h1 className='font-bold text-2xl pb-2 pt-5'>
+                Recent Publications of {upperCountryname}
+            </h1>
+
+            {/* Button */}
+            <div className='flex justify-start w-full py-3'>
+                <Link
+                    href=''
+                    className={`${buttonVariants({ variant: "default" })} bg-ring bg-gradient-to-r from-primary to-ring hover:bg-primary`}
+                >
+                    View More
+                </Link>
+            </div>
+
             {/* Details */}
-            <div className='pt-5 flex flex-col md:flex-row justify-around align-middle items-center'>
+            <div className='pt-5 flex flex-col md:flex-row-reverse justify-around align-middle items-center'>
 
                 {/* Left */}
                 <div className='md:w-1/3 w-full px-0 md:px-5'>
@@ -41,26 +55,12 @@ const Region = ({countryname, email, cname, phone, publications, publicationsLin
                 {/* Center */}
                 <div >
                     <div className='md:w-1/3 w-full pr-0 md:pr-5 flex flex-col justify-center items-center align-middle'>
-                        <h1 className='font-bold text-2xl pb-2'>
-                            Recent Publications of {upperCountryname}
-                        </h1>
-
                         <Link
                             href={publicationsLink}
                             className='hover:underline pb-3 '
                         >
                             {publications}
                         </Link>
-
-                        {/* Button */}
-                        <div className='flex justify-start w-full py-3'>
-                            <Link
-                                href=''
-                                className={`${buttonVariants({ variant: "default" })} bg-ring bg-gradient-to-r from-primary to-ring hover:bg-primary`}
-                            >
-                                View More
-                            </Link>
-                        </div>
                     </div>
                 </div>
 
@@ -83,12 +83,12 @@ const Region = ({countryname, email, cname, phone, publications, publicationsLin
 
                         {/* Phone */}
                         <h3>
-                        <span className='font-bold'>Phone Number: </span> {phone}
+                            <span className='font-bold'>Phone Number: </span> {phone}
                         </h3>
 
                         {/* Email */}
                         <h3>
-                        <span className='font-bold'>Email: </span> {email}
+                            <span className='font-bold'>Email: </span> {email}
                         </h3>
                     </div>
 
