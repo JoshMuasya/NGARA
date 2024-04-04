@@ -71,21 +71,21 @@ const dummyData: Props[] = [
 
 const Priorities = () => {
     return (
-        <div className=''>
+        <div className='w-full'>
             {/* Partners */}
             <div className=' flex flex-col md:flex-row justify-center align-middle items-center w-full pt-14 pb-10'>
                 {/* Left */}
                 <div className='md:w-1/2'>
                     <img src="/africa1.jpg" alt="about pic"
-                        style={{ width: '400px', height: '300px' }} />
+                        style={{ width: '300px', height: '250px' }} />
                 </div>
 
                 {/* Right */}
-                <div className='flex flex-col justify-center align-middle items-center md:w-2/3'>
+                <div className='flex flex-col justify-center align-middle items-center md:w-2/3 w-full'>
                     {/* Top */}
                     <div className='flex flex-col justify-center align-middle items-center'>
                         {/* Title */}
-                        <h1 className='font-bold text-2xl p-3'>
+                        <h1 className='font-bold text-xl py-3'>
                             NGARA Regional Presence and its mission
                         </h1>
 
