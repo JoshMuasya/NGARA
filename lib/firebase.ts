@@ -5,12 +5,12 @@ import { getAuth } from "firebase/auth";
 require('dotenv').config();
 
 const firebaseConfig = {
-    apiKey: process.env.API_KEY,
-    authDomain: process.env.AUTH_DOMAIN,
-    projectId: process.env.PROJECT_ID,
-    storageBucket: process.env.STORAGE_BUCKET,
-    messagingSenderId: process.env.MESSAGING_SENDER_ID,
-    appId: process.env.APP_ID
+    apiKey: "AIzaSyBKRwg7kOMoW0uNBmjA6OVU7KHk50a5sFY",
+    authDomain: "ngara-5a4b1.firebaseapp.com",
+    projectId: "ngara-5a4b1",
+    storageBucket: "ngara-5a4b1.appspot.com",
+    messagingSenderId: "790595309603",
+    appId: "1:790595309603:web:362c8d74a35764cfdce196"
 };
 
 const app = getApps().length ? getApp() : initializeApp(firebaseConfig);

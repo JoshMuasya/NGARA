@@ -56,39 +56,45 @@ const Navbar = () => {
                                 Home
                             </Link>
 
-                            <DropdownMenu>
-                                <DropdownMenuTrigger asChild>
-                                    <h1 className='hover:italic hover:text-primary px-4 border-0 cursor-pointer'>
-                                        About Us
-                                    </h1>
-                                </DropdownMenuTrigger>
-                                <DropdownMenuContent className="w-40">
-                                    <DropdownMenuItem>
-                                        <Link
-                                            href='/about/vision'
-                                            className='hover:italic hover:text-primary px-4 font-semibold'
-                                        >
-                                            Mission and Vision
-                                        </Link>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem>
-                                        <Link
-                                            href='/about/strategies'
-                                            className='hover:italic hover:text-primary px-4 font-semibold'
-                                        >
-                                            Strategies and Priorities
-                                        </Link>
-                                    </DropdownMenuItem>
-                                    <DropdownMenuItem>
-                                        <Link
-                                            href='/about/board'
-                                            className='hover:italic hover:text-primary px-4 font-semibold'
-                                        >
-                                            The Executive Board
-                                        </Link>
-                                    </DropdownMenuItem>
-                                </DropdownMenuContent>
-                            </DropdownMenu>
+                            <div onClick={handleClick}>
+                                <DropdownMenu>
+                                    <DropdownMenuTrigger asChild>
+                                        <h1 className='hover:italic hover:text-primary px-4 border-0 cursor-pointer'>
+                                            About Us
+                                        </h1>
+                                    </DropdownMenuTrigger>
+                                    <DropdownMenuContent className="w-40">
+                                        <DropdownMenuItem>
+                                            <Link
+                                                href='/about/vision'
+                                                className='hover:italic hover:text-primary px-4 font-semibold'
+                                                onClick={handleClick}
+                                            >
+                                                Mission and Vision
+                                            </Link>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Link
+                                                href='/about/strategies'
+                                                className='hover:italic hover:text-primary px-4 font-semibold'
+                                                onClick={handleClick}
+                                            >
+                                                Strategies and Priorities
+                                            </Link>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Link
+                                                href='/about/board'
+                                                className='hover:italic hover:text-primary px-4 font-semibold'
+                                                onClick={handleClick}
+                                            >
+                                                The Executive Board
+                                            </Link>
+                                        </DropdownMenuItem>
+                                    </DropdownMenuContent>
+                                </DropdownMenu>
+                            </div>
+
 
                             <Link
                                 href='/regions'
@@ -181,41 +187,46 @@ const Navbar = () => {
                         Home
                     </Link>
 
-                    <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                            <Button
-                                variant="ghost"
-                                className='hover:italic hover:text-primary px-4 font-semibold text-base border-0'>
-                                About Us
-                            </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent className="w-56">
-                            <DropdownMenuItem>
-                                <Link
-                                    href='/about/vision'
-                                    className='hover:italic hover:text-primary px-4 font-semibold'
-                                >
-                                    Mission and Vision
-                                </Link>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                <Link
-                                    href='/about/strategies'
-                                    className='hover:italic hover:text-primary px-4 font-semibold'
-                                >
-                                    Strategies and Priorities
-                                </Link>
-                            </DropdownMenuItem>
-                            <DropdownMenuItem>
-                                <Link
-                                    href='/about/board'
-                                    className='hover:italic hover:text-primary px-4 font-semibold'
-                                >
-                                    The Executive Board
-                                </Link>
-                            </DropdownMenuItem>
-                        </DropdownMenuContent>
-                    </DropdownMenu>
+                    <div onClick={handleClick}>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button
+                                    variant="ghost"
+                                    className='hover:italic hover:text-primary px-4 font-semibold text-base border-0'>
+                                    About Us
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className="w-56">
+                                <DropdownMenuItem>
+                                    <Link
+                                        href='/about/vision'
+                                        className='hover:italic hover:text-primary px-4 font-semibold'
+                                        onClick={handleClick}
+                                    >
+                                        Mission and Vision
+                                    </Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <Link
+                                        href='/about/strategies'
+                                        className='hover:italic hover:text-primary px-4 font-semibold'
+                                        onClick={handleClick}
+                                    >
+                                        Strategies and Priorities
+                                    </Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem>
+                                    <Link
+                                        href='/about/board'
+                                        className='hover:italic hover:text-primary px-4 font-semibold'
+                                        onClick={handleClick}
+                                    >
+                                        The Executive Board
+                                    </Link>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    </div>
                     <Link
                         href='/regions'
                         className='hover:italic hover:text-primary px-4'

@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect, useState } from 'react'
 import {
     Card,
     CardContent,
@@ -7,8 +9,55 @@ import PartnerCircle from './PartnerCircle'
 import Link from 'next/link'
 import { buttonVariants } from './ui/button'
 import { ArrowRight } from 'lucide-react'
+import { collection, getDocs, limit, orderBy, query } from 'firebase/firestore'
+import { db } from '@/lib/firebase'
+
+interface Props {
+    title: string
+    author: string
+    duration: string
+    category: string
+    image: string
+    abstract: string
+    content: string
+    datepublication: string
+}
 
 const Blogs = () => {
+    const [blogData, setBlogData] = useState<Props[]>([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const collectionRef = collection(db, "Blogs")
+                let queryRef = query(collectionRef, orderBy("datepublication", "desc"), limit(3))
+
+                if (queryRef) {
+                    const querySnapshot = await getDocs(queryRef)
+                    const data: Props[] = []
+
+                    querySnapshot.forEach((doc) => {
+                        const dataFromDoc = doc.data() as Props
+                        data.push({ ...dataFromDoc })
+                    })
+
+                    setBlogData(data)
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchData()
+    }, [])
+
+    const formatDate = (timestamp: any) => {
+        const date = new Date(timestamp.seconds * 1000);
+        const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString('en-US', options);
+    }
+
     return (
         <div className='py-10 w-full'>
             {/* Title */}
@@ -23,149 +72,55 @@ const Blogs = () => {
 
             {/* Details */}
             <div className='pb-5 w-full flex flex-row flex-wrap justify-around items-center align-middle'>
-                <Card className="md:w-[350px] w-[250px] border-none">
-                    <CardContent className="w-full h-full p-3 md:p-5 flex flex-col justify-start items-start align-middle">
-                        {/* Image */}
-                        <div>
-                            <img
-                                src="/gum.jpg"
-                                alt="Gum Picture"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
+                {blogData.map((blogItem, index) => (
+                    <Card className="md:w-[350px] w-[250px] border-none" key={index}>
+                        <CardContent className="w-full h-full p-3 md:p-5 flex flex-col justify-start items-start align-middle">
+                            {/* Image */}
+                            <div>
+                                <img
+                                    src={blogItem?.image}
+                                    alt={blogItem?.title}
+                                    className="w-full h-full object-cover"
+                                />
+                            </div>
 
-                        {/* Category */}
-                        <div className='py-3 flex flex-row justify-between w-full'>
-                            <p className='text-xs'>
-                                Category
-                            </p>
+                            {/* Category */}
+                            <div className='py-3 flex flex-row justify-between w-full'>
+                                <p className='text-xs'>
+                                    {blogItem?.category}
+                                </p>
 
-                            <p className='text-xs'>
-                                5 Min Read
-                            </p>
-                        </div>
+                                <p className='text-xs'>
+                                    {blogItem?.duration} Read
+                                </p>
+                            </div>
 
-                        {/* Title */}
-                        <div className='pb-1'>
-                            <h2 className='text-lg font-bold'>
-                                Title
-                            </h2>
-                        </div>
+                            {/* Title */}
+                            <div className='pb-1'>
+                                <h2 className='text-lg font-bold'>
+                                    {blogItem?.title}
+                                </h2>
+                            </div>
 
-                        {/* Content */}
-                        <div className='pb-3'>
-                            <p>
-                                Lorem Ipsum
-                            </p>
-                        </div>
+                            {/* Abstract */}
+                            <div className='pb-3'>
+                                <p>
+                                    {blogItem?.abstract}
+                                </p>
+                            </div>
 
-                        {/* Link */}
-                        <div className='flex flex-row justify-center align-middle items-center w-full text-sm hover:italic'>
-                            <Link
-                                href=''
-                                className='flex flex-row justify-center align-middle items-center'
-                            >
-                                Read More <ArrowRight className='w-5 h-5'/>
-                            </Link>
-                        </div>
-                    </CardContent>
-                </Card>
-
-                <Card className="md:w-[350px] w-[250px] border-none">
-                    <CardContent className="w-full h-full p-3 md:p-5 flex flex-col justify-start items-start align-middle">
-                        {/* Image */}
-                        <div>
-                            <img
-                                src="/gum.jpg"
-                                alt="Gum Picture"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-
-                        {/* Category */}
-                        <div className='py-3 flex flex-row justify-between w-full'>
-                            <p className='text-xs'>
-                                Category
-                            </p>
-
-                            <p className='text-xs'>
-                                5 Min Read
-                            </p>
-                        </div>
-
-                        {/* Title */}
-                        <div className='pb-1'>
-                            <h2 className='text-lg font-bold'>
-                                Title
-                            </h2>
-                        </div>
-
-                        {/* Content */}
-                        <div className='pb-3'>
-                            <p>
-                                Lorem Ipsum
-                            </p>
-                        </div>
-
-                        {/* Link */}
-                        <div className='flex flex-row justify-center align-middle items-center w-full text-sm hover:italic'>
-                            <Link
-                                href=''
-                                className='flex flex-row justify-center align-middle items-center'
-                            >
-                                Read More <ArrowRight className='w-5 h-5'/>
-                            </Link>
-                        </div>
-                    </CardContent>
-                </Card>
-
-                <Card className="md:w-[350px] w-[250px] border-none">
-                    <CardContent className="w-full h-full p-3 md:p-5 flex flex-col justify-start items-start align-middle">
-                        {/* Image */}
-                        <div>
-                            <img
-                                src="/gum.jpg"
-                                alt="Gum Picture"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-
-                        {/* Category */}
-                        <div className='py-3 flex flex-row justify-between w-full'>
-                            <p className='text-xs'>
-                                Category
-                            </p>
-
-                            <p className='text-xs'>
-                                5 Min Read
-                            </p>
-                        </div>
-
-                        {/* Title */}
-                        <div className='pb-1'>
-                            <h2 className='text-lg font-bold'>
-                                Title
-                            </h2>
-                        </div>
-
-                        {/* Content */}
-                        <div className='pb-3'>
-                            <p>
-                                Lorem Ipsum
-                            </p>
-                        </div>
-
-                        {/* Link */}
-                        <div className='flex flex-row justify-center align-middle items-center w-full text-sm hover:italic'>
-                            <Link
-                                href=''
-                                className='flex flex-row justify-center align-middle items-center'
-                            >
-                                Read More <ArrowRight className='w-5 h-5'/>
-                            </Link>
-                        </div>
-                    </CardContent>
-                </Card>
+                            {/* Link */}
+                            <div className='flex flex-row justify-center align-middle items-center w-full text-sm hover:italic'>
+                                <Link
+                                    href=''
+                                    className='flex flex-row justify-center align-middle items-center'
+                                >
+                                    Read More <ArrowRight className='w-5 h-5' />
+                                </Link>
+                            </div>
+                        </CardContent>
+                    </Card>
+                ))}
             </div>
 
             {/* Button */}
