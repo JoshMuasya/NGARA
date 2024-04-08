@@ -3,18 +3,17 @@ import React from 'react'
 
 interface Props {
     title: string
-    link: string
     author: string
-    date: string
+    eventdate: string
     abstract: string
 }
 
-const EventsDetails = ({ title, link, author, date, abstract }: Props) => {
+const EventsDetails = ({ title, author, eventdate, abstract }: Props) => {
     return (
         <div className='flex flex-col justify-center items-center px-3 py-5 w-full md:w-1/3'>
             {/* Title */}
             <Link
-                href={link}
+                href=''
                 className='text-lg font-bold hover:underline text-primary pb-1'
             >
                 {title}
@@ -26,14 +25,14 @@ const EventsDetails = ({ title, link, author, date, abstract }: Props) => {
                 </h6>
 
                 <h6 className='text-sm'>
-                    {date}
+                    {eventdate}
                 </h6>
             </div>
 
             <p>
                 {abstract}
                 <Link
-                    href={link}
+                    href=''
                     className='text-primary hover:underline'
                 >
                     Read More</Link>

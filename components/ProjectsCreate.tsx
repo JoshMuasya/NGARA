@@ -29,6 +29,9 @@ import { CalendarIcon } from "lucide-react"
 import { format } from "date-fns"
 
 import { Textarea } from "@/components/ui/textarea"
+import { useState } from "react"
+import { addDoc, collection } from "firebase/firestore"
+import { db } from "@/lib/firebase"
 
 const FormSchema = z.object({
     datepublication: z.date({
@@ -58,6 +61,8 @@ const FormSchema = z.object({
 })
 
 export function ProjectsCreate() {
+    const [isLoading, setIsLoading] = useState(false)
+
     const form = useForm<z.infer<typeof FormSchema>>({
         resolver: zodResolver(FormSchema),
         defaultValues: {
@@ -68,8 +73,23 @@ export function ProjectsCreate() {
         },
     })
 
-    function onSubmit(data: z.infer<typeof FormSchema>) {
-        console.log(data)
+    async function onSubmit(data: z.infer<typeof FormSchema>) {
+        try {      
+            const projectData = { ...data }
+      
+            const docRef = await addDoc(collection(db, "Projects"), projectData)
+      
+            setIsLoading(true)
+      
+            console.log(docRef.id)
+      
+            form.reset()
+      
+            setIsLoading(false)
+          } catch (error) {
+            console.log(error)
+            setIsLoading(false)
+          }
     }
 
     return (
@@ -150,7 +170,7 @@ export function ProjectsCreate() {
                 {/* Date of Completion */}
                 <FormField
                     control={form.control}
-                    name="datepublication"
+                    name="datecompletion"
                     render={({ field }) => (
                         <FormItem className="flex flex-col">
                             <FormLabel>Date of Completion</FormLabel>
