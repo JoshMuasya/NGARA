@@ -22,10 +22,6 @@ const ProjectsList = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [projectData, setProjectData] = useState<Props[]>([])
 
-    const handleClick = () => {
-        setIsOpen(!isOpen)
-    }
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -61,7 +57,9 @@ const ProjectsList = () => {
     return (
         <div className='flex flex-col justify-center align-middle items-center w-full'>
             {projectData.map((projectItem, index) => (
-                <div key={index}>
+                <div key={index}
+                className='pb-10'
+                >
                     {/* Title */}
                     <h1 className='font-bold text-lg md:text-xl'>
                         {projectItem?.title}
@@ -94,28 +92,10 @@ const ProjectsList = () => {
                                 {projectItem?.abstract}
                             </p>
                         </div>
-
-                        {/* Icon */}
-                        <div className='w-1/4 pl-1 md:pl-5'>
-                            <ArrowDown
-                                onClick={handleClick}
-                                className='cursor-pointer text-ring hover:text-primary'
-                            />
-                        </div>
                     </div>
 
                     {/* Links */}
-                    <div className='flex flex-row justify-between align-middle items-center w-full pt-8'>
-                        <div className='w-full'>
-                            <Link
-                                href=''
-                                className={`${buttonVariants({ variant: "default" })} bg-ring bg-gradient-to-r from-primary to-ring hover:bg-primary`}
-                            >
-                                Update
-                            </Link>
-                        </div>
-
-                        <div className='w-full'>
+                    <div className='w-full'>
                             <Link
                                 href=''
                                 className={`${buttonVariants({ variant: "destructive" })} `}
@@ -123,7 +103,6 @@ const ProjectsList = () => {
                                 Delete
                             </Link>
                         </div>
-                    </div>
                 </div>
             ))}
         </div>

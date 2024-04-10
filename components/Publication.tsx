@@ -8,15 +8,15 @@ import {
 import PartnerCircle from './PartnerCircle'
 import Link from 'next/link'
 
-interface Publication {
+interface Props {
     title: string
-    link: string
-    publish: string
     author: string
+    pdf: string
     abstract: string
+    datepublication: string
 }
 
-const PublicationCard = ({ title, link, publish, author, abstract }: Publication) => {
+const PublicationCard = ({ title, pdf, datepublication, author, abstract }: Props) => {
     return (
         <div className='flex flex-col align-middle items-start p-3'>
             {/* Top */}
@@ -25,13 +25,13 @@ const PublicationCard = ({ title, link, publish, author, abstract }: Publication
                 <h1 className='pr-1'>
                     <Link
                         className='hover:underline text-ring font-bold'
-                        href={link}
+                        href={pdf}
                     >
                         {title}
                     </Link>
                 </h1> 
                 <h4 className='font-semibold pr-1'>
-                    Published {publish} : <span className='text-lg text-accent font-bold'>{author}</span>
+                    Published {datepublication} : <span className='text-lg text-accent font-bold'>{author}</span>
                 </h4>
             </div>
 

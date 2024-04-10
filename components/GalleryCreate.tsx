@@ -1,95 +1,173 @@
-'use client'
+"use client"
 
-import { ArrowDown } from 'lucide-react'
-import Link from 'next/link'
-import React, { useState } from 'react'
-import { buttonVariants } from './ui/button'
+import { zodResolver } from "@hookform/resolvers/zod"
+import { useForm } from "react-hook-form"
+import { z } from "zod"
 
-const GalleryCreate = () => {
-    const [isOpen, setIsOpen] = useState(false)
+import { Button } from "@/components/ui/button"
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form"
 
-    const handleClick = () => {
-        setIsOpen(!isOpen)
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
+
+import { Input } from "@/components/ui/input"
+
+import { cn } from "@/lib/utils"
+import { Calendar } from "@/components/ui/calendar"
+import { CalendarIcon } from "lucide-react"
+import { format } from "date-fns"
+
+import { Textarea } from "@/components/ui/textarea"
+import { addDoc, collection } from "firebase/firestore"
+import { useState } from "react"
+import { db, storage } from "@/lib/firebase"
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
+
+const FormSchema = z.object({
+  dateupload: z.date({
+    required_error: "A date of publication is required",
+  }),
+  title: z.string({
+    required_error: "A title is required",
+  }),
+  image: z.instanceof(File),
+})
+
+export function GalleryCreate() {
+  const [isLoading, setIsLoading] = useState(false)
+  const [imageFile, setImageFile] = useState<File | null>(null)
+
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+    defaultValues: {
+      title: "",
+      image: new File([], ""),
+    },
+  })
+
+  async function onSubmit(data: z.infer<typeof FormSchema>) {
+    try {
+      const storageRef = ref(storage, `gallery/${imageFile?.name}`)
+      
+      await uploadBytes(storageRef, imageFile!)
+
+      const downloadUrl = await getDownloadURL(storageRef)
+
+      const galleryData = { ...data, image: downloadUrl }
+
+      const docRef = await addDoc(collection(db, "Gallery"), galleryData)
+
+      setIsLoading(true)
+
+      console.log(docRef.id)
+
+      form.reset()
+
+      setIsLoading(false)
+    } catch (error) {
+      console.log(error)
+      setIsLoading(false)
     }
+  }
 
-    return (
-        <div className='flex flex-col justify-center align-middle items-center w-full'>
-            {/* Title */}
-            <h1 className='font-bold text-lg md:text-xl'>
-                Blog 1
-            </h1>
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
 
-            {/* Top Details */}
-            <div className='flex flex-row flex-wrap justify-around align-middle items-center w-full font-semibold italic text-sm md:text-base cursor-pointer'>
-                {/* author */}
-                <h3 className='hover:underline hover:bold'>
-                    Author 3
-                </h3>
+        {/* Title */}
+        <FormField
+          control={form.control}
+          name="title"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Input placeholder="Title" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-                <h3 className='hover:underline hover:bold'>
-                    Duration
-                </h3>
+        {/* Date of Upload */}
+        <FormField
+          control={form.control}
+          name="dateupload"
+          render={({ field }) => (
+            <FormItem className="flex flex-col">
+              <FormLabel>Date of Upload</FormLabel>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                      variant={"outline"}
+                      className={cn(
+                        "w-[240px] pl-3 text-left font-normal",
+                        !field.value && "text-muted-foreground"
+                      )}
+                    >
+                      {field.value ? (
+                        format(field.value, "PPP")
+                      ) : (
+                        <span>Pick a date</span>
+                      )}
+                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
+                <PopoverContent className="w-auto p-0" align="start">
+                  <Calendar
+                    mode="single"
+                    selected={field.value}
+                    onSelect={field.onChange}
+                    disabled={(date) =>
+                      date > new Date() || date < new Date("1900-01-01")
+                    }
+                    initialFocus
+                  />
+                </PopoverContent>
+              </Popover>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-                <h3 className='hover:underline hover:bold'>
-                    Category
-                </h3>
-            </div>
-
-            {/* Image */}
-            <div className='w-full flex flex-col justify-center items-center align-middle'>
-                <img src="gum.jpg" alt="gum"
-                    style={{ width: '300px', height: '250px' }}
+        {/* Image */}
+        <FormField
+          control={form.control}
+          name="image"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Select an Image</FormLabel>
+              <FormControl>
+                <Input
+                  type="file"
+                  accept=".jpg, .jpeg"
+                  multiple={false}
+                  className="dark:bg-transparent cursor-pointer file:cursor-pointer file:text-primary dark:border-primary dark:ring-offset-primary"
+                  onChange={(e) => {
+                    field.onChange(e.target.files ? e.target.files[0] : null);
+                    setImageFile(e.target.files ? e.target.files[0] : null);
+                  }}
                 />
-            </div>
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-            {/* Abstract */}
-            <div className='w-full flex flex-row justify-between items-start align-middle'>
-                <div className='w-3/4'>
-                    <p>
-                        Strengthening the Gum Arabic Sector for Sustainable and Resilient Landscapes and Livelihoods of Women and Youth in Africa’s Drylands – A Regional Synthesis Report And Support to the formulation of a GCF project on: Scaling-Up Resilience in Africa’s Great Green Wall (SURAGGWA)
-                    </p>
-                </div>
-
-                {/* Icon */}
-                <div className='w-1/4 pl-1 md:pl-5'>
-                    <ArrowDown
-                        onClick={handleClick}
-                        className='cursor-pointer text-ring hover:text-primary'
-                    />
-                </div>
-            </div>
-
-            {isOpen && (
-                <div className='w-full'>
-                    <p>
-                        Strengthening the Gum Arabic Sector for Sustainable and Resilient Landscapes and Livelihoods of Women and Youth in Africa’s Drylands – A Regional Synthesis Report And Support to the formulation of a GCF project on: Scaling-Up Resilience in Africa’s Great Green Wall (SURAGGWA)
-                    </p>
-
-                </div>
-            )}
-
-            {/* Links */}
-            <div className='flex flex-row justify-between align-middle items-center w-full pt-8'>
-                <div className='w-full'>
-                    <Link
-                        href=''
-                        className={`${buttonVariants({ variant: "default" })} bg-ring bg-gradient-to-r from-primary to-ring hover:bg-primary`}
-                    >
-                        Update
-                    </Link>
-                </div>
-
-                <div className='w-full'> 
-                    <Link
-                        href=''
-                        className={`${buttonVariants({ variant: "destructive" })} `}
-                    >
-                        Delete
-                    </Link>
-                </div>
-            </div>
-        </div>
-    )
+        <Button type="submit">Add Image</Button>
+      </form>
+    </Form>
+  )
 }
-
-export default GalleryCreate

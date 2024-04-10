@@ -9,11 +9,11 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import GalleryCreate from "./GalleryCreate"
+import { GalleryCreate } from "./GalleryCreate"
 
 export function GalleryWidget() {
   return (
-    <Card className="w-[350px]">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Gallery Widget</CardTitle>
         <CardDescription>Fill in the form to add an image</CardDescription>

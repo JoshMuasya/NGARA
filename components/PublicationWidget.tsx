@@ -13,7 +13,7 @@ import PublicationCreate from "./PublicationsCreate"
 
 export function PublicationWidget() {
   return (
-    <Card className="w-[350px]">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Publications Widget</CardTitle>
         <CardDescription>Fill in the form to add a publication</CardDescription>

@@ -13,7 +13,7 @@ import EventsCreate from "./EventsCreate"
 
 export function EventWidget() {
   return (
-    <Card className="w-[350px]">
+    <Card className="w-full">
       <CardHeader>
         <CardTitle>Events Widget</CardTitle>
         <CardDescription>Fill in the form to add an event</CardDescription>

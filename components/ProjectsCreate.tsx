@@ -46,6 +46,11 @@ const FormSchema = z.object({
     author: z.string({
         required_error: "An author is required",
     }),
+    link: z.string({
+        required_error: "An author is required",
+    }).refine(value => !/\s/.test(value), {
+        message: "Spaces are not allowed in the link field",
+    }),
     content: z.string({
         required_error: "A content is required",
     }),
@@ -70,6 +75,7 @@ export function ProjectsCreate() {
             author: "",
             content: "",
             abstract: "",
+            link: "",
         },
     })
 
@@ -130,7 +136,7 @@ export function ProjectsCreate() {
                     name="datepublication"
                     render={({ field }) => (
                         <FormItem className="flex flex-col">
-                            <FormLabel>Date of Publication</FormLabel>
+                            <FormLabel>Date of Publish</FormLabel>
                             <Popover>
                                 <PopoverTrigger asChild>
                                     <FormControl>
@@ -207,6 +213,20 @@ export function ProjectsCreate() {
                     )}
                 />
 
+                {/* Author */}
+                <FormField
+                    control={form.control}
+                    name="link"
+                    render={({ field }) => (
+                        <FormItem>
+                            <FormControl>
+                                <Input placeholder="Title without Spaces" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                        </FormItem>
+                    )}
+                />
+
                 {/* Abstract */}
                 <FormField
                     control={form.control}
@@ -240,20 +260,6 @@ export function ProjectsCreate() {
                         </FormItem>
                     )}
                 />
-
-                {/* PDF
-        <FormField
-          control={form.control}
-          name="image"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input placeholder="Image" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        /> */}
 
                 <Button type="submit">Create Project</Button>
             </form>

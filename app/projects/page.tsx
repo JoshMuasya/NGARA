@@ -1,85 +1,94 @@
-import ProjectHighlights from '@/components/ProjectHighlights'
-import React from 'react'
+'use client'
 
-interface Projects {
+import ProjectHighlights from '@/components/ProjectHighlights'
+import { db } from '@/lib/firebase'
+import { collection, query, getDocs } from 'firebase/firestore'
+import React, { useEffect, useState } from 'react'
+
+interface Props {
   title: string
-  link: string
   author: string
-  date: string
+  datepublication: string
+  datecompletion: string
   abstract: string
+  content: string
+  link: string
 }
 
-const dummyData: Projects[] = [
-  {
-    title: 'Scaling-Up Resilience in Africa’s Great Green Wall (SURAGGWA),',
-    author: 'Sheila',
-    link: '/projects/SURAGGWA',
-    date: 'June 17, 2020',
-    abstract: 'The formulation of the GCF project to scale-up successful climate actions for the implementation of the AU GGW Initiative – FAO-NGARA project in Burkina, Chad, Mali, Niger,…',
-  },
-  {
-    title: 'Strengthening the Gum Arabic Sector for Sustainable and Resilient Landscapes and Livelihoods of Women and Youth in Africa’s Drylands',
-    link: '/projects/drylands',
-    date: 'June 17, 2020',
-    author: 'Sheila',
-    abstract: 'Coming Soon',
-  },
-  {
-    title: 'Strengthening Capacity among Stakeholders for Production and Trade in Gums and Resins in Africa',
-    author: 'Sheila',
-    link: '/projects/strength',
-    date: 'June 17, 2020',
-    abstract: 'African Forest Forum through ﬁnancial support from the Swiss Agency for Development and Cooperation (SDC) covering four NGARA member countries; Burkina Faso, Kenya, Niger…',
-  },
-];
-
-const completedProjects: Projects[] = [
-  {
-    title: 'Development of Gum Arabic, Aloe & Allied dryland resources in Karamoja Region, Uganda',
-    author: '',
-    link: '/projects/uganda',
-    date: 'June 17, 2020',
-    abstract: 'The project was an initiative by the President through the AGOA ofﬁce to empower local people in Karamoja Region improve livelihood from natural resources and mitigate insecurity. The project was undertaken between July 2006 and March 2008. The major activities involved identiﬁcation of commercially viable tree/plant resources in the region, mapping and assessment of the resources and market intelligence. At the end of the…',
-  },
-  {
-    title: 'Food for Asset',
-    link: '/projects/food',
-    date: 'June 17, 2020',
-    author: '',
-    abstract: 'Food for Assets funded by the World Food Programme and Assisting communities at the Acacia Operation Project (AOP) field sites. In Kenya, the Acacia Operation Project (AOP) is working with the communities at the project sites through Project Management Committees (PMCs). The original idea of AOP was to have the communities contribute to the project in the form of land and labor. However,…',
-  },
-  {
-    title: 'Acacia Operation Project (AOP)',
-    author: '',
-    link: '/projects/acacia',
-    date: 'June 17, 2020',
-    abstract: 'In collaboration with FAO NGARA implemented the “Acacia Operation Project (AOP) – Support to Food Security, Poverty Alleviation and Soil Degradation Control in the Gums and Resins Producer Countries with funds from the government of Italy through FAO” implemented from January 2004 – May 2006 with a cost extension up to August 2008 and thereafter a no cost extension until June 2010. The AOP had three components;…',
-  },
-];
-
 const Projects = () => {
+  const [ongoingData, setOngoingData] = useState<Props[]>([])
+  const [completedData, setCompletedData] = useState<Props[]>([])
+
+  const formatDate = (timestamp: any) => {
+    const date = new Date(timestamp.seconds * 1000);
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('en-US', options);
+}
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const collectionRef = collection(db, "Projects")
+        let queryRef = query(collectionRef)
+
+        if (queryRef) {
+          const querySnapshot = await getDocs(queryRef)
+          const ongoing: Props[] = []
+          const completed: Props[] = []
+          const currentDate = new Date().getTime() / 1000;
+
+          querySnapshot.forEach((doc) => {
+            const dataFromDoc = doc.data() as Props;
+
+            // Compare completion date with current date
+            const completionDate = Math.floor(new Date(formatDate(dataFromDoc.datecompletion)).getTime() / 1000);
+
+            if (completionDate < currentDate) {
+              // Project is completed
+              completed.push({ ...dataFromDoc });
+            } else {
+              // Project is ongoing
+              ongoing.push({ ...dataFromDoc });
+            }
+          })
+
+          setOngoingData(ongoing);
+          setCompletedData(completed);
+        }
+
+      } catch (error) {
+        console.log(error)
+      }
+    }
+
+    fetchData()
+  }, [])
+
+console.log("Ongoing", ongoingData)
+console.log(completedData)
+
   return (
     <div className="pt-20 pb-10 flex flex-col justify-center align-middle items-center w-full ">
-      <div className='back-pic'>
+      <div className=''>
         <div className='flex flex-col justify-center align-middle items-center w-full bg-white py-10'>
           {/* Title */}
-        <h1 className='text-primary font-bold text-3xl text-center pb-2'>
-          Projects
-        </h1>
+          <h1 className='text-primary font-bold text-3xl text-center pb-2'>
+            Projects
+          </h1>
 
-        {/* Underline */}
-        <div className='border border-primary w-full' />
+          {/* Underline */}
+          <div className='border border-primary w-full' />
 
-        <h2 className='font-bold text-xl text-center pt-7'>
-          NGARA's Projects
-        </h2>
+          <h2 className='font-bold text-xl text-center pt-7'>
+            NGARA's Projects
+          </h2>
 
-        <p className='font-bold pt-2 pb-3 px-3'>
-          There are currently three projects with one major goal; Development of Gums and Resins Sector for Socio-economic Well Being and Ecological Resilience
-        </p>
+          <p className='font-bold pt-2 pb-3 px-3'>
+            There are currently three projects with one major goal; Development of Gums and Resins Sector for Socio-economic Well Being and Ecological Resilience
+          </p>
 
-        {/* Underline */}
-        <div className='border w-full border-accent' />
+          {/* Underline */}
+          <div className='border w-full border-accent' />
         </div>
 
         {/* Projects */}
@@ -171,8 +180,14 @@ const Projects = () => {
         </h5>
 
         <div className='flex flex-col md:flex-row justify-center align-middle items-center w-full'>
-          {dummyData.map((project, index) => (
-            <ProjectHighlights key={index} {...project} />
+          {ongoingData.map((project, index) => (
+            <ProjectHighlights key={index} 
+            title={project?.title} 
+            author={project?.author} 
+            datepublication={formatDate(project?.datepublication)} 
+            abstract={project?.abstract} 
+            link={project?.link}
+            />
           ))}
         </div>
 
@@ -181,8 +196,15 @@ const Projects = () => {
         </h5>
 
         <div className='flex flex-col md:flex-row justify-center align-middle items-center w-full'>
-          {completedProjects.map((project, index) => (
-            <ProjectHighlights key={index} {...project} />
+          {completedData.map((project, index) => (
+            <ProjectHighlights 
+            key={index} 
+            title={project?.title} 
+            author={project?.author} 
+            datepublication={formatDate(project?.datepublication)}  
+            abstract={project?.abstract} 
+            link={project?.link}
+            />
           ))}
         </div>
       </div>

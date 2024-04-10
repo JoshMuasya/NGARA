@@ -1,36 +1,44 @@
-import { GalleryCarousel } from '@/components/GalleryCarousel'
-import React from 'react'
+'use client'
 
-interface gallery {
-  src: string
-  alt: string
-  description: string
+import { GalleryCarousel } from '@/components/GalleryCarousel'
+import { db } from '@/lib/firebase'
+import { collection, query, orderBy, getDocs } from 'firebase/firestore'
+import React, { useEffect, useState } from 'react'
+
+interface Props {
+  image: string
+  title: string
 }
 
-const galleryData: gallery[] = [
-  {
-    src: '/gum 1.jpeg',
-    alt: 'Gum 1',
-    description: 'Gum 1',
-  },
-  {
-    src: 'gum 2.jpg',
-    alt: 'Gum 2',
-    description: 'Gum 2',
-  },
-  {
-    src: 'gum 3.jpg',
-    alt: 'Gum 3',
-    description: 'Gum 3',
-  },
-  {
-    src: 'gum.jpg',
-    alt: 'Gum',
-    description: 'Gum',
-  }
-]
-
 const Gallery = () => {
+  const [galleryData, setGalleryData] = useState<Props[]>([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const collectionRef = collection(db, "Gallery")
+                let queryRef = query(collectionRef, orderBy('dateupload', 'desc'))
+
+                if (queryRef) {
+                    const querySnapshot = await getDocs(queryRef)
+                    const data: Props[] = []
+
+                    querySnapshot.forEach((doc) => {
+                        const dataFromDoc = doc.data() as Props
+                        data.push({ ...dataFromDoc })
+                    })
+
+                    setGalleryData(data)
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchData()
+    }, [])
+
   return (
     <div className='flex flex-col justify-center items-center align-middle px-7 pb-5'>
       <h1 className='text-primary font-bold text-3xl text-center pb-5'>
@@ -41,9 +49,8 @@ const Gallery = () => {
         {galleryData.map((item, index) => (
           <GalleryCarousel
             key={index}
-            src={item.src}
-            alt={item.alt}
-            description={item.description}
+            image={item?.image}
+            title={item?.title}
           />
         ))}
       </div>

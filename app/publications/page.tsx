@@ -1,82 +1,67 @@
 'use client'
 
 import Publication from '@/components/Publication'
+import { db } from '@/lib/firebase'
+import { collection, getDocs, orderBy, query } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 
-import {
-    ResizableHandle,
-    ResizablePanel,
-    ResizablePanelGroup,
-} from "@/components/ui/resizable"
-
-interface Publication {
+interface Props {
     title: string
     author: string
-    link: string
-    date: string
-    duration: string
+    pdf: string
     abstract: string
-    publish: string
+    datepublication: string
 }
 
-const dummyData: Publication[] = [
-    {
-        title: 'Strengthening the Gum Arabic Sector for Sustainable and Resilient Landscapes and Livelihoods of Women and Youth in Africa’s Drylands – A Regional Synthesis Report And Support to the formulation of a GCF project on: Scaling-Up Resilience in Africa’s Great Green Wall (SURAGGWA)',
-        author: 'Ben Chikamai and Maisharou Abdou',
-        link: 'https://ngara.org/wp-content/uploads/2024/FinalNarrativeReportonFAO-NGARAStudiesonGumArabic.pdf',
-        date: '2024-03-15',
-        duration: '1 hour',
-        abstract: 'Strengthening the Gum Arabic Sector for Sustainable and Resilient Landscapes and Livelihoods of Women and Youth in Africa’s Drylands – A Regional Synthesis Report And Support to the formulation of a GCF project on: Scaling-Up Resilience in Africa’s Great Green Wall (SURAGGWA)',
-        publish: '2024-03-01'
-    },
-    {
-        title: 'Strengthening the Gum Arabic Sector for Sustainable and Resilient Landscapes and Livelihoods of Women and Youth in Africa’s Drylands – Report on Trade and Markets of Gum Arabic (Business Perspective)',
-        author: 'Chidume Okoro and Mohamed El Mukhtar Ballal',
-        link: 'https://ngara.org/wp-content/uploads/2024/ReportonTradeandMarketsofGumArabic.pdf',
-        date: '2024-03-20',
-        duration: '45 minutes',
-        abstract: 'Strengthening the Gum Arabic Sector for Sustainable and Resilient Landscapes and Livelihoods of Women and Youth in Africa’s Drylands – Report on Trade and Markets of Gum Arabic (Business Perspective)',
-        publish: '2024-02-15'
-    },
-    {
-        title: 'Strengthening capacity among stakeholders for the production and trade in gums and resins in selected African countries',
-        author: 'B. Chikamai and M. Abdou',
-        link: 'https://ngara.org/wp-content/uploads/2024/StrengtheningcapacityamongstakeholdersfortheproductionandtradeingumsandresinsinselectedAfricancountries.pdf',
-        date: '2024-04-01',
-        duration: '2 hours',
-        abstract: 'Strengthening capacity among stakeholders for the production and trade in gums and resins in selected African countries',
-        publish: '2024-02-23'
-    },
-    {
-        title: 'Strengthening capacity among stakeholders for the production and trade in gums and resins',
-        author: 'B. Chikamai and M. Abdou',
-        link: 'https://ngara.org/wp-content/uploads/2024/StrengtheningcapacityamongstakeholdersfortheproductionandtradeingumsandresinsinselectedAfricancountries.pdf',
-        date: '2024-03-16',
-        duration: '2 hours',
-        abstract: 'Strengthening capacity among stakeholders for the production and trade in gums and resins',
-        publish: '2024-02-05'
-    }
-];
-
 const PublicationsPage = () => {
-    const [publicationsToShow, setPublicationsToShow] = useState<Publication[]>([]);
-    const [showAllActive, setShowAllActive] = useState(true);
+    const [publicationData, setPublicationData] = useState<Props[]>([])
+    const [publicationsToShow, setPublicationsToShow] = useState<Props[]>([]);
+    const [activePublication, setActivePublication] = useState<string | null>(null);
 
     useEffect(() => {
-        const sortedData = dummyData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-        setPublicationsToShow(sortedData); // Initially show all publications
-    }, []);
+        const fetchData = async () => {
+            try {
+                const collectionRef = collection(db, "Publications")
+                let queryRef = query(collectionRef, orderBy('datepublication', 'desc'))
 
-    const handleShowAllPublications = () => {
-        setPublicationsToShow(dummyData); // Show all publications
-        setShowAllActive(!showAllActive);
-    };
+                if (queryRef) {
+                    const querySnapshot = await getDocs(queryRef)
+                    const data: Props[] = []
+
+                    querySnapshot.forEach((doc) => {
+                        const dataFromDoc = doc.data() as Props
+                        data.push({ ...dataFromDoc })
+                    })
+
+                    setPublicationData(data)
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchData()
+    }, [])
+
+    console.log(publicationData)
 
     const handleShowRecentPublications = () => {
-        const sortedData = dummyData.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-        setPublicationsToShow(sortedData.slice(0, 3)); // Show only the latest 3
-        setShowAllActive(false);
+        const recentPublications = publicationData.slice(0, 3); // Get the first 3 elements (most recent)
+        setPublicationsToShow(recentPublications);
+        setActivePublication("recent");
     };
+
+    const handleShowAllPublications = () => {
+        setPublicationsToShow(publicationData);
+        setActivePublication("all"); // Set active state to "all"
+    };
+
+    const formatDate = (timestamp: any) => {
+        const date = new Date(timestamp.seconds * 1000);
+        const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString('en-US', options);
+    }
 
     return (
         <div className='pt-20 px-5 pb-10 '>
@@ -94,14 +79,14 @@ const PublicationsPage = () => {
             <div className='pt-10 w-full h-full flex flex-col md:flex-row justify-center align-middle items-start'>
                 <div className="flex flex-col h-full items-start justify-center p-10">
                     <h2
-                        className={`pt-3 pb-3 font-bold ${showAllActive ? 'text-accent' : 'text-primary'} text-2xl hover:italic cursor-pointer`}
+                        className={`pt-3 pb-3 font-bold ${activePublication === "recent" ? 'text-primary' : 'text-accent'} text-2xl hover:italic cursor-pointer`}
                         onClick={handleShowRecentPublications}
                     >
                         Recent Publications
                     </h2>
 
                     <h2
-                        className={`pt-3 pb-3 font-bold ${showAllActive ? 'text-primary' : 'text-accent'} text-2xl hover:italic cursor-pointer`}
+                        className={`pt-3 pb-3 font-bold ${activePublication === "all" ? 'text-primary' : 'text-accent'} text-2xl hover:italic cursor-pointer`}
                         onClick={handleShowAllPublications}
                     >
                         All Publications
@@ -109,7 +94,13 @@ const PublicationsPage = () => {
                 </div>
                 <div className='flex flex-col justify-center align-middle py-3'>
                     {publicationsToShow.map((publication, index) => (
-                        <Publication key={index} {...publication} />
+                        <Publication key={index} 
+                        title={publication?.title} 
+                        author={publication?.author}
+                        pdf={publication?.pdf} 
+                        abstract={publication?.abstract} 
+                        datepublication={formatDate(publication?.datepublication)} 
+                        />
                     ))}
                 </div>
             </div>
