@@ -24,18 +24,6 @@ import { useRouter } from 'next/navigation'
 
 const Dashboard = () => {
   const [selectedOption, setSelectedOption] = useState('');
-  const router = useRouter();
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (!user) {
-        return router.push('/admin/auth/login')
-        console.log(user)
-      }
-    }) 
-    
-    return () => unsubscribe()
-  }, [])
 
   const handleOptionClick = (option: string) => {
     setSelectedOption(option);
