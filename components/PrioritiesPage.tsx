@@ -35,7 +35,7 @@ const PrioritiesPage = ({src, alt, title, content, content1, list1, list2, list3
             Result area 
         </h2>
 
-        <p>
+        <p className='text-justify'>
             {content}
         </p>
 
@@ -44,7 +44,7 @@ const PrioritiesPage = ({src, alt, title, content, content1, list1, list2, list3
         Strategic Objective
         </h2>
 
-        <p>
+        <p className='text-justify'>
             {content1}
         </p>
 

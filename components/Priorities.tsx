@@ -139,11 +139,11 @@ const Priorities = () => {
                     </CardHeader>
                     <CardContent>
                         {/* Underline */}
-                        <div className='border border-primary w-1/3' />
+                        <div className='border border-primary w-full' />
 
                         {/* Content */}
-                        <div>
-                            <p className='text-center'>
+                        <div className='pt-3'>
+                            <p className='text-justify'>
                                 In an effort to contribute to Sustainable Forest Management (SFM) in the region, United Nations Strategic Plan on Forests (UNSPF) 2030 and the Sustainable Development Goals (SDGs) while putting in place strong institutional mechanisms for better coordination of the sector, NGARA has developed a Framework of Priorities 2030. Through the support of the African Union Commission (AUC), FAO and Africa Forest Forum (AFF) NGARA organized two regional workshops in Nairobi (August 2015) and Dakar (March 2016) that resulted in the development of the NGARA Strategy: Overview and Framework of Priorities 2017–2030. The NGARA strategy has identiﬁed seven key result areas and resulting ojectives as follows;
                             </p>
                         </div>

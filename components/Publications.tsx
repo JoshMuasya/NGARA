@@ -9,7 +9,7 @@ import { buttonVariants } from './ui/button'
 
 const Publications = () => {
     return (
-        <div className='py-10 w-full'>
+        <div className='py-5 w-full back-pic'>
             {/* Title */}
             <h1 className='text-primary font-bold text-3xl text-center pb-5'>
                 RECENT PUBLICATIONS BY NGARA

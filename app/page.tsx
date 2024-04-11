@@ -1,6 +1,7 @@
 import Achievement from "@/components/Achievement";
 import Blogs from "@/components/Blogs";
 import LandingPage from "@/components/LandingPage";
+import Partners from "@/components/Partners";
 import Publications from "@/components/Publications";
 import Role from "@/components/Role";
 
@@ -12,6 +13,7 @@ export default function Home() {
       <Blogs />
       <Achievement />
       <Role />
+      <Partners />
     </main>
   );
 }

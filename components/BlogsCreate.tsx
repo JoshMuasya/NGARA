@@ -62,6 +62,11 @@ const FormSchema = z.object({
     .max(400, {
       message: "Abstract must not be longer than 400 characters.",
     }),
+  link: z.string({
+    required_error: "An author is required",
+  }).refine(value => !/\s/.test(value), {
+    message: "Spaces are not allowed in the link field",
+  }),
   image: z.instanceof(File),
 })
 
@@ -79,13 +84,14 @@ export function BlogsCreate() {
       duration: "",
       abstract: "",
       image: new File([], ""),
+      link: "",
     },
   })
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
       const storageRef = ref(storage, `blogs/${imageFile?.name}`)
-      
+
       await uploadBytes(storageRef, imageFile!)
 
       const downloadUrl = await getDownloadURL(storageRef)
@@ -147,6 +153,20 @@ export function BlogsCreate() {
             <FormItem>
               <FormControl>
                 <Input placeholder="Category" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        {/* Link */}
+        <FormField
+          control={form.control}
+          name="link"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Input placeholder="Short Title without spaces" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -255,7 +275,7 @@ export function BlogsCreate() {
                 <Input
                   type="file"
                   accept=".jpg, .jpeg"
-                  multiple={false}
+                  multiple={true}
                   className="dark:bg-transparent cursor-pointer file:cursor-pointer file:text-primary dark:border-primary dark:ring-offset-primary"
                   onChange={(e) => {
                     field.onChange(e.target.files ? e.target.files[0] : null);

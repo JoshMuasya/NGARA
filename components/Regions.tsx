@@ -163,7 +163,7 @@ const Regions = () => {
 
       <div className='flex flex-col md:flex-row justify-center align-middle items-center w-full'>
         {/* Left */}
-        <div className='md:w-2/5 w-full'>
+        <div className='md:w-1/5 w-full'>
           <Accordion type="single" collapsible className="w-full">
             <AccordionItem value="item-1">
               <AccordionTrigger className='font-bold text-lg'>Eastern Africa</AccordionTrigger>
@@ -200,7 +200,7 @@ const Regions = () => {
         </div>
 
         {/* Right */}
-        <div className='flex flex-col justify-center items-center align-middle h-full md:w-3/5 w-full'>
+        <div className='flex flex-col justify-center items-center align-middle h-full md:w-4/5 w-full'>
           <Region
             countryname={selectedCountry}
             cname={countryData ? countryData?.cname : ''}

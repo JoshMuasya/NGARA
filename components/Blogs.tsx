@@ -21,6 +21,7 @@ interface Props {
     abstract: string
     content: string
     datepublication: string
+    link: string
 }
 
 const Blogs = () => {
@@ -112,7 +113,7 @@ const Blogs = () => {
                             {/* Link */}
                             <div className='flex flex-row justify-center align-middle items-center w-full text-sm hover:italic'>
                                 <Link
-                                    href=''
+                                href={`/blogs/${blogItem?.link}`}
                                     className='flex flex-row justify-center align-middle items-center'
                                 >
                                     Read More <ArrowRight className='w-5 h-5' />
@@ -126,7 +127,7 @@ const Blogs = () => {
             {/* Button */}
             <div className='flex justify-center w-full'>
                 <Link
-                    href=''
+                    href='/blogs'
                     className={`${buttonVariants({ variant: "default" })} bg-ring bg-gradient-to-r from-primary to-ring hover:bg-primary`}
                 >
                     View More

@@ -1,7 +1,7 @@
 'use client'
 
 import { BlogWidget } from '@/components/BlogWidget'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import {
   Accordion,
@@ -18,9 +18,23 @@ import PublicationsList from '@/components/PublicationsList'
 import EventsList from '@/components/EventsList'
 import GalleryList from '@/components/GalleryList'
 import BlogsList from '@/components/BlogsList'
+import { auth } from '@/lib/firebase'
+import { onAuthStateChanged } from 'firebase/auth'
+import { useRouter } from 'next/navigation'
 
 const Dashboard = () => {
   const [selectedOption, setSelectedOption] = useState('');
+  const router = useRouter();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (!user) {
+        return router.push('/admin/auth/login')
+      }
+    }) 
+    
+    return () => unsubscribe()
+  }, [])
 
   const handleOptionClick = (option: string) => {
     setSelectedOption(option);
@@ -42,12 +56,12 @@ const Dashboard = () => {
         return <PublicationsList />;
       case "createEvent":
         return <EventWidget />;
-        case "viewEvents":
-          return <EventsList />;
+      case "viewEvents":
+        return <EventsList />;
       case "addImage":
         return <GalleryWidget />;
-        case "viewGallery":
-          return <GalleryList />;
+      case "viewGallery":
+        return <GalleryList />;
       default:
         return null;
     }

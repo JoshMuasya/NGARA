@@ -1,49 +1,57 @@
-import BlogsCard from '@/components/BlogsCard'
-import React from 'react'
+'use client'
 
-interface Blog {
+import BlogsCard from '@/components/BlogsCard'
+import { db } from '@/lib/firebase'
+import { collection, query, orderBy, limit, getDocs } from 'firebase/firestore'
+import React, { useEffect, useState } from 'react'
+
+interface Props {
     title: string
-    content: string
-    category: string
+    author: string
     duration: string
+    category: string
+    image: string
+    abstract: string
+    content: string
+    datepublication: string
     link: string
 }
 
-const BlogsData: Blog[] = [
-    {
-        title: "Blog 1",
-        content: "Content 1",
-        category: "Category 1",
-        duration: "Duration 1",
-        link: "/blogs/blog1"
-    },
-
-    {
-        title: "Blog 4",
-        content: "Content 4",
-        category: "Category 4",
-        duration: "Duration 4",
-        link: "/blogs/blog4"
-    },
-
-    {
-        title: "Blog 3",
-        content: "Content 3",
-        category: "Category 3",
-        duration: "Duration 3",
-        link: "/blogs/blog3"
-    },
-
-    {
-        title: "Blog 2",
-        content: "Content 2",
-        category: "Category 2",
-        duration: "Duration 2",
-        link: "/blogs/blog2"
-    }
-]
-
 const Blogs = () => {
+    const [blogData, setBlogData] = useState<Props[]>([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const collectionRef = collection(db, "Blogs")
+                let queryRef = query(collectionRef, orderBy("datepublication", "desc"))
+
+                if (queryRef) {
+                    const querySnapshot = await getDocs(queryRef)
+                    const data: Props[] = []
+
+                    querySnapshot.forEach((doc) => {
+                        const dataFromDoc = doc.data() as Props
+                        data.push({ ...dataFromDoc })
+                    })
+
+                    setBlogData(data)
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchData()
+    }, [])
+
+    const formatDate = (timestamp: any) => {
+        const date = new Date(timestamp.seconds * 1000);
+        const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        return date.toLocaleDateString('en-US', options);
+    }
+
     return (
         <div className='pt-20 px-5 pb-10'>
             {/* Title */}
@@ -57,8 +65,19 @@ const Blogs = () => {
             </h6>
 
             <div className='flex flex-col md:flex-row flex-wrap justify-center items-center align-middle'>
-                {BlogsData.map((blog, index) => (
-                    <BlogsCard key={index} {...blog} />
+                {blogData.map((blog, index) => (
+                    <BlogsCard
+                        key={index}
+                        title={blog?.title}
+                        content={blog?.content}
+                        category={blog?.category}
+                        duration={blog?.duration}
+                        link={blog?.link}
+                        image={blog?.image}
+                        author={blog?.author}
+                        abstract={blog?.abstract}
+                        datepublication={blog?.datepublication}
+                    />
                 ))}
             </div>
 

@@ -83,7 +83,7 @@ console.log(completedData)
             NGARA's Projects
           </h2>
 
-          <p className='font-bold pt-2 pb-3 px-3'>
+          <p className='font-bold pt-2 pb-3 px-3 text-justify'>
             There are currently three projects with one major goal; Development of Gums and Resins Sector for Socio-economic Well Being and Ecological Resilience
           </p>
 

@@ -8,15 +8,19 @@ import Link from 'next/link'
 import { buttonVariants } from './ui/button'
 import { ArrowRight } from 'lucide-react'
 
-interface Blog {
+interface Props {
     title: string
-    content: string
-    category: string
+    author: string
     duration: string
+    category: string
+    image: string
+    abstract: string
+    content: string
+    datepublication: string
     link: string
 }
 
-const BlogsCard = ({ title, content, category, duration, link }: Blog) => {
+const BlogsCard = ({ title, content, category, duration, link, image }: Props) => {
     return (
         <div className='py-5'>
             {/* Details */}
@@ -26,8 +30,8 @@ const BlogsCard = ({ title, content, category, duration, link }: Blog) => {
                         {/* Image */}
                         <div>
                             <img
-                                src="/gum.jpg"
-                                alt="Gum Picture"
+                                src={image}
+                                alt={title}
                                 className="w-full h-full object-cover"
                             />
                         </div>
@@ -60,7 +64,7 @@ const BlogsCard = ({ title, content, category, duration, link }: Blog) => {
                         {/* Link */}
                         <div className='flex flex-row justify-center align-middle items-center w-full text-sm hover:italic'>
                             <Link
-                                href={link}
+                                href={`/blogs/${link}`}
                                 className='flex flex-row justify-center align-middle items-center'
                             >
                                 Read More <ArrowRight className='w-5 h-5' />

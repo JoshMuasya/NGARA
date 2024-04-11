@@ -9,6 +9,10 @@
   background-position: center center;
 }
 
+p {
+  text-align: justify;
+}
+
 
 @layer base {
   :root {

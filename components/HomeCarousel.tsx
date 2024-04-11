@@ -21,7 +21,7 @@ export function HomeCarousel() {
     ];
 
     const plugin = React.useRef(
-        Autoplay({ delay: 2000, stopOnInteraction: true })
+        Autoplay({ delay: 2000, stopOnInteraction: false })
     )
 
     return (
@@ -35,12 +35,13 @@ export function HomeCarousel() {
                 {images.map((image, index) => (
                     <CarouselItem key={index}>
                         <div className="p-1">
-                            <Card>
-                                <CardContent className="flex aspect-square items-center justify-center p-6">
+                            <Card className="h-96">
+                                <CardContent className="flex aspect-square items-start py-3  justify-center">
                                     <img
                                         src={image}
                                         alt={`Image ${index + 1}`}
-                                        className="object-cover" />
+                                        className="object-cover" 
+                                        />
                                 </CardContent>
                             </Card>
                         </div>

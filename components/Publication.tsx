@@ -20,9 +20,9 @@ const PublicationCard = ({ title, pdf, datepublication, author, abstract }: Prop
     return (
         <div className='flex flex-col align-middle items-start p-3'>
             {/* Top */}
-            <div className='flex flex-row flex-wrap justify-center align-middle items-start p-3'>
+            <div className='flex flex-col justify-center align-middle items-start p-3'>
                 {/* Title */}
-                <h1 className='pr-1'>
+                <h1 className='pb-1'>
                     <Link
                         className='hover:underline text-ring font-bold'
                         href={pdf}
@@ -30,8 +30,13 @@ const PublicationCard = ({ title, pdf, datepublication, author, abstract }: Prop
                         {title}
                     </Link>
                 </h1> 
-                <h4 className='font-semibold pr-1'>
-                    Published {datepublication} : <span className='text-lg text-accent font-bold'>{author}</span>
+
+                <h4 className='font-semibold pb-1'>
+                    <span className='text-lg text-accent font-bold'>{author}</span>
+                </h4>
+
+                <h4 className='font-semibold pb-1'>
+                    Published: {datepublication}  <span className='text-lg text-accent font-bold'>{author}</span>
                 </h4>
             </div>
 
