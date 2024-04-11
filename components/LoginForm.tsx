@@ -72,6 +72,8 @@ export function LoginForm() {
 
         router.push('/admin')
 
+        console.log(response)
+
       } else if (response === "Invalid credentials.") {
         errorLogin()
         setIsLoading(false)

@@ -30,6 +30,7 @@ const Dashboard = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (!user) {
         return router.push('/admin/auth/login')
+        console.log(user)
       }
     }) 
     
