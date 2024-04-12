@@ -125,7 +125,7 @@ const Publications = () => {
             {/* Details */}
             <div className='pb-5 flex flex-row flex-wrap justify-around items-start align-middle w-full pt-5'>
                 <Card className="md:w-[350px] w-[250px] border-none">
-                    <CardContent className="w-full h-full p-3 md:p-5 flex flex-col justify-start items-start align-middle">
+                    <CardContent className="w-full h-full pt-2 flex flex-col justify-start items-start align-middle">
                         {/* Title */}
                         <Link
                             href='/regions'
@@ -173,7 +173,7 @@ const Publications = () => {
                 </Card>
 
                 <Card className="md:w-[350px] w-[250px] border-none">
-                    <CardContent className="w-full h-full p-3 md:p-5 flex flex-col justify-start items-start align-middle">
+                    <CardContent className="w-full h-full pt-2 flex flex-col justify-start items-start align-middle">
                         {/* Title */}
                         <Link
                             href='/publications'
@@ -211,8 +211,8 @@ const Publications = () => {
                     </CardContent>
                 </Card>
 
-                <Card className="md:w-[350px] w-[250px] border-none mt-5">
-                    <CardContent className="w-full h-full p-3 md:p-5 flex flex-col justify-start items-start align-middle">
+                <Card className="md:w-[350px] w-[250px] border-none">
+                    <CardContent className="w-full h-full pt-2 flex flex-col justify-start items-start align-middle">
                         {/* Title */}
                         <Link
                             href='/publications'

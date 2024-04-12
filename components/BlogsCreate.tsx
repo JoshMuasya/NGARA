@@ -59,8 +59,8 @@ const FormSchema = z.object({
     .min(10, {
       message: "Abstract must be at least 10 characters.",
     })
-    .max(400, {
-      message: "Abstract must not be longer than 400 characters.",
+    .max(350, {
+      message: "Abstract must not be longer than 40 words.",
     }),
   link: z.string({
     required_error: "An author is required",

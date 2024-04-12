@@ -31,12 +31,20 @@ import { Input } from "@/components/ui/input"
 import { cn } from "@/lib/utils"
 import { Calendar } from "@/components/ui/calendar"
 import { CalendarIcon } from "lucide-react"
-import { format } from "date-fns"
+import { addDays, format } from "date-fns"
 
 import { Textarea } from "@/components/ui/textarea"
 import { addDoc, collection } from "firebase/firestore"
 import { db, storage } from "@/lib/firebase"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
+
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 const FormSchema = z.object({
   datepublication: z.date({
@@ -49,7 +57,7 @@ const FormSchema = z.object({
     required_error: "An author is required",
   }),
   country: z.string({
-    
+
   }),
   abstract: z.string({
     required_error: "An abstract is required",
@@ -57,15 +65,17 @@ const FormSchema = z.object({
     .min(10, {
       message: "Abstract must be at least 10 characters.",
     })
-    .max(400, {
-      message: "Abstract must not be longer than 400 characters.",
+    .max(350, {
+      message: "Abstract must not be longer than 40 words.",
     }),
   pdf: z.instanceof(File),
 })
 
 const PublicationCreate = () => {
-    const [isLoading, setIsLoading] = useState(false)
-    const [pdfFile, setPdfFile] = useState<File | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [pdfFile, setPdfFile] = useState<File | null>(null)
+
+  const [date, setDate] = React.useState<Date>()
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -81,7 +91,7 @@ const PublicationCreate = () => {
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
       const storageRef = ref(storage, `publications/${pdfFile?.name}`)
-      
+
       await uploadBytes(storageRef, pdfFile!)
 
       const downloadUrl = await getDownloadURL(storageRef)
@@ -103,8 +113,8 @@ const PublicationCreate = () => {
     }
   }
 
-    return (
-        <Form {...form}>
+  return (
+    <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
 
         {/* Title */}
@@ -176,6 +186,21 @@ const PublicationCreate = () => {
                   </FormControl>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
+                  <Select
+                    onValueChange={(value) =>
+                      setDate(addDays(new Date(), parseInt(value)))
+                    }
+                  >
+                    <SelectTrigger>
+                      <SelectValue placeholder="Select" />
+                    </SelectTrigger>
+                    <SelectContent position="popper">
+                      <SelectItem value="0">Today</SelectItem>
+                      <SelectItem value="1">Tomorrow</SelectItem>
+                      <SelectItem value="3">In 3 days</SelectItem>
+                      <SelectItem value="7">In a week</SelectItem>
+                    </SelectContent>
+                  </Select>
                   <Calendar
                     mode="single"
                     selected={field.value}
@@ -236,7 +261,7 @@ const PublicationCreate = () => {
         <Button type="submit">Create Publication</Button>
       </form>
     </Form>
-    )
+  )
 }
 
 export default PublicationCreate

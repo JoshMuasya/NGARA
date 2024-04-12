@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import RegionAccordion from './RegionAccordion'
 import Region from './Region';
 import Link from 'next/link';
@@ -12,6 +12,8 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { Button } from './ui/button';
+import { db } from '@/lib/firebase';
+import { collection, query, orderBy, getDocs } from 'firebase/firestore';
 
 interface Country {
   cname: string;
@@ -19,6 +21,15 @@ interface Country {
   phone: string;
   publication: string;
   publicationLink: string;
+}
+
+interface Props {
+  title: string
+  pdf: string
+  datepublication: string
+  country: string
+  abstract: string
+  author: string
 }
 
 const countries: { [key: string]: Country } = {
@@ -50,7 +61,7 @@ const countries: { [key: string]: Country } = {
     publication: "",
     publicationLink: "",
   },
-  southsudan: {
+  "south sudan": {
     cname: "Simon Dralley",
     phone: "+211 955192196",
     email: "dralley@gmail.com",
@@ -92,7 +103,7 @@ const countries: { [key: string]: Country } = {
     publication: "chad001",
     publicationLink: "chad001.pdf",
   },
-  burkinafaso: {
+  "burkina faso": {
     cname: "Oubida Regis",
     phone: "+226 70130199",
     email: "oubidauregis@yahoo.fr",
@@ -138,6 +149,37 @@ const countries: { [key: string]: Country } = {
 
 const Regions = () => {
   const [selectedCountry, setSelectedCountry] = useState('');
+  const [publicationsData, setPublicationsData] = useState<Props[]>([])
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const collectionRef = collection(db, "Publications")
+                let queryRef = query(collectionRef, orderBy('datepublication', 'desc'))
+
+                if (queryRef) {
+                    const querySnapshot = await getDocs(queryRef)
+                    const data: Props[] = []
+                    querySnapshot.forEach((doc) => {
+                        const dataFromDoc = doc.data() as Props
+                        if (dataFromDoc.country && dataFromDoc.country.trim() !== "") {
+                            if (dataFromDoc.country.toLowerCase() === selectedCountry) { // Replace with your logic to get selected country
+                                data.push({ ...dataFromDoc });
+                            }
+                        }
+                    })
+
+                    setPublicationsData(data)
+                }
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchData()
+    }, [selectedCountry])
+
+    console.log(publicationsData)
 
   const handleCountrySelect = (country: string) => {
     setSelectedCountry(country);
@@ -168,32 +210,32 @@ const Regions = () => {
             <AccordionItem value="item-1">
               <AccordionTrigger className='font-bold text-lg'>Eastern Africa</AccordionTrigger>
               <AccordionContent className="w-full flex flex-row flex-wrap justify-center items-center align-middle text-base">
-                <Button onClick={() => handleCountrySelect('kenya')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Kenya</Button>
-                <Button onClick={() => handleCountrySelect('tanzania')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Tanzania</Button>
-                <Button onClick={() => handleCountrySelect('uganda')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Uganda</Button>
-                <Button onClick={() => handleCountrySelect('ethiopia')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Ethiopia</Button>
-                <Button onClick={() => handleCountrySelect('eritrea')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Eritrea</Button>
-                <Button onClick={() => handleCountrySelect('somalia')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Somalia</Button>
-                <Button onClick={() => handleCountrySelect('southsudan')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>South Sudan</Button>
-                <Button onClick={() => handleCountrySelect('sudan')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Sudan</Button>
+                <Button onClick={() => handleCountrySelect('kenya')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Kenya</Button>
+                <Button onClick={() => handleCountrySelect('tanzania')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Tanzania</Button>
+                <Button onClick={() => handleCountrySelect('uganda')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Uganda</Button>
+                <Button onClick={() => handleCountrySelect('ethiopia')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Ethiopia</Button>
+                <Button onClick={() => handleCountrySelect('eritrea')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Eritrea</Button>
+                <Button onClick={() => handleCountrySelect('somalia')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Somalia</Button>
+                <Button onClick={() => handleCountrySelect('south sudan')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>South Sudan</Button>
+                <Button onClick={() => handleCountrySelect('sudan')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Sudan</Button>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">
               <AccordionTrigger className='font-bold text-lg'>Central Africa</AccordionTrigger>
               <AccordionContent className="w-full flex flex-row flex-wrap justify-center items-center align-middle text-base">
-                <Button onClick={() => handleCountrySelect('cameroon')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Cameroon</Button>
-                <Button onClick={() => handleCountrySelect('chad')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Chad</Button>
+                <Button onClick={() => handleCountrySelect('cameroon')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Cameroon</Button>
+                <Button onClick={() => handleCountrySelect('chad')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Chad</Button>
               </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-3">
               <AccordionTrigger className='font-bold text-lg'>SAHEL</AccordionTrigger>
               <AccordionContent className="w-full flex flex-row flex-wrap justify-center items-center align-middle text-base">
-                <Button onClick={() => handleCountrySelect('burkinafaso')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Burkina Faso</Button>
-                <Button onClick={() => handleCountrySelect('mali')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Mali</Button>
-                <Button onClick={() => handleCountrySelect('mauritania')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Mauritania</Button>
-                <Button onClick={() => handleCountrySelect('niger')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Niger</Button>
-                <Button onClick={() => handleCountrySelect('nigeria')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Nigeria</Button>
-                <Button onClick={() => handleCountrySelect('senegal')} className='p-5 m-2 font-semibold hover:font-bold hover:italic'>Senegal</Button>
+                <Button onClick={() => handleCountrySelect('burkina faso')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Burkina Faso</Button>
+                <Button onClick={() => handleCountrySelect('mali')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Mali</Button>
+                <Button onClick={() => handleCountrySelect('mauritania')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Mauritania</Button>
+                <Button onClick={() => handleCountrySelect('niger')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Niger</Button>
+                <Button onClick={() => handleCountrySelect('nigeria')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Nigeria</Button>
+                <Button onClick={() => handleCountrySelect('senegal')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Senegal</Button>
               </AccordionContent>
             </AccordionItem>
           </Accordion>
@@ -201,14 +243,13 @@ const Regions = () => {
 
         {/* Right */}
         <div className='flex flex-col justify-center items-center align-middle h-full md:w-4/5 w-full'>
-          <Region
+          {publicationsData.length > 0 && (
+            <Region
             countryname={selectedCountry}
             cname={countryData ? countryData?.cname : ''}
             email={countryData ? countryData?.email : ''}
-            phone={countryData ? countryData?.phone : ''}
-            publications={countryData ? countryData?.publication : ''}
-            publicationsLink={countryData ? countryData?.publicationLink : ''}
-          />
+            phone={countryData ? countryData?.phone : ''} publications={publicationsData} />
+          )}
         </div>
       </div>
     </div>

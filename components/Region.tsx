@@ -1,18 +1,28 @@
 'use client'
 import { buttonVariants } from '@/components/ui/button'
+import { db } from '@/lib/firebase'
+import { collection, query, getDocs, orderBy } from 'firebase/firestore'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 interface country {
     countryname: string,
     email: string,
     cname: string,
     phone: string,
-    publications: string,
-    publicationsLink: string
+    publications: { abstract: string; pdf: string }[];
 }
 
-const Region = ({ countryname, email, cname, phone, publications, publicationsLink }: country) => {
+interface Props {
+    title: string
+    pdf: string
+    datepublication: string
+    country: string
+    abstract: string
+    author: string
+}
+
+const Region = ({ countryname, email, cname, phone, publications }: country) => {
     const upperCountryname = countryname.toUpperCase()
     const lowerCountryname = countryname.toLowerCase()
 
@@ -26,11 +36,30 @@ const Region = ({ countryname, email, cname, phone, publications, publicationsLi
             {/* underline */}
             <div className='border border-primary w-full' />
 
-            <h1 className='font-bold text-2xl pb-2 pt-5'>
-                Recent Publications of {upperCountryname}
-            </h1>
+            <div className='pt-5 flex flex-col justify-center align-middle items-start w-full'>
+                <h1 className='font-bold text-2xl pb-2 pt-5'>
+                    Recent Publications
+                </h1>
 
-            {/* Button */}
+                {publications.length > 0 && (
+                    <div className='w-full'>
+                        {publications.map((publication, index) => (
+                            <div
+                                key={index}
+                                className='w-full pr-0 md:pr-5 flex flex-col justify-center items-center align-middle'>
+                                <Link
+                                    href={publication.pdf}
+                                    className='hover:underline pb-3 '
+                                >
+                                    {publication.abstract}
+                                </Link>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+
+            {/* Button
             <div className='flex justify-start w-full py-3'>
                 <Link
                     href=''
@@ -38,7 +67,10 @@ const Region = ({ countryname, email, cname, phone, publications, publicationsLi
                 >
                     View More
                 </Link>
-            </div>
+            </div> */}
+
+            {/* underline */}
+            <div className='border border-primary w-full' />
 
             {/* Details */}
             <div className='pt-5 flex flex-col md:flex-row-reverse justify-around align-middle items-center'>
@@ -50,18 +82,6 @@ const Region = ({ countryname, email, cname, phone, publications, publicationsLi
                         alt={lowerCountryname}
                         className="w-full h-full object-cover pb-3 md:pb-0"
                     />
-                </div>
-
-                {/* Center */}
-                <div >
-                    <div className='md:w-1/3 w-full pr-0 md:pr-5 flex flex-col justify-center items-center align-middle'>
-                        <Link
-                            href={publicationsLink}
-                            className='hover:underline pb-3 '
-                        >
-                            {publications}
-                        </Link>
-                    </div>
                 </div>
 
                 {/* Right */}

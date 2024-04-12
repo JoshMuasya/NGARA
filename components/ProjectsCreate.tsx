@@ -60,9 +60,9 @@ const FormSchema = z.object({
         .min(10, {
             message: "Abstract must be at least 10 characters.",
         })
-        .max(300, {
-            message: "Abstract must not be longer than 300 characters.",
-        }),
+        .max(350, {
+            message: "Abstract must not be longer than 40 words.",
+          }),
 })
 
 export function ProjectsCreate() {

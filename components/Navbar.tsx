@@ -13,6 +13,7 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Button } from './ui/button'
+import { NavbarDropdown } from './NavbarDropdown'
 
 
 const Navbar = () => {
@@ -196,11 +197,14 @@ const Navbar = () => {
                         Home
                     </Link>
 
-                    <div onClick={handleClick}>
-                        <DropdownMenu>
+                    <div>
+                        <NavbarDropdown />
+                        
+                        {/* <DropdownMenu>
                             <DropdownMenuTrigger asChild>
                                 <Button
                                     variant="ghost"
+                                    onClick={handleClick}
                                     className='hover:italic hover:text-primary px-4 font-semibold text-base border-0'>
                                     About Us
                                 </Button>
@@ -243,7 +247,7 @@ const Navbar = () => {
                                     </Link>
                                 </DropdownMenuItem>
                             </DropdownMenuContent>
-                        </DropdownMenu>
+                        </DropdownMenu> */}
                     </div>
                     <Link
                         href='/regions'
