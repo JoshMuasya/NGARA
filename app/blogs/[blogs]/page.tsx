@@ -93,6 +93,8 @@ const MoreBlog = ({ params }: { params: { blogs: string } }) => {
         fetchData()
     }, [])
 
+    console.log(blogData)
+
     useEffect(() => {
         const fetchComment = async () => {
             try {

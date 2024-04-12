@@ -1,4 +1,6 @@
-import React from 'react'
+'use client'
+
+import React, { useEffect, useState } from 'react'
 import {
     Card,
     CardContent,
@@ -6,220 +8,247 @@ import {
 import PartnerCircle from './PartnerCircle'
 import Link from 'next/link'
 import { buttonVariants } from './ui/button'
+import { collection, getDocs, limit, orderBy, query, where } from 'firebase/firestore'
+import { db } from '@/lib/firebase'
+
+interface Publications {
+    title: string
+    pdf: string
+    datepublication: string
+    country: string
+    abstract: string
+    author: string
+}
+
+interface Journal {
+    title: string
+    pdf: string
+    datepublication: string
+    author: string
+    abstract: string
+}
 
 const Publications = () => {
-    return (
-        <div className='py-5 w-full back-pic'>
-            {/* Title */}
-            <h1 className='text-primary font-bold text-3xl text-center pb-5'>
-                RECENT PUBLICATIONS BY NGARA
-            </h1>
+    const [recentPublications, setRecentPublications] = useState<Publications[]>([])
+    const [recentJournals, setRecentJournals] = useState<Journal[]>([])
+    const [countryPublications, setCountryPublications] = useState<Publications[]>([])
 
-            {/* Subtitle */}
-            <h6 className='text-center text-sm'>
-                Stay updated with our latest publications
-            </h6>
+    useEffect(() => {
+        const fetchPublication = async () => {
+            try {
+                const collectionRef = collection(db, "Publications")
+                let queryRef = query(collectionRef, orderBy('datepublication', 'desc'), limit(5))
+
+                if (queryRef) {
+                    const querySnapshot = await getDocs(queryRef)
+                    const data: Publications[] = []
+                    querySnapshot.forEach((doc) => {
+                        const dataFromDoc = doc.data() as Publications
+                        data.push({ ...dataFromDoc })
+                    })
+
+                    setRecentPublications(data)
+                }
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        const fetchJournal = async () => {
+            try {
+                const collectionRef = collection(db, "Journals")
+                let queryRef = query(collectionRef, orderBy('datepublication', 'desc'), limit(5))
+
+                if (queryRef) {
+                    const querySnapshot = await getDocs(queryRef)
+                    const data: Journal[] = []
+                    querySnapshot.forEach((doc) => {
+                        const dataFromDoc = doc.data() as Journal
+                        data.push({ ...dataFromDoc })
+                    })
+
+                    setRecentJournals(data)
+                }
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        const fetchCountry = async () => {
+            try {
+                const collectionRef = collection(db, "Publications")
+                let queryRef = query(collectionRef, orderBy('datepublication', 'desc'), limit(5))
+
+                if (queryRef) {
+                    const querySnapshot = await getDocs(queryRef)
+                    const data: Publications[] = []
+                    querySnapshot.forEach((doc) => {
+                        const dataFromDoc = doc.data() as Publications
+                        if (dataFromDoc.country && dataFromDoc.country.trim() !== "") {
+                            // Check if country exists and is not an empty string after trimming
+                            data.push({ ...dataFromDoc });
+                        }
+                    })
+
+                    setCountryPublications(data)
+                }
+            } catch (error) {
+                console.error(error)
+            }
+        }
+
+        fetchCountry()
+        fetchJournal()
+        fetchPublication()
+    }, [])
+
+    console.log(recentPublications)
+    console.log(countryPublications)
+    console.log(recentJournals)
+
+    return (
+        <div className='py-5 w-full back-pic px-5'>
+            <Card className='w-full rounded-xl flex flex-col justify-center align-middle items-center'>
+                <CardContent>
+                    {/* Title */}
+                    <h1 className='text-primary font-bold text-xl md:text-3xl text-center pb-5 pt-3'>
+                        RECENT PUBLICATIONS BY NGARA
+                    </h1>
+
+                    {/* Subtitle */}
+                    <h6 className='text-center text-sm'>
+                        Stay updated with our latest publications
+                    </h6>
+                </CardContent>
+            </Card>
 
             {/* Details */}
-            <div className='pb-5 flex flex-row flex-wrap justify-around items-center align-middle w-full'>
+            <div className='pb-5 flex flex-row flex-wrap justify-around items-start align-middle w-full pt-5'>
                 <Card className="md:w-[350px] w-[250px] border-none">
                     <CardContent className="w-full h-full p-3 md:p-5 flex flex-col justify-start items-start align-middle">
-                        {/* Image */}
-                        <div>
-                            <img
-                                src="/gum.jpg"
-                                alt="Gum Picture"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-
-                        {/* Category */}
-                        <div className='py-3'>
-                            <p className='text-xs'>
-                                Category
-                            </p>
-                        </div>
-
                         {/* Title */}
-                        <div className='pb-1'>
-                            <h2 className='text-lg font-bold'>
-                                Title
-                            </h2>
-                        </div>
+                        <Link
+                            href='/regions'
+                            className='text-primary font-bold text-lg md:text-2xl text-center'>
+                            Countries Publications
+                        </Link >
 
-                        {/* Content */}
-                        <div className='pb-3'>
-                            <p>
-                                Lorem Ipsum
-                            </p>
-                        </div>
+                        {/* List */}
+                        {countryPublications.map((publication, index) => (
+                            <div
+                                key={index}
+                                className='flex flex-col justify-center align-middle items-center py-2'>
+                                {/* Title */}
+                                <Link
+                                    href={publication?.pdf}
+                                    className='font-bold text-primary text-base hover:underline'
+                                >
+                                    {publication?.title}
+                                </Link>
 
-                        {/* Writer */}
-                        <div className='flex flex-row justify-center align-middle items-center w-full'>
-                            {/* Left */}
-                            <div>
-                                <PartnerCircle />
-                            </div>
+                                <div>
+                                    {/* Author */}
+                                    <h3
+                                        className='text-sm'
+                                    >
+                                        {publication?.author}
+                                    </h3>
 
-                            {/* Right */}
-                            <div className='flex flex-col justify-start align-middle items-start w-full'>
-                                {/* Author */}
-                                <div className='font-bold'>
-                                    John Doe
+                                    {/* Country */}
+                                    <h3
+                                        className='text-sm'
+                                    >
+                                        {publication?.country}
+                                    </h3>
                                 </div>
 
-                                {/* Date Time */}
-                                <div className='flex flex-row justify-start align-middle items-center w-full'>
-                                    {/* Date */}
-                                    <div className='pr-3'>
-                                        31 Jan 2024
-                                    </div>
+                                {/* Abstract */}
+                                <p>
+                                    {publication?.abstract}
+                                </p>
 
-                                    {/* Time of Read */}
-                                    <div>
-                                        5 min read
-                                    </div>
-                                </div>
                             </div>
-                        </div>
+                        ))}
                     </CardContent>
                 </Card>
 
                 <Card className="md:w-[350px] w-[250px] border-none">
                     <CardContent className="w-full h-full p-3 md:p-5 flex flex-col justify-start items-start align-middle">
-                        {/* Image */}
-                        <div>
-                            <img
-                                src="/gum.jpg"
-                                alt="Gum Picture"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-
-                        {/* Category */}
-                        <div className='py-3'>
-                            <p className='text-xs'>
-                                Category
-                            </p>
-                        </div>
-
                         {/* Title */}
-                        <div className='pb-1'>
-                            <h2 className='text-lg font-bold'>
-                                Title
-                            </h2>
-                        </div>
+                        <Link
+                            href='/publications'
+                            className='text-primary font-bold text-lg md:text-2xl text-center'>
+                            Recent Journals
+                        </Link >
 
-                        {/* Content */}
-                        <div className='pb-3'>
-                            <p>
-                                Lorem Ipsum
-                            </p>
-                        </div>
+                        {/* List */}
+                        {recentJournals.map((publication, index) => (
+                            <div
+                                key={index}
+                                className='flex flex-col justify-center align-middle items-center py-2'>
+                                {/* Title */}
+                                <Link
+                                    href={publication?.pdf}
+                                    className='font-bold text-primary text-base hover:underline'
+                                >
+                                    {publication?.title}
+                                </Link>
 
-                        {/* Writer */}
-                        <div className='flex flex-row justify-center align-middle items-center w-full'>
-                            {/* Left */}
-                            <div>
-                                <PartnerCircle />
-                            </div>
-
-                            {/* Right */}
-                            <div className='flex flex-col justify-start align-middle items-start w-full'>
                                 {/* Author */}
-                                <div className='font-bold'>
-                                    John Doe
-                                </div>
+                                <h3
+                                    className='text-sm'
+                                >
+                                    {publication?.author}
+                                </h3>
 
-                                {/* Date Time */}
-                                <div className='flex flex-row justify-start align-middle items-center w-full'>
-                                    {/* Date */}
-                                    <div className='pr-3'>
-                                        31 Jan 2024
-                                    </div>
+                                {/* Abstract */}
+                                <p>
+                                    {publication?.abstract}
+                                </p>
 
-                                    {/* Time of Read */}
-                                    <div>
-                                        5 min read
-                                    </div>
-                                </div>
                             </div>
-                        </div>
+                        ))}
                     </CardContent>
                 </Card>
 
-                <Card className="md:w-[350px] w-[250px] border-none">
+                <Card className="md:w-[350px] w-[250px] border-none mt-5">
                     <CardContent className="w-full h-full p-3 md:p-5 flex flex-col justify-start items-start align-middle">
-                        {/* Image */}
-                        <div>
-                            <img
-                                src="/gum.jpg"
-                                alt="Gum Picture"
-                                className="w-full h-full object-cover"
-                            />
-                        </div>
-
-                        {/* Category */}
-                        <div className='py-3'>
-                            <p className='text-xs'>
-                                Category
-                            </p>
-                        </div>
-
                         {/* Title */}
-                        <div className='pb-1'>
-                            <h2 className='text-lg font-bold'>
-                                Title
-                            </h2>
-                        </div>
+                        <Link
+                            href='/publications'
+                            className='text-primary font-bold text-lg md:text-2xl text-center'>
+                            Recent Publications
+                        </Link >
 
-                        {/* Content */}
-                        <div className='pb-3'>
-                            <p>
-                                Lorem Ipsum
-                            </p>
-                        </div>
+                        {/* List */}
+                        {recentPublications.map((publication, index) => (
+                            <div
+                                key={index}
+                                className='flex flex-col justify-center align-middle items-center py-2'>
+                                {/* Title */}
+                                <Link
+                                    href={publication?.pdf}
+                                    className='font-bold text-primary text-base hover:underline'
+                                >
+                                    {publication?.title}
+                                </Link>
 
-                        {/* Writer */}
-                        <div className='flex flex-row justify-center align-middle items-center w-full'>
-                            {/* Left */}
-                            <div>
-                                <PartnerCircle />
-                            </div>
-
-                            {/* Right */}
-                            <div className='flex flex-col justify-start align-middle items-start w-full'>
                                 {/* Author */}
-                                <div className='font-bold'>
-                                    John Doe
-                                </div>
+                                <h3
+                                    className='text-sm'
+                                >
+                                    {publication?.author}
+                                </h3>
 
-                                {/* Date Time */}
-                                <div className='flex flex-row justify-start align-middle items-center w-full'>
-                                    {/* Date */}
-                                    <div className='pr-3'>
-                                        31 Jan 2024
-                                    </div>
+                                {/* Abstract */}
+                                <p>
+                                    {publication?.abstract}
+                                </p>
 
-                                    {/* Time of Read */}
-                                    <div>
-                                        5 min read
-                                    </div>
-                                </div>
                             </div>
-                        </div>
+                        ))}
                     </CardContent>
                 </Card>
-            </div>
-
-            {/* Button */}
-            <div className='flex justify-center w-full'>
-                <Link
-                    href='/publications'
-                    className={`${buttonVariants({ variant: "default" })} bg-ring bg-gradient-to-r from-primary to-ring hover:bg-primary`}
-                >
-                    View More
-                </Link>
             </div>
         </div>
     )

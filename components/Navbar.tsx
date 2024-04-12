@@ -66,6 +66,15 @@ const Navbar = () => {
                                     <DropdownMenuContent className="w-40">
                                         <DropdownMenuItem>
                                             <Link
+                                                href='/about/constitution'
+                                                className='hover:italic hover:text-primary px-4 font-semibold'
+                                                onClick={handleClick}
+                                            >
+                                                The Constitution
+                                            </Link>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Link
                                                 href='/about/vision'
                                                 className='hover:italic hover:text-primary px-4 font-semibold'
                                                 onClick={handleClick}
@@ -197,6 +206,15 @@ const Navbar = () => {
                                 </Button>
                             </DropdownMenuTrigger>
                             <DropdownMenuContent className="w-56">
+                                <DropdownMenuItem>
+                                    <Link
+                                        href='/about/constitution'
+                                        className='hover:italic hover:text-primary px-4 font-semibold'
+                                        onClick={handleClick}
+                                    >
+                                        The Constitution
+                                    </Link>
+                                </DropdownMenuItem>
                                 <DropdownMenuItem>
                                     <Link
                                         href='/about/vision'

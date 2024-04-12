@@ -15,7 +15,7 @@ import { db } from '@/lib/firebase'
 interface Props {
     title: string
     author: string
-    duration: string
+    views: string
     category: string
     image: string
     abstract: string
@@ -92,7 +92,7 @@ const Blogs = () => {
                                 </p>
 
                                 <p className='text-xs'>
-                                    {blogItem?.duration} Read
+                                    {blogItem?.views} Views
                                 </p>
                             </div>
 

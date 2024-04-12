@@ -17,6 +17,8 @@ const PublicationsPage = () => {
     const [publicationData, setPublicationData] = useState<Props[]>([])
     const [publicationsToShow, setPublicationsToShow] = useState<Props[]>([]);
     const [activePublication, setActivePublication] = useState<string | null>(null);
+    const [journalData, setJournalData] = useState<Props[]>([])
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -41,10 +43,33 @@ const PublicationsPage = () => {
             }
         }
 
-        fetchData()
-    }, [])
+        const fetchJournal = async () => {
+            try {
+                const collectionRef = collection(db, "Journals")
+                let queryRef = query(collectionRef, orderBy('datepublication', 'desc'))
 
-    console.log(publicationData)
+                if (queryRef) {
+                    const querySnapshot = await getDocs(queryRef)
+                    const data: Props[] = []
+
+                    querySnapshot.forEach((doc) => {
+                        const dataFromDoc = doc.data() as Props
+                        data.push({ ...dataFromDoc })
+                    })
+
+                    setJournalData(data)
+                }
+
+            } catch (error) {
+                console.log(error)
+            }
+        }
+
+        fetchData()
+        fetchJournal()
+
+        setIsLoading(false);
+    }, [])
 
     const handleShowRecentPublications = () => {
         const recentPublications = publicationData.slice(0, 3); // Get the first 3 elements (most recent)
@@ -56,6 +81,11 @@ const PublicationsPage = () => {
         setPublicationsToShow(publicationData);
         setActivePublication("all"); // Set active state to "all"
     };
+
+    const handleShowJournals = () => {
+        setPublicationsToShow(journalData);
+        setActivePublication("journals");
+    }
 
     const formatDate = (timestamp: any) => {
         const date = new Date(timestamp.seconds * 1000);
@@ -91,18 +121,30 @@ const PublicationsPage = () => {
                     >
                         All Publications
                     </h2>
+
+                    <h2
+                        className={`pt-3 pb-3 font-bold ${activePublication === "journals" ? 'text-primary' : 'text-accent'} text-2xl hover:italic cursor-pointer`}
+                        onClick={handleShowJournals}
+                    >
+                        Journals
+                    </h2>
                 </div>
-                <div className='flex flex-col justify-center align-middle py-3'>
-                    {publicationsToShow.map((publication, index) => (
-                        <Publication key={index} 
-                        title={publication?.title} 
-                        author={publication?.author}
-                        pdf={publication?.pdf} 
-                        abstract={publication?.abstract} 
-                        datepublication={formatDate(publication?.datepublication)} 
-                        />
-                    ))}
-                </div>
+                {!isLoading && publicationsToShow.length > 0 && (
+                    <div className='flex flex-col justify-center align-middle py-3'>
+                        {publicationsToShow.map((publication, index) => (
+                            <Publication
+                                key={index}
+                                title={publication?.title}
+                                author={publication?.author}
+                                pdf={publication?.pdf}
+                                abstract={publication?.abstract}
+                                datepublication={formatDate(publication?.datepublication)}
+                            />
+                        ))}
+                    </div>
+                )}
+
+                {isLoading && <p>Loading publications...</p>}
             </div>
         </div>
     )

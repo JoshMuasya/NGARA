@@ -2,11 +2,13 @@ import React from 'react'
 import AboutCard from './AboutCard'
 import Link from 'next/link'
 import { buttonVariants } from './ui/button'
+import { Card, CardContent } from './ui/card'
+import { File } from 'lucide-react'
 
 const AboutSection = () => {
     return (
         <div className='py-10 flex flex-col justify-center items-center align-middle w-full'>
-            <div className=' flex flex-row flex-wrap items-center align-middle justify-center'>
+            <div className=' flex flex-row flex-wrap items-center align-middle justify-center w-full'>
                 <Link
                     href=''
                 >
@@ -115,6 +117,125 @@ const AboutSection = () => {
                     </div>
 
                 </div>
+            </div>
+
+            {/* Main Objectives */}
+            <div>
+                {/* Title */}
+                <h1 className='font-bold text-xl md:text-2xl p-3'>
+                    NGARA has four main objectives
+                </h1>
+            </div>
+
+            {/* Cards */}
+            <div className='flex flex-row flex-wrap justify-around align-middle items-center w-full'>
+                <Card className='mx-2 my-3 w-52'>
+                    <CardContent>
+                        <div className='flex flex-col justify-center align-middle items-center py-2'>
+                            {/* Icon */}
+                            <div className='rounded-2xl bg-primary p-3'>
+                                <File
+                                    className='w-8 h-8'
+                                />
+                            </div>
+
+                            {/* Title */}
+                            <h1 className='font-bold text-lg md:text-2xl p-3'>
+                                Information Exchange
+                            </h1>
+
+                            <p className='text-justify'>
+                                To promote the exchange of information on the production, marketing, processing and quality control of gums and resins in producer countries and with partners
+                            </p>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card className='mx-2 my-3 w-52'>
+                    <CardContent>
+                        <div className='flex flex-col justify-center align-middle items-center py-2'>
+                            {/* Icon */}
+                            <div className='rounded-2xl bg-primary p-3'>
+                                <File
+                                    className='w-8 h-8'
+                                />
+                            </div>
+
+                            {/* Title */}
+                            <h1 className='font-bold text-lg md:text-2xl p-3'>
+                                Capacity strengthening
+                            </h1>
+
+                            <p className='text-justify'>
+                                To facilitate access to technological development and training.
+                            </p>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card className='mx-2 my-3 w-52'>
+                    <CardContent>
+                        <div className='flex flex-col justify-center align-middle items-center py-2'>
+                            {/* Icon */}
+                            <div className='rounded-2xl bg-primary p-3'>
+                                <File
+                                    className='w-8 h-8'
+                                />
+                            </div>
+
+                            {/* Title */}
+                            <h1 className='font-bold text-lg md:text-2xl p-3'>
+                                Research
+                            </h1>
+
+                            <p className='text-justify'>
+                                To support relevant research in the key areas of the sector
+                            </p>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                <Card className='mx-2 my-3 w-52'>
+                    <CardContent>
+                        <div className='flex flex-col justify-center align-middle items-center py-2'>
+                            {/* Icon */}
+                            <div className='rounded-2xl bg-primary p-3'>
+                                <File
+                                    className='w-8 h-8'
+                                />
+                            </div>
+
+                            {/* Title */}
+                            <h1 className='font-bold text-lg md:text-2xl p-3'>
+                                Coordination
+                            </h1>
+
+                            <p className='text-justify'>
+                                To promote links between primary producers, processors and end users
+                            </p>
+                        </div>
+                    </CardContent>
+                </Card>
+            </div>
+
+            {/* Gums */}
+            <div className='flex flex-row flex-wrap justify-around items-center md:items-start align-middle w-full pt-5'>
+                <div className='flex flex-col justify-center align-middle items-center md:w-1/2 w-full md:pr-5'>
+                    {/* Title */}
+                    <h1 className='font-bold text-xl md:text-2xl p-3'>
+                        The Gums
+                    </h1>
+
+                    <p className='text-justify'>
+                        Commercial gum resins – myrrh, frankincense and hagar – are also known as oleo gum resins; they contain an essential oil component, a water-soluble gum and an alcohol-soluble resin.
+                    </p>
+                </div>
+
+                {/* Image */}
+                <div className='md:w-1/3 w-full md:pl-5 pl-0 md:pt-5 pt-0'>
+                    <img src="/gum 2.jpg" alt="Gums" />
+                </div>
+
             </div>
         </div>
     )

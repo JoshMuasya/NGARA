@@ -48,9 +48,6 @@ const FormSchema = z.object({
   author: z.string({
     required_error: "An author is required",
   }),
-  country: z.string({
-    
-  }),
   abstract: z.string({
     required_error: "An abstract is required",
   })
@@ -63,7 +60,7 @@ const FormSchema = z.object({
   pdf: z.instanceof(File),
 })
 
-const PublicationCreate = () => {
+const JournalCreate = () => {
     const [isLoading, setIsLoading] = useState(false)
     const [pdfFile, setPdfFile] = useState<File | null>(null)
 
@@ -72,7 +69,6 @@ const PublicationCreate = () => {
     defaultValues: {
       title: "",
       author: "",
-      country: "",
       abstract: "",
       pdf: new File([], ""),
     },
@@ -80,15 +76,15 @@ const PublicationCreate = () => {
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
-      const storageRef = ref(storage, `publications/${pdfFile?.name}`)
+      const storageRef = ref(storage, `journals/${pdfFile?.name}`)
       
       await uploadBytes(storageRef, pdfFile!)
 
       const downloadUrl = await getDownloadURL(storageRef)
 
-      const publicationData = { ...data, pdf: downloadUrl }
+      const journalData = { ...data, pdf: downloadUrl }
 
-      const docRef = await addDoc(collection(db, "Publications"), publicationData)
+      const docRef = await addDoc(collection(db, "Journals"), journalData)
 
       setIsLoading(true)
 
@@ -135,27 +131,13 @@ const PublicationCreate = () => {
           )}
         />
 
-        {/* Country */}
-        <FormField
-          control={form.control}
-          name="country"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input placeholder="Country" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
         {/* Date of Publication */}
         <FormField
           control={form.control}
           name="datepublication"
           render={({ field }) => (
             <FormItem className="flex flex-col">
-              <FormLabel>Date of Publication</FormLabel>
+              <FormLabel>Date of Journal</FormLabel>
               <Popover>
                 <PopoverTrigger asChild>
                   <FormControl>
@@ -233,10 +215,10 @@ const PublicationCreate = () => {
           )}
         />
 
-        <Button type="submit">Create Publication</Button>
+        <Button type="submit">Create Journal</Button>
       </form>
     </Form>
     )
 }
 
-export default PublicationCreate
+export default JournalCreate

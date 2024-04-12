@@ -8,7 +8,7 @@ import React, { useEffect, useState } from 'react'
 interface Props {
     title: string
     author: string
-    duration: string
+    views: string
     category: string
     image: string
     abstract: string
@@ -71,7 +71,7 @@ const Blogs = () => {
                         title={blog?.title}
                         content={blog?.content}
                         category={blog?.category}
-                        duration={blog?.duration}
+                        views={blog?.views}
                         link={blog?.link}
                         image={blog?.image}
                         author={blog?.author}

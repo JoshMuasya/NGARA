@@ -11,7 +11,7 @@ import { ArrowRight } from 'lucide-react'
 interface Props {
     title: string
     author: string
-    duration: string
+    views: string
     category: string
     image: string
     abstract: string
@@ -20,7 +20,7 @@ interface Props {
     link: string
 }
 
-const BlogsCard = ({ title, content, category, duration, link, image }: Props) => {
+const BlogsCard = ({ title, content, category, views, link, image }: Props) => {
     return (
         <div className='py-5'>
             {/* Details */}
@@ -43,7 +43,7 @@ const BlogsCard = ({ title, content, category, duration, link, image }: Props) =
                             </p>
 
                             <p className='text-xs'>
-                                {duration}
+                                {views} Views
                             </p>
                         </div>
 

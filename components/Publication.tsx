@@ -36,7 +36,7 @@ const PublicationCard = ({ title, pdf, datepublication, author, abstract }: Prop
                 </h4>
 
                 <h4 className='font-semibold pb-1'>
-                    Published: {datepublication}  <span className='text-lg text-accent font-bold'>{author}</span>
+                    Published: {datepublication}
                 </h4>
             </div>
 

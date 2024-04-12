@@ -10,22 +10,23 @@ import { db } from '@/lib/firebase'
 interface Props {
     title: string
     author: string
-    views: string
+    duration: string
     category: string
-    image: string
+    pdf: string
     abstract: string
     content: string
     datepublication: string
 }
 
-const BlogsList = () => {
+const JournalList = () => {
     const [isOpen, setIsOpen] = useState(false)
-    const [blogData, setBlogData] = useState<Props[]>([])
+
+    const [journalData, setJournalData] = useState<Props[]>([])
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const collectionRef = collection(db, "Blogs")
+                const collectionRef = collection(db, "Journals")
                 let queryRef = query(collectionRef)
 
                 if (queryRef) {
@@ -37,7 +38,7 @@ const BlogsList = () => {
                         data.push({ ...dataFromDoc })
                     })
 
-                    setBlogData(data)
+                    setJournalData(data)
                 }
 
             } catch (error) {
@@ -48,11 +49,7 @@ const BlogsList = () => {
         fetchData()
     }, [])
 
-    console.log(blogData)
-
-    const handleClick = () => {
-        setIsOpen(!isOpen)
-    }
+    console.log(journalData)
 
     const formatDate = (timestamp: any) => {
         const date = new Date(timestamp.seconds * 1000);
@@ -61,66 +58,40 @@ const BlogsList = () => {
     }
 
     return (
-        <div className='flex flex-col justify-center align-middle items-center w-full'>
-            {blogData.map((blogItem, index) => (
-                <div key={index}>
+        <div className='flex flex-col justify-center align-middle items-center w-full pb-10'>
+            {journalData.map((publicationItem, index) => (
+                <div 
+                key={index}
+                className='py-5'
+                >
                     {/* Title */}
-                    <h1 className='font-bold text-lg md:text-xl'>
-                        {blogItem?.title}
-                    </h1>
+                    <Link 
+                    className='font-bold text-lg md:text-xl'
+                    href={publicationItem?.pdf}
+                    >
+                        {publicationItem?.title}
+                    </Link>
 
                     {/* Top Details */}
-                    <div className='flex flex-row flex-wrap justify-around align-middle items-center w-full font-semibold italic text-sm md:text-base cursor-pointer'>
+                    <div className='flex flex-row flex-wrap justify-around align-middle items-center w-full font-semibold text-sm md:text-base'>
                         {/* author */}
-                        <h3 className='hover:underline hover:bold'>
-                            {blogItem?.author}
+                        <h3 className='text-primary font-bold'>
+                            {publicationItem?.author}
                         </h3>
 
-                        <h3 className='hover:underline hover:bold'>
-                            {blogItem?.views} views
+                        <h3 className=''>
+                            Published: {formatDate(publicationItem?.datepublication)}
                         </h3>
-
-                        <h3 className='hover:underline hover:bold'>
-                            {blogItem?.category}
-                        </h3>
-
-                        <h3 className='hover:underline hover:bold'>
-                            {formatDate(blogItem?.datepublication)}
-                        </h3>
-                    </div>
-
-                    {/* Image */}
-                    <div className='w-full flex flex-col justify-center items-center align-middle'>
-                        <img src={blogItem?.image} alt={blogItem?.title}
-                            style={{ width: '300px', height: '250px' }}
-                        />
                     </div>
 
                     {/* Abstract */}
                     <div className='w-full flex flex-row justify-between items-start align-middle'>
                         <div className='w-3/4'>
                             <p>
-                                {blogItem?.abstract}
+                                {publicationItem?.abstract}
                             </p>
-                        </div>
-
-                        {/* Icon */}
-                        <div className='w-1/4 pl-1 md:pl-5'>
-                            <ArrowDown
-                                onClick={handleClick}
-                                className='cursor-pointer text-ring hover:text-primary'
-                            />
                         </div>
                     </div>
-
-                    {isOpen && (
-                        <div className='w-full'>
-                            <p>
-                                {blogItem?.content}
-                            </p>
-
-                        </div>
-                    )}
 
                     {/* Links */}
                     <div className='flex flex-row justify-between align-middle items-center w-full pt-8'>
@@ -148,4 +119,4 @@ const BlogsList = () => {
     )
 }
 
-export default BlogsList
+export default JournalList

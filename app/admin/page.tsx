@@ -18,9 +18,8 @@ import PublicationsList from '@/components/PublicationsList'
 import EventsList from '@/components/EventsList'
 import GalleryList from '@/components/GalleryList'
 import BlogsList from '@/components/BlogsList'
-import { auth } from '@/lib/firebase'
-import { onAuthStateChanged } from 'firebase/auth'
-import { useRouter } from 'next/navigation'
+import { JournalWidget } from '@/components/JournalWidget'
+import JournalList from '@/components/JournalList'
 
 const Dashboard = () => {
   const [selectedOption, setSelectedOption] = useState('');
@@ -43,6 +42,10 @@ const Dashboard = () => {
         return <PublicationWidget />;
       case "viewPublication":
         return <PublicationsList />;
+      case "createJournal":
+        return <JournalWidget />;
+      case "viewJournal":
+        return <JournalList />;
       case "createEvent":
         return <EventWidget />;
       case "viewEvents":
@@ -111,6 +114,21 @@ const Dashboard = () => {
               <AccordionContent
                 className="text-base hover:italic cursor-pointer"
                 onClick={() => handleOptionClick("viewPublication")}
+              >
+                View
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="journal">
+              <AccordionTrigger className="font-bold text-lg text-accent">Journal</AccordionTrigger>
+              <AccordionContent
+                className="text-base hover:italic cursor-pointer"
+                onClick={() => handleOptionClick("createJournal")}
+              >
+                Create
+              </AccordionContent>
+              <AccordionContent
+                className="text-base hover:italic cursor-pointer"
+                onClick={() => handleOptionClick("viewJournal")}
               >
                 View
               </AccordionContent>

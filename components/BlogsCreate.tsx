@@ -50,7 +50,7 @@ const FormSchema = z.object({
   content: z.string({
     required_error: "A content is required",
   }),
-  duration: z.string({
+  views: z.string({
     required_error: "A duration is required",
   }),
   abstract: z.string({
@@ -81,7 +81,7 @@ export function BlogsCreate() {
       author: "",
       category: "",
       content: "",
-      duration: "",
+      views: "",
       abstract: "",
       image: new File([], ""),
       link: "",
@@ -173,14 +173,14 @@ export function BlogsCreate() {
           )}
         />
 
-        {/* Duration */}
+        {/* Views */}
         <FormField
           control={form.control}
-          name="duration"
+          name="views"
           render={({ field }) => (
             <FormItem>
               <FormControl>
-                <Input placeholder="Duration" {...field} />
+                <Input placeholder="views" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
