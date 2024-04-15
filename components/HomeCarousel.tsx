@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from "react"
-import Autoplay from "embla-carousel-autoplay"
 
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -10,44 +9,68 @@ import {
     CarouselItem,
     CarouselNext,
     CarouselPrevious,
+    type CarouselApi,
 } from "@/components/ui/carousel"
 
 export function HomeCarousel() {
-    const images = [
-        "/gum.jpg",
-        "/gum 1.jpeg",
-        "/gum 2.jpg",
-        "/gum 3.jpg"
-    ];
+    const [api, setApi] = React.useState<CarouselApi>()
+    const [current, setCurrent] = React.useState(0)
+    const [count, setCount] = React.useState(0)
 
-    const plugin = React.useRef(
-        Autoplay({ delay: 2000, stopOnInteraction: false })
-    )
+    React.useEffect(() => {
+        if (!api) {
+            return
+        }
+
+        setCount(api.scrollSnapList().length)
+        setCurrent(api.selectedScrollSnap() + 1)
+
+        api.on("select", () => {
+            setCurrent(api.selectedScrollSnap() + 1)
+        })
+    }, [api])
+
+    const Images = [
+        {
+            id: 1,
+            image: '/gum.jpg',
+            text: 'Gum 1'
+        },
+        {
+            id: 2,
+            image: '/gum 1.jpeg',
+            text: 'Gum 2'
+        },
+        {
+            id: 3,
+            image: '/gum2.jpg',
+            text: 'Gum 2'
+        },
+        {
+            id: 4,
+            image: '/gum 3.jpg',
+            text: 'Gum 3'
+        },
+    ]
 
     return (
-        <Carousel
-            plugins={[plugin.current]}
-            className="w-full p-3 bg-gradient-to-r from-primary to-ring rounded-xl"
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
-        >
-            <CarouselContent>
-                {images.map((image, index) => (
-                    <CarouselItem key={index}>
-                        <div className="p-1">
-                            <Card className="h-96">
-                                <CardContent className="flex aspect-square items-start py-3  justify-center">
-                                    <img
-                                        src={image}
-                                        alt={`Image ${index + 1}`}
-                                        className="object-cover" 
-                                        />
+        <div>
+            <Carousel setApi={setApi} className="w-full max-w-xs py-3">
+                <CarouselContent>
+                    {Images.map((image, index) => (
+                        <CarouselItem key={index}>
+                            <Card>
+                                <CardContent className="flex aspect-square items-center justify-center p-6 flex-col">
+                                    <img src={image.image} alt={image.text} />
+                                    <span className="text-sm text-accent font-bold pt-3">{image.text}</span>
                                 </CardContent>
                             </Card>
-                        </div>
-                    </CarouselItem>
-                ))}
-            </CarouselContent>
-        </Carousel>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+            </Carousel>
+        </div>
     )
 }

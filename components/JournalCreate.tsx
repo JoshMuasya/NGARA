@@ -37,6 +37,11 @@ import { Textarea } from "@/components/ui/textarea"
 import { addDoc, collection } from "firebase/firestore"
 import { db, storage } from "@/lib/firebase"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
+import toast, { Toaster } from 'react-hot-toast';
+import DatePickerComponent from './DatePicker'
+
+const success = () => toast('Successfully Added!');
+const errorToast = () => toast('Please try again!!!');
 
 const FormSchema = z.object({
   datepublication: z.date({
@@ -61,8 +66,8 @@ const FormSchema = z.object({
 })
 
 const JournalCreate = () => {
-    const [isLoading, setIsLoading] = useState(false)
-    const [pdfFile, setPdfFile] = useState<File | null>(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [pdfFile, setPdfFile] = useState<File | null>(null)
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -77,7 +82,7 @@ const JournalCreate = () => {
   async function onSubmit(data: z.infer<typeof FormSchema>) {
     try {
       const storageRef = ref(storage, `journals/${pdfFile?.name}`)
-      
+
       await uploadBytes(storageRef, pdfFile!)
 
       const downloadUrl = await getDownloadURL(storageRef)
@@ -92,15 +97,18 @@ const JournalCreate = () => {
 
       form.reset()
 
+      success()
+
       setIsLoading(false)
     } catch (error) {
       console.log(error)
       setIsLoading(false)
+      errorToast()
     }
   }
 
-    return (
-        <Form {...form}>
+  return (
+    <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6">
 
         {/* Title */}
@@ -158,14 +166,9 @@ const JournalCreate = () => {
                   </FormControl>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
+                  <DatePickerComponent
                     selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date > new Date() || date < new Date("1900-01-01")
-                    }
-                    initialFocus
+                    onChange={(date) => field.onChange(date)}
                   />
                 </PopoverContent>
               </Popover>
@@ -218,7 +221,7 @@ const JournalCreate = () => {
         <Button type="submit">Create Journal</Button>
       </form>
     </Form>
-    )
+  )
 }
 
 export default JournalCreate

@@ -9,7 +9,7 @@ const LandingPage = () => {
         <div className='flex flex-col md:flex-row justify-center md:justify-around align-middle items-start w-full h-full md:px-5 pt-5 pb-5 px-3'
         id='home'>
             {/* Left */}
-            <div className='md:w-1/2'>
+            <div className='md:w-1/2 bg-ring bg-gradient-to-r from-primary to-ring hover:bg-primary flex flex-row justify-center items-center align-middle rounded-xl'>
                 <HomeCarousel />
             </div>
 

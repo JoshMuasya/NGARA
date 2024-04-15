@@ -33,6 +33,12 @@ import { addDoc, collection } from "firebase/firestore"
 import { useState } from "react"
 import { db, storage } from "@/lib/firebase"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
+import toast, { Toaster } from 'react-hot-toast';
+import DatePickerComponent from "./DatePicker"
+
+const success = () => toast('Successfully Added!');
+const errorToast = () => toast('Please try again!!!');
+const loading = () => toast('Loading Please Wait...');
 
 const FormSchema = z.object({
   datepublication: z.date({
@@ -66,7 +72,7 @@ const FormSchema = z.object({
     required_error: "An author is required",
   }).refine(value => !/\s/.test(value), {
     message: "Spaces are not allowed in the link field",
-  }),
+  }).transform(value => value.toLowerCase()),
   image: z.instanceof(File),
 })
 
@@ -96,7 +102,7 @@ export function BlogsCreate() {
 
       const downloadUrl = await getDownloadURL(storageRef)
 
-      const blogData = { ...data, image: downloadUrl }
+      const blogData = { ...data, image: downloadUrl, link: data.link.toLowerCase() }
 
       const docRef = await addDoc(collection(db, "Blogs"), blogData)
 
@@ -106,10 +112,13 @@ export function BlogsCreate() {
 
       form.reset()
 
+      success()
+
       setIsLoading(false)
     } catch (error) {
       console.log(error)
       setIsLoading(false)
+      errorToast()
     }
   }
 
@@ -214,14 +223,9 @@ export function BlogsCreate() {
                   </FormControl>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
-                  <Calendar
-                    mode="single"
+                  <DatePickerComponent
                     selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date > new Date() || date < new Date("1900-01-01")
-                    }
-                    initialFocus
+                    onChange={(date) => field.onChange(date)}
                   />
                 </PopoverContent>
               </Popover>
@@ -290,6 +294,8 @@ export function BlogsCreate() {
 
         <Button type="submit">Create Blog</Button>
       </form>
+
+      <Toaster />
     </Form>
   )
 }

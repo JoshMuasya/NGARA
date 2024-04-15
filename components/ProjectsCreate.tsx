@@ -32,6 +32,11 @@ import { Textarea } from "@/components/ui/textarea"
 import { useState } from "react"
 import { addDoc, collection } from "firebase/firestore"
 import { db } from "@/lib/firebase"
+import toast, { Toaster } from 'react-hot-toast';
+import DatePickerComponent from "./DatePicker"
+
+const success = () => toast('Successfully Added!');
+const errorToast = () => toast('Please try again!!!');
 
 const FormSchema = z.object({
     datepublication: z.date({
@@ -62,7 +67,7 @@ const FormSchema = z.object({
         })
         .max(350, {
             message: "Abstract must not be longer than 40 words.",
-          }),
+        }),
 })
 
 export function ProjectsCreate() {
@@ -80,22 +85,25 @@ export function ProjectsCreate() {
     })
 
     async function onSubmit(data: z.infer<typeof FormSchema>) {
-        try {      
+        try {
             const projectData = { ...data }
-      
+
             const docRef = await addDoc(collection(db, "Projects"), projectData)
-      
+
             setIsLoading(true)
-      
+
             console.log(docRef.id)
-      
+
             form.reset()
-      
+
+            success()
+
             setIsLoading(false)
-          } catch (error) {
+        } catch (error) {
             console.log(error)
             setIsLoading(false)
-          }
+            errorToast()
+        }
     }
 
     return (
@@ -157,14 +165,9 @@ export function ProjectsCreate() {
                                     </FormControl>
                                 </PopoverTrigger>
                                 <PopoverContent className="w-auto p-0" align="start">
-                                    <Calendar
-                                        mode="single"
+                                    <DatePickerComponent
                                         selected={field.value}
-                                        onSelect={field.onChange}
-                                        disabled={(date) =>
-                                            date > new Date() || date < new Date("1900-01-01")
-                                        }
-                                        initialFocus
+                                        onChange={(date) => field.onChange(date)}
                                     />
                                 </PopoverContent>
                             </Popover>
@@ -200,11 +203,9 @@ export function ProjectsCreate() {
                                     </FormControl>
                                 </PopoverTrigger>
                                 <PopoverContent className="w-auto p-0" align="start">
-                                    <Calendar
-                                        mode="single"
+                                    <DatePickerComponent
                                         selected={field.value}
-                                        onSelect={field.onChange}
-                                        initialFocus
+                                        onChange={(date) => field.onChange(date)}
                                     />
                                 </PopoverContent>
                             </Popover>

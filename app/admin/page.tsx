@@ -20,6 +20,7 @@ import GalleryList from '@/components/GalleryList'
 import BlogsList from '@/components/BlogsList'
 import { JournalWidget } from '@/components/JournalWidget'
 import JournalList from '@/components/JournalList'
+import DatePickerComponent from '@/components/DatePicker'
 
 const Dashboard = () => {
   const [selectedOption, setSelectedOption] = useState('');

@@ -31,7 +31,7 @@ const FormSchema = z.object({
 interface Props {
     title: string
     author: string
-    duration: string
+    views: string
     category: string
     image: string
     abstract: string
@@ -92,8 +92,6 @@ const MoreBlog = ({ params }: { params: { blogs: string } }) => {
 
         fetchData()
     }, [])
-
-    console.log(blogData)
 
     useEffect(() => {
         const fetchComment = async () => {
@@ -172,7 +170,7 @@ const MoreBlog = ({ params }: { params: { blogs: string } }) => {
     }
 
     return (
-        <div className='pt-16 flex flex-col justify-center items-center align-middle w-full pb-10 px-5'>
+        <div className='pt-20 flex flex-col justify-center items-center align-middle w-full pb-12 px-5'>
             {/* Title */}
             <h1 className='text-primary font-bold text-3xl pb-5'>
                 {blogData[0]?.title}
@@ -190,7 +188,7 @@ const MoreBlog = ({ params }: { params: { blogs: string } }) => {
                 <h1 className='text-accent text-sm'>Category: {blogData[0]?.category}</h1>
 
                 {/* Duration */}
-                <h1 className='text-accent text-sm'>Duration: {blogData[0]?.duration}</h1>
+                <h1 className='text-accent text-sm'>Views: {blogData[0]?.views}</h1>
             </div>
 
             {/* Image */}

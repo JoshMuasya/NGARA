@@ -37,6 +37,11 @@ import { Textarea } from "@/components/ui/textarea"
 import { addDoc, collection } from "firebase/firestore"
 import { db, storage } from "@/lib/firebase"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
+import toast, { Toaster } from 'react-hot-toast';
+import DatePickerComponent from "./DatePicker"
+
+const success = () => toast('Successfully Added!');
+const errorToast = () => toast('Please try again!!!');
 
 const FormSchema = z.object({
     eventdate: z.date({
@@ -59,7 +64,7 @@ const FormSchema = z.object({
         })
         .max(350, {
             message: "Abstract must not be longer than 40 words.",
-          }),
+        }),
     pdf: z.instanceof(File),
 })
 
@@ -96,10 +101,13 @@ const EventsCreate = () => {
 
             form.reset()
 
+            success()
+
             setIsLoading(false)
         } catch (error) {
             console.log(error)
             setIsLoading(false)
+            errorToast()
         }
     }
 
@@ -162,14 +170,9 @@ const EventsCreate = () => {
                                     </FormControl>
                                 </PopoverTrigger>
                                 <PopoverContent className="w-auto p-0" align="start">
-                                    <Calendar
-                                        mode="single"
+                                    <DatePickerComponent
                                         selected={field.value}
-                                        onSelect={field.onChange}
-                                        disabled={(date) =>
-                                            date > new Date() || date < new Date("1900-01-01")
-                                        }
-                                        initialFocus
+                                        onChange={(date) => field.onChange(date)}
                                     />
                                 </PopoverContent>
                             </Popover>

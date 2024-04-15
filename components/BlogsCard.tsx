@@ -18,9 +18,16 @@ interface Props {
     content: string
     datepublication: string
     link: string
+    onClick?: () => void
 }
 
-const BlogsCard = ({ title, content, category, views, link, image }: Props) => {
+const BlogsCard = ({ title, abstract, category, views, link, image, onClick }: Props) => {
+    const handleClick = () => {
+        if (onClick) {
+            onClick(); // Call the provided onClick function
+        }
+    };
+
     return (
         <div className='py-5'>
             {/* Details */}
@@ -57,7 +64,7 @@ const BlogsCard = ({ title, content, category, views, link, image }: Props) => {
                         {/* Content */}
                         <div className='pb-3'>
                             <p>
-                                {content}
+                                {abstract}
                             </p>
                         </div>
 
@@ -65,6 +72,7 @@ const BlogsCard = ({ title, content, category, views, link, image }: Props) => {
                         <div className='flex flex-row justify-center align-middle items-center w-full text-sm hover:italic'>
                             <Link
                                 href={`/blogs/${link}`}
+                                onClick={handleClick}
                                 className='flex flex-row justify-center align-middle items-center'
                             >
                                 Read More <ArrowRight className='w-5 h-5' />

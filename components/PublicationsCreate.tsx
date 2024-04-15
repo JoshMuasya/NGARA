@@ -45,6 +45,11 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import toast, { Toaster } from 'react-hot-toast';
+import DatePickerComponent from './DatePicker'
+
+const success = () => toast('Successfully Added!');
+const errorToast = () => toast('Please try again!!!');
 
 const FormSchema = z.object({
   datepublication: z.date({
@@ -106,10 +111,13 @@ const PublicationCreate = () => {
 
       form.reset()
 
+      success()
+
       setIsLoading(false)
     } catch (error) {
       console.log(error)
       setIsLoading(false)
+      errorToast()
     }
   }
 
@@ -186,29 +194,9 @@ const PublicationCreate = () => {
                   </FormControl>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
-                  <Select
-                    onValueChange={(value) =>
-                      setDate(addDays(new Date(), parseInt(value)))
-                    }
-                  >
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                    <SelectContent position="popper">
-                      <SelectItem value="0">Today</SelectItem>
-                      <SelectItem value="1">Tomorrow</SelectItem>
-                      <SelectItem value="3">In 3 days</SelectItem>
-                      <SelectItem value="7">In a week</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <Calendar
-                    mode="single"
+                <DatePickerComponent
                     selected={field.value}
-                    onSelect={field.onChange}
-                    disabled={(date) =>
-                      date > new Date() || date < new Date("1900-01-01")
-                    }
-                    initialFocus
+                    onChange={(date) => field.onChange(date)}
                   />
                 </PopoverContent>
               </Popover>
