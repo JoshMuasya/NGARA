@@ -55,7 +55,7 @@ export function HomeCarousel() {
 
     return (
         <div>
-            <Carousel setApi={setApi} className="w-full max-w-xs py-3">
+            <Carousel setApi={setApi} className="w-full max-w-lg py-3">
                 <CarouselContent>
                     {Images.map((image, index) => (
                         <CarouselItem key={index}>

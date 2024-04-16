@@ -3,8 +3,8 @@
 import { ArrowDown } from 'lucide-react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { buttonVariants } from './ui/button'
-import { collection, getDocs, query } from 'firebase/firestore'
+import { Button, buttonVariants } from './ui/button'
+import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
 interface Props {
@@ -16,6 +16,8 @@ interface Props {
     abstract: string
     content: string
     datepublication: string
+    link: string
+    id: string
 }
 
 const BlogsList = () => {
@@ -34,6 +36,7 @@ const BlogsList = () => {
 
                     querySnapshot.forEach((doc) => {
                         const dataFromDoc = doc.data() as Props
+                        console.log(dataFromDoc.link)
                         data.push({ ...dataFromDoc })
                     })
 
@@ -48,8 +51,6 @@ const BlogsList = () => {
         fetchData()
     }, [])
 
-    console.log(blogData)
-
     const handleClick = () => {
         setIsOpen(!isOpen)
     }
@@ -60,10 +61,22 @@ const BlogsList = () => {
         return date.toLocaleDateString('en-US', options);
     }
 
+    const handleDelete = async (blogItem: Props) => {
+        try {
+          const blogRef = doc(db, "Blogs", blogItem.id); // Assuming you have an "id" field in each blog document
+          await deleteDoc(blogRef);
+    
+          // Update the blogData state to reflect the deletion
+          setBlogData(blogData.filter((item) => item.id !== blogItem.id)); // Assuming "id" field for filtering
+        } catch (error) {
+          console.error("Error deleting blog:", error);
+        }
+      }
+
     return (
         <div className='flex flex-col justify-center align-middle items-center w-full'>
             {blogData.map((blogItem, index) => (
-                <div key={index}>
+                <div key={index} className='py-5'>
                     {/* Title */}
                     <h1 className='font-bold text-lg md:text-xl'>
                         {blogItem?.title}
@@ -123,7 +136,16 @@ const BlogsList = () => {
                     )}
 
                     {/* Links */}
-                    <div className='flex flex-row justify-between align-middle items-center w-full pt-8'>
+                    <div className='w-full pt-8'>
+                        <Button
+                        variant={'destructive'}
+                        onClick={() => handleDelete(blogItem)}
+                        >
+                            Delete
+                        </Button>
+                    </div>
+
+                    {/* <div className='flex flex-row justify-between align-middle items-center w-full pt-8'>
                         <div className='w-full'>
                             <Link
                                 href=''
@@ -133,15 +155,8 @@ const BlogsList = () => {
                             </Link>
                         </div>
 
-                        <div className='w-full'>
-                            <Link
-                                href=''
-                                className={`${buttonVariants({ variant: "destructive" })} `}
-                            >
-                                Delete
-                            </Link>
-                        </div>
-                    </div>
+                        
+                    </div> */}
                 </div>
             ))}
         </div>

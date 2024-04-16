@@ -39,6 +39,7 @@ import { db, storage } from "@/lib/firebase"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
 import toast, { Toaster } from 'react-hot-toast';
 import DatePickerComponent from './DatePicker'
+import { v4 as uuidv4 } from 'uuid';
 
 const success = () => toast('Successfully Added!');
 const errorToast = () => toast('Please try again!!!');
@@ -87,7 +88,11 @@ const JournalCreate = () => {
 
       const downloadUrl = await getDownloadURL(storageRef)
 
-      const journalData = { ...data, pdf: downloadUrl }
+      const journalData = { ...data, pdf: downloadUrl, id: '' }
+
+      const uniqueId = uuidv4();
+
+      journalData.id = uniqueId
 
       const docRef = await addDoc(collection(db, "Journals"), journalData)
 
@@ -220,6 +225,8 @@ const JournalCreate = () => {
 
         <Button type="submit">Create Journal</Button>
       </form>
+
+      <Toaster />
     </Form>
   )
 }

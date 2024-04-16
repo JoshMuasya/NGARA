@@ -35,6 +35,7 @@ import { db, storage } from "@/lib/firebase"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
 import toast, { Toaster } from 'react-hot-toast';
 import DatePickerComponent from "./DatePicker"
+import { v4 as uuidv4 } from 'uuid';
 
 const success = () => toast('Successfully Added!');
 const errorToast = () => toast('Please try again!!!');
@@ -55,9 +56,6 @@ const FormSchema = z.object({
   }),
   content: z.string({
     required_error: "A content is required",
-  }),
-  views: z.string({
-    required_error: "A duration is required",
   }),
   abstract: z.string({
     required_error: "An abstract is required",
@@ -87,7 +85,6 @@ export function BlogsCreate() {
       author: "",
       category: "",
       content: "",
-      views: "",
       abstract: "",
       image: new File([], ""),
       link: "",
@@ -102,13 +99,15 @@ export function BlogsCreate() {
 
       const downloadUrl = await getDownloadURL(storageRef)
 
-      const blogData = { ...data, image: downloadUrl, link: data.link.toLowerCase() }
+      const blogData = { ...data, image: downloadUrl, link: data.link.toLowerCase(), id: '', views: 0 }
+      
+      const uniqueId = uuidv4();
+
+      blogData.id = uniqueId; 
 
       const docRef = await addDoc(collection(db, "Blogs"), blogData)
 
       setIsLoading(true)
-
-      console.log(docRef.id)
 
       form.reset()
 
@@ -176,20 +175,6 @@ export function BlogsCreate() {
             <FormItem>
               <FormControl>
                 <Input placeholder="Short Title without spaces" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        {/* Views */}
-        <FormField
-          control={form.control}
-          name="views"
-          render={({ field }) => (
-            <FormItem>
-              <FormControl>
-                <Input placeholder="views" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>

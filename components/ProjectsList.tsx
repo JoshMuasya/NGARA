@@ -3,8 +3,8 @@
 import { ArrowDown } from 'lucide-react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { buttonVariants } from './ui/button'
-import { collection, getDocs, query } from 'firebase/firestore'
+import { Button, buttonVariants } from './ui/button'
+import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
 interface Props {
@@ -16,6 +16,7 @@ interface Props {
     abstract: string
     content: string
     datepublication: string
+    id: string
 }
 
 const ProjectsList = () => {
@@ -54,11 +55,23 @@ const ProjectsList = () => {
         return date.toLocaleDateString('en-US', options);
     }
 
+    const handleDelete = async (projectItem: Props) => {
+        try {
+            const projectRef = doc(db, "Projects", projectItem.id); // Assuming you have an "id" field in each blog document
+            await deleteDoc(projectRef);
+
+            // Update the blogData state to reflect the deletion
+            setProjectData(projectData.filter((item) => item.id !== projectItem.id)); // Assuming "id" field for filtering
+        } catch (error) {
+            console.error("Error deleting project:", error);
+        }
+    }
+
     return (
         <div className='flex flex-col justify-center align-middle items-center w-full'>
             {projectData.map((projectItem, index) => (
                 <div key={index}
-                className='pb-10'
+                    className='pb-10'
                 >
                     {/* Title */}
                     <h1 className='font-bold text-lg md:text-xl'>
@@ -95,14 +108,14 @@ const ProjectsList = () => {
                     </div>
 
                     {/* Links */}
-                    <div className='w-full'>
-                            <Link
-                                href=''
-                                className={`${buttonVariants({ variant: "destructive" })} `}
-                            >
-                                Delete
-                            </Link>
-                        </div>
+                    <div className='w-full pt-8'>
+                        <Button
+                            variant={'destructive'}
+                            onClick={() => handleDelete(projectItem)}
+                        >
+                            Delete
+                        </Button>
+                    </div>
                 </div>
             ))}
         </div>

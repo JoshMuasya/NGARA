@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button'
 import { db } from '@/lib/firebase'
 import { userlogin } from '@/lib/userlogin'
-import { collection, query, getDocs, addDoc, orderBy } from 'firebase/firestore'
+import { collection, query, getDocs, addDoc, orderBy, where } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
 
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -68,58 +68,38 @@ const MoreBlog = ({ params }: { params: { blogs: string } }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const collectionRef = collection(db, "Blogs")
-                let queryRef = query(collectionRef)
-
-                if (queryRef) {
-                    const querySnapshot = await getDocs(queryRef)
-                    const data: Props[] = []
-
-                    querySnapshot.forEach((doc) => {
-                        const dataFromDoc = doc.data() as Props
-                        if (dataFromDoc.link === params.blogs) {
-                            data.push({ ...dataFromDoc })
-                        }
-                    })
-
-                    setBlogData(data)
-                }
-
+              // Get Blog Data
+              const blogRef = collection(db, "Blogs")
+              const blogQuery = query(blogRef, where("link", "==", params.blogs))
+              const blogSnapshot = await getDocs(blogQuery)
+              const blogData = blogSnapshot.docs.map((doc) => doc.data() as Props)
+              setBlogData(blogData)  
+      
+              // Get Comments
+              const commentRef = collection(db, "Comments")
+              const commentQuery = query(commentRef, orderBy('date', 'desc'), where("blogLink", "==", params.blogs))
+              const commentSnapshot = await getDocs(commentQuery)
+              const commentsData = commentSnapshot.docs.map((doc) => doc.data() as Comment)
+              setComments(commentsData)
             } catch (error) {
-                console.log(error)
+              console.log(error)
             }
-        }
+          }
 
         fetchData()
     }, [])
 
-    useEffect(() => {
-        const fetchComment = async () => {
-            try {
-                const collectionRef = collection(db, "Comments")
-                let queryRef = query(collectionRef, orderBy('date', 'desc'))
-
-                if (queryRef) {
-                    const querySnapshot = await getDocs(queryRef)
-                    const data: Comment[] = []
-
-                    querySnapshot.forEach((doc) => {
-                        const dataFromDoc = doc.data() as Comment
-                        if (dataFromDoc.blogLink === params.blogs) {
-                            data.push({ ...dataFromDoc })
-                        }
-                    })
-
-                    setComments(data)
-                }
-
-            } catch (error) {
-                console.log(error)
-            }
+    const fetchComments = async () => {
+        try {
+          const commentRef = collection(db, "Comments")
+          const commentQuery = query(commentRef, orderBy('date', 'desc'), where("blogLink", "==", params.blogs))
+          const commentSnapshot = await getDocs(commentQuery)
+          const commentsData = commentSnapshot.docs.map((doc) => doc.data() as Comment)
+          setComments(commentsData)
+        } catch (error) {
+          console.log(error)
         }
-
-        fetchComment()
-    }, [comments, commentUpdate])
+      }
 
     const handleClick = async () => {
         try {
@@ -158,6 +138,8 @@ const MoreBlog = ({ params }: { params: { blogs: string } }) => {
             form.reset()
 
             setIsCommentOpen(false)
+
+            fetchComments()
         } catch (error) {
             console.log(error)
         }

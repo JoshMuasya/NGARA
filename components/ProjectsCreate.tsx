@@ -34,6 +34,7 @@ import { addDoc, collection } from "firebase/firestore"
 import { db } from "@/lib/firebase"
 import toast, { Toaster } from 'react-hot-toast';
 import DatePickerComponent from "./DatePicker"
+import { v4 as uuidv4 } from 'uuid';
 
 const success = () => toast('Successfully Added!');
 const errorToast = () => toast('Please try again!!!');
@@ -86,8 +87,12 @@ export function ProjectsCreate() {
 
     async function onSubmit(data: z.infer<typeof FormSchema>) {
         try {
-            const projectData = { ...data }
+            const projectData = { ...data, id:'' }
 
+            const uniqueId = uuidv4();
+
+            projectData.id = uniqueId
+            
             const docRef = await addDoc(collection(db, "Projects"), projectData)
 
             setIsLoading(true)
@@ -264,6 +269,8 @@ export function ProjectsCreate() {
 
                 <Button type="submit">Create Project</Button>
             </form>
+
+            <Toaster />
         </Form>
     )
 }

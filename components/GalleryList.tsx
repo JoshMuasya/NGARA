@@ -3,13 +3,14 @@
 import { ArrowDown } from 'lucide-react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { buttonVariants } from './ui/button'
-import { collection, getDocs, orderBy, query } from 'firebase/firestore'
+import { Button, buttonVariants } from './ui/button'
+import { collection, deleteDoc, doc, getDocs, orderBy, query } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
 interface Props {
     title: string
     image: string
+    id: string
 }
 
 const GalleryList = () => {
@@ -42,7 +43,17 @@ const GalleryList = () => {
         fetchData()
     }, [])
 
-    console.log(galleryData)
+    const handleDelete = async (galleryItem: Props) => {
+        try {
+          const galleryRef = doc(db, "Gallery", galleryItem.id); // Assuming you have an "id" field in each blog document
+          await deleteDoc(galleryRef);
+    
+          // Update the blogData state to reflect the deletion
+          setGalleryData(galleryData.filter((item) => item.id !== galleryItem.id)); // Assuming "id" field for filtering
+        } catch (error) {
+          console.error("Error deleting Image:", error);
+        }
+      }
 
     return (
         <div className='flex flex-row flex-wrap justify-center align-middle items-center w-full'>
@@ -63,13 +74,13 @@ const GalleryList = () => {
                     </h5>
 
                     {/* Button */}
-                    <div className='flex justify-start w-full'>
-                        <Link
-                            href=''
-                            className={`${buttonVariants({ variant: "destructive" })} `}
+                    <div className='w-full pt-8'>
+                        <Button
+                        variant={'destructive'}
+                        onClick={() => handleDelete(galleryItem)}
                         >
                             Delete
-                        </Link>
+                        </Button>
                     </div>
                 </div>
             ))}

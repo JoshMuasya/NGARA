@@ -15,6 +15,7 @@ interface Props {
     content: string
     datepublication: string
     link: string
+    id: string
 }
 
 const Blogs = () => {
@@ -49,38 +50,35 @@ const Blogs = () => {
     }, [])
 
     const handleBlogClick = async (clickedBlog: Props) => {
-        // if (!blogsLoaded) return;
+        // if (!clickedBlog.id) {
+        //   console.error('Blog ID missing for clicked blog:', clickedBlog);
+        //   return;
+        // }
+    
         // try {
-        //     // Update views in Firestore
-        //     const collectionRef = collection(db, "Blogs");
-        //     const queryRef = query(collectionRef, where("link", "==", clickedBlog.link));
-        //     const querySnapshot = await getDocs(queryRef);
-        
-        //     // Check if any documents were found
-        //     if (querySnapshot.empty) {
-        //       console.error("Blog not found in Firestore for updating views:", clickedBlog.link);
-        //       return; // Exit the function if no documents found
-        //     }
-        
-        //     // Check if the first document exists before accessing it
-        //     if (!querySnapshot.docs[0]) {
-        //       console.error("Error: Unexpected empty query result in handleBlogClick");
-        //       return;
-        //     }
-        
-        //     const blogToUpdate = querySnapshot.docs[0].data();
-        //     const docRef = doc(db, "Blogs", blogToUpdate.id);
-        
-        //     const updatedBlog = {
-        //       ...clickedBlog,
-        //       views: blogToUpdate.views + 1
-        //     };
-        
-        //     await updateDoc(docRef, updatedBlog);
-        //   } catch (error) {
-        //     console.error("Error updating views:", error)
+        //   // Refetch blog data to ensure latest information
+        //   const blogDocRef = doc(db, 'Blogs', clickedBlog.id);
+        //   const blogSnapshot = await getDoc(blogDocRef);
+    
+        //   if (blogSnapshot.exists()) { // Check if document exists in Firestore
+        //     const updatedBlogData = blogSnapshot.data() as Props;
+    
+        //     // Update view count with latest data
+        //     const updatedViewCount = updatedBlogData.views + 1;
+    
+        //     await updateDoc(blogDocRef, { views: updatedViewCount }); // Update 'views' field
+    
+        //     // Update local state for immediate UI feedback
+        //     setBlogData((prevData) =>
+        //       prevData.map((blog) => (blog.id === clickedBlog.id ? { ...blog, views: updatedViewCount } : blog))
+        //     );
+        //   } else {
+        //     console.error('Blog document not found in Firestore:', clickedBlog.id);
         //   }
-    }
+        // } catch (error) {
+        //   console.log('Error updating view count:', error);
+        // }
+      };
 
     const formatDate = (timestamp: any) => {
         const date = new Date(timestamp.seconds * 1000);

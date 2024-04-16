@@ -3,8 +3,8 @@
 import { ArrowDown } from 'lucide-react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
-import { buttonVariants } from './ui/button'
-import { collection, getDocs, query } from 'firebase/firestore'
+import { Button, buttonVariants } from './ui/button'
+import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
 interface Props {
@@ -14,6 +14,7 @@ interface Props {
     abstract: string
     content: string
     eventdate: string
+    id: string
 }
 
 const EventsList = () => {
@@ -56,10 +57,22 @@ const EventsList = () => {
         return date.toLocaleDateString('en-US', options);
     }
 
+    const handleDelete = async (eventItem: Props) => {
+        try {
+          const eventRef = doc(db, "Events", eventItem.id); // Assuming you have an "id" field in each blog document
+          await deleteDoc(eventRef);
+    
+          // Update the blogData state to reflect the deletion
+          setEventData(eventData.filter((item) => item.id !== eventItem.id)); // Assuming "id" field for filtering
+        } catch (error) {
+          console.error("Error deleting blog:", error);
+        }
+      }
+
     return (
         <div className='flex flex-col justify-center align-middle items-center w-full'>
             {eventData.map((eventItem, index) => (
-                <div key={index}>
+                <div key={index} className='py-5'>
                     {/* Title */}
                     <h1 className='font-bold text-lg md:text-xl'>
                         {eventItem?.title}
@@ -104,24 +117,13 @@ const EventsList = () => {
                     )}
 
                     {/* Links */}
-                    <div className='flex flex-row justify-between align-middle items-center w-full pt-8'>
-                        <div className='w-full'>
-                            <Link
-                                href=''
-                                className={`${buttonVariants({ variant: "default" })} bg-ring bg-gradient-to-r from-primary to-ring hover:bg-primary`}
-                            >
-                                Update
-                            </Link>
-                        </div>
-
-                        <div className='w-full'>
-                            <Link
-                                href=''
-                                className={`${buttonVariants({ variant: "destructive" })} `}
-                            >
-                                Delete
-                            </Link>
-                        </div>
+                    <div className='w-full pt-8'>
+                        <Button
+                        variant={'destructive'}
+                        onClick={() => handleDelete(eventItem)}
+                        >
+                            Delete
+                        </Button>
                     </div>
                 </div>
             ))}

@@ -128,12 +128,12 @@ const AboutSection = () => {
             </div>
 
             {/* Cards */}
-            <div className='flex flex-row flex-wrap justify-around align-middle items-center w-full'>
+            <div className='flex flex-row flex-wrap justify-around align-middle items-start w-full'>
                 <Card className='mx-2 my-3 w-52'>
                     <CardContent>
                         <div className='flex flex-col justify-center align-middle items-center py-2'>
                             {/* Icon */}
-                            <div className='rounded-2xl bg-primary p-3'>
+                            <div className='rounded-3xl bg-primary p-3'>
                                 <File
                                     className='w-8 h-8'
                                 />
@@ -155,7 +155,7 @@ const AboutSection = () => {
                     <CardContent>
                         <div className='flex flex-col justify-center align-middle items-center py-2'>
                             {/* Icon */}
-                            <div className='rounded-2xl bg-primary p-3'>
+                            <div className='rounded-3xl bg-primary p-3'>
                                 <File
                                     className='w-8 h-8'
                                 />
@@ -177,7 +177,7 @@ const AboutSection = () => {
                     <CardContent>
                         <div className='flex flex-col justify-center align-middle items-center py-2'>
                             {/* Icon */}
-                            <div className='rounded-2xl bg-primary p-3'>
+                            <div className='rounded-3xl bg-primary p-3'>
                                 <File
                                     className='w-8 h-8'
                                 />
@@ -199,7 +199,7 @@ const AboutSection = () => {
                     <CardContent>
                         <div className='flex flex-col justify-center align-middle items-center py-2'>
                             {/* Icon */}
-                            <div className='rounded-2xl bg-primary p-3'>
+                            <div className='rounded-3xl bg-primary p-3'>
                                 <File
                                     className='w-8 h-8'
                                 />

@@ -35,6 +35,7 @@ import { db, storage } from "@/lib/firebase"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
 import toast, { Toaster } from 'react-hot-toast';
 import DatePickerComponent from "./DatePicker"
+import { v4 as uuidv4 } from 'uuid';
 
 const success = () => toast('Successfully Added!');
 const errorToast = () => toast('Please try again!!!');
@@ -69,13 +70,15 @@ export function GalleryCreate() {
 
       const downloadUrl = await getDownloadURL(storageRef)
 
-      const galleryData = { ...data, image: downloadUrl }
+      const galleryData = { ...data, image: downloadUrl, id:'' }
+
+      const uniqueId = uuidv4();
+
+      galleryData.id = uniqueId
 
       const docRef = await addDoc(collection(db, "Gallery"), galleryData)
 
       setIsLoading(true)
-
-      console.log(docRef.id)
 
       form.reset()
 
@@ -171,6 +174,8 @@ export function GalleryCreate() {
 
         <Button type="submit">Add Image</Button>
       </form>
+
+      <Toaster />
     </Form>
   )
 }

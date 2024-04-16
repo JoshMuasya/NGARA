@@ -102,10 +102,6 @@ const Publications = () => {
         fetchPublication()
     }, [])
 
-    console.log(recentPublications)
-    console.log(countryPublications)
-    console.log(recentJournals)
-
     return (
         <div className='py-5 w-full back-pic px-5'>
             <Card className='w-full rounded-xl flex flex-col justify-center align-middle items-center'>

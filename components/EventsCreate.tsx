@@ -39,6 +39,7 @@ import { db, storage } from "@/lib/firebase"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
 import toast, { Toaster } from 'react-hot-toast';
 import DatePickerComponent from "./DatePicker"
+import { v4 as uuidv4 } from 'uuid';
 
 const success = () => toast('Successfully Added!');
 const errorToast = () => toast('Please try again!!!');
@@ -91,13 +92,15 @@ const EventsCreate = () => {
 
             const downloadUrl = await getDownloadURL(storageRef)
 
-            const eventData = { ...data, pdf: downloadUrl }
+            const eventData = { ...data, pdf: downloadUrl, id: '' }
+
+            const uniqueId = uuidv4();
+
+            eventData.id = uniqueId;
 
             const docRef = await addDoc(collection(db, "Events"), eventData)
 
             setIsLoading(true)
-
-            console.log(docRef.id)
 
             form.reset()
 
@@ -241,6 +244,8 @@ const EventsCreate = () => {
 
                 <Button type="submit">Create Event</Button>
             </form>
+
+            <Toaster />
         </Form>
     )
 }

@@ -47,6 +47,7 @@ import {
 } from "@/components/ui/select"
 import toast, { Toaster } from 'react-hot-toast';
 import DatePickerComponent from './DatePicker'
+import { v4 as uuidv4 } from 'uuid';
 
 const success = () => toast('Successfully Added!');
 const errorToast = () => toast('Please try again!!!');
@@ -101,13 +102,15 @@ const PublicationCreate = () => {
 
       const downloadUrl = await getDownloadURL(storageRef)
 
-      const publicationData = { ...data, pdf: downloadUrl }
+      const publicationData = { ...data, pdf: downloadUrl, id: '' }
+
+      const uniqueId = uuidv4();
+
+      publicationData.id = uniqueId
 
       const docRef = await addDoc(collection(db, "Publications"), publicationData)
 
       setIsLoading(true)
-
-      console.log(docRef.id)
 
       form.reset()
 
@@ -248,6 +251,8 @@ const PublicationCreate = () => {
 
         <Button type="submit">Create Publication</Button>
       </form>
+
+      <Toaster />
     </Form>
   )
 }
