@@ -148,7 +148,7 @@ const countries: { [key: string]: Country } = {
 };
 
 const Regions = () => {
-  const [selectedCountry, setSelectedCountry] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState('kenya');
   const [publicationsData, setPublicationsData] = useState<Props[]>([])
 
   useEffect(() => {

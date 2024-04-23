@@ -31,7 +31,8 @@ export function NavbarDropdown() {
                 <DropdownMenuTrigger asChild>
                     <Button
                         variant="ghost"
-                        onMouseEnter={handleClick}
+                        onMouseOver={handleClick}
+                        onMouseLeave={handleClick}
                         className='hover:italic hover:text-primary px-4 font-semibold text-base border-0'
                     >
                         About Us

@@ -114,17 +114,17 @@ const PublicationsPage = () => {
             <div className='pt-10 w-full h-full flex flex-col md:flex-row justify-center align-middle items-start'>
                 <div className="flex flex-col h-full items-start justify-center p-10">
                     <h2
-                        className={`pt-3 pb-3 font-bold ${activePublication === "journals" ? 'text-primary' : 'text-accent'} text-2xl hover:italic cursor-pointer`}
-                        onClick={handleShowJournals}
-                    >
-                        Journals
-                    </h2>
-
-                    <h2
                         className={`pt-3 pb-3 font-bold ${activePublication === "recent" ? 'text-primary' : 'text-accent'} text-2xl hover:italic cursor-pointer`}
                         onClick={handleShowRecentPublications}
                     >
                         Recent Publications
+                    </h2>
+
+                    <h2
+                        className={`pt-3 pb-3 font-bold ${activePublication === "journals" ? 'text-primary' : 'text-accent'} text-2xl hover:italic cursor-pointer`}
+                        onClick={handleShowJournals}
+                    >
+                        Journals
                     </h2>
 
                     <h2
