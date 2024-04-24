@@ -1,10 +1,10 @@
 'use client'
 
-import { ArrowDown } from 'lucide-react'
+import { ArrowDown, DeleteIcon } from 'lucide-react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Button, buttonVariants } from './ui/button'
-import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore'
+import { collection, deleteDoc, doc, getDocs, orderBy, query, where } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
 interface Props {
@@ -20,9 +20,30 @@ interface Props {
     id: string
 }
 
+interface Comments {
+    id: string
+    comment: string
+    username: string
+    date: Date
+    blogLink: string
+}
+
 const BlogsList = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [blogData, setBlogData] = useState<Props[]>([])
+    const [comments, setComments] = useState<Comments[]>([])
+
+    const handleDeleteComment = async (comment: Comments) => {
+        try {
+            const commentRef = doc(db, "Comments", comment.id);
+            await deleteDoc(commentRef);
+
+            // Update comments state to reflect deletion
+            setComments(comments.filter((c) => c.id !== comment.id));
+        } catch (error) {
+            console.error("Error deleting comment:", error);
+        }
+    };
 
     useEffect(() => {
         const fetchData = async () => {
@@ -48,7 +69,22 @@ const BlogsList = () => {
             }
         }
 
+        const fetchComments = async () => {
+            try {
+                const commentRef = collection(db, "Comments");
+                const commentQuery = query(commentRef, orderBy('date', 'desc'));
+                const commentSnapshot = await getDocs(commentQuery);
+                const commentsData = commentSnapshot.docs
+                    .map((doc) => doc.data() as Comments)
+                    .filter((comment) => comment.blogLink); // Filter comments with blogLink
+                setComments(commentsData);
+            } catch (error) {
+                console.error("Error fetching comments:", error);
+            }
+        }
+
         fetchData()
+        fetchComments()
     }, [])
 
     const handleClick = () => {
@@ -63,15 +99,15 @@ const BlogsList = () => {
 
     const handleDelete = async (blogItem: Props) => {
         try {
-          const blogRef = doc(db, "Blogs", blogItem.id); // Assuming you have an "id" field in each blog document
-          await deleteDoc(blogRef);
-    
-          // Update the blogData state to reflect the deletion
-          setBlogData(blogData.filter((item) => item.id !== blogItem.id)); // Assuming "id" field for filtering
+            const blogRef = doc(db, "Blogs", blogItem.id); // Assuming you have an "id" field in each blog document
+            await deleteDoc(blogRef);
+
+            // Update the blogData state to reflect the deletion
+            setBlogData(blogData.filter((item) => item.id !== blogItem.id)); // Assuming "id" field for filtering
         } catch (error) {
-          console.error("Error deleting blog:", error);
+            console.error("Error deleting blog:", error);
         }
-      }
+    }
 
     return (
         <div className='flex flex-col justify-center align-middle items-center w-full'>
@@ -135,11 +171,29 @@ const BlogsList = () => {
                         </div>
                     )}
 
+                    <h2 className='font-bold text-lg md:text-xl pt-5 pb-3'>Comments</h2>
+                    {comments.map((comment, index) => (
+                        comment.blogLink === blogItem.link && (
+                            <div key={index}>
+                                <p>{comment.username}: {comment.comment}</p>
+
+                                {/* Delete Button */}
+                                <Button
+                                    variant={'destructive'}
+                                    className='ml-2' // Add margin for spacing
+                                    onClick={() => handleDeleteComment(comment)}
+                                >
+                                    <DeleteIcon />
+                                </Button>
+                            </div>
+                        )
+                    ))}
+
                     {/* Links */}
                     <div className='w-full pt-8'>
                         <Button
-                        variant={'destructive'}
-                        onClick={() => handleDelete(blogItem)}
+                            variant={'destructive'}
+                            onClick={() => handleDelete(blogItem)}
                         >
                             Delete
                         </Button>

@@ -41,6 +41,7 @@ interface Props {
 }
 
 interface Comment {
+    id: string;
     comment: string
     username: string
     date: string
@@ -128,8 +129,9 @@ const MoreBlog = ({ params }: { params: { blogs: string } }) => {
     function onSubmit(data: z.infer<typeof FormSchema>) {
         const blogLink = blogData[0]?.link
         const date = new Date()
+        const commentId = `comment-${date.getTime()}`;
         try {
-            const commentData = { ...data, blogLink, username, date }
+            const commentData = { ...data, blogLink, username, date, id: commentId }
 
             const docRef = addDoc(collection(db, "Comments"), commentData)
 
