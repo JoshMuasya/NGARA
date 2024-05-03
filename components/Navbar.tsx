@@ -13,15 +13,19 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Button } from './ui/button'
-import { NavbarDropdown } from './NavbarDropdown'
-
+import NavDropdownMenu from './Dropdown'
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
 
+    const [dropdownOpen, setDropdownOpen] = useState(false)
+
     const handleClick = () => {
         setIsOpen(false)
     }
+
+    const handleMouseEnter = () => setDropdownOpen(true)
+    const handleMouseLeave = () => setDropdownOpen(false)
 
     return (
         <div className='flex flex-row justify-between md:justify-around items-center align-middle w-full bg-accent h-8 fixed top-0 left-0 text-primary pb-14 pt-7 md:px-0 px-3 z-20'>
@@ -115,19 +119,19 @@ const Navbar = () => {
                             </Link>
 
                             <Link
-                                href='/projects'
-                                className='hover:italic hover:text-primary py-2'
-                                onClick={handleClick}
-                            >
-                                Projects
-                            </Link>
-
-                            <Link
                                 href='/publications'
                                 className='hover:italic hover:text-primary py-2'
                                 onClick={handleClick}
                             >
                                 Publications
+                            </Link>
+
+                            <Link
+                                href='/projects'
+                                className='hover:italic hover:text-primary py-2'
+                                onClick={handleClick}
+                            >
+                                Projects
                             </Link>
 
                             <Link
@@ -197,58 +201,42 @@ const Navbar = () => {
                         Home
                     </Link>
 
-                    <div>
-                        <NavbarDropdown />
-                        
-                        {/* <DropdownMenu>
-                            <DropdownMenuTrigger asChild>
-                                <Button
-                                    variant="ghost"
-                                    onClick={handleClick}
-                                    className='hover:italic hover:text-primary px-4 font-semibold text-base border-0'>
-                                    About Us
-                                </Button>
-                            </DropdownMenuTrigger>
-                            <DropdownMenuContent className="w-56">
-                                <DropdownMenuItem>
-                                    <Link
-                                        href='/about/constitution'
-                                        className='hover:italic hover:text-primary px-4 font-semibold'
-                                        onClick={handleClick}
-                                    >
+                    <div 
+                        className="hover:italic hover:text-primary px-4 relative cursor-pointer"
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        About Us
+                        {dropdownOpen && (
+                            <ul className="w-56 bg-white rounded-md shadow-sm absolute top-5 left-0">
+                                <Link href='/about/constitution'>
+                                    <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
                                         The Constitution
-                                    </Link>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    <Link
-                                        href='/about/vision'
-                                        className='hover:italic hover:text-primary px-4 font-semibold'
-                                        onClick={handleClick}
-                                    >
+                                    </li>
+                                </Link>
+
+                                <Link href='/about/vision'>
+                                    <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
                                         Mission and Vision
-                                    </Link>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    <Link
-                                        href='/about/strategies'
-                                        className='hover:italic hover:text-primary px-4 font-semibold'
-                                        onClick={handleClick}
-                                    >
+                                    </li>
+                                </Link>
+
+                                <Link href='/about/strategies'>
+                                    <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
                                         Strategies and Priorities
-                                    </Link>
-                                </DropdownMenuItem>
-                                <DropdownMenuItem>
-                                    <Link
-                                        href='/about/board'
-                                        className='hover:italic hover:text-primary px-4 font-semibold'
-                                        onClick={handleClick}
-                                    >
+                                    </li>
+                                </Link>
+
+                                <Link href='/about/board'>
+                                    <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
                                         The Executive Board
-                                    </Link>
-                                </DropdownMenuItem>
-                            </DropdownMenuContent>
-                        </DropdownMenu> */}
+                                    </li>
+                                </Link>
+
+                            </ul>
+                        )}
                     </div>
+                    
                     <Link
                         href='/regions'
                         className='hover:italic hover:text-primary px-4'
@@ -257,17 +245,17 @@ const Navbar = () => {
                     </Link>
 
                     <Link
-                        href='/projects'
-                        className='hover:italic hover:text-primary px-4'
-                    >
-                        Projects
-                    </Link>
-
-                    <Link
                         href='/publications'
                         className='hover:italic hover:text-primary px-4'
                     >
                         Publications
+                    </Link>
+
+                    <Link
+                        href='/projects'
+                        className='hover:italic hover:text-primary px-4'
+                    >
+                        Projects
                     </Link>
 
                     <Link
@@ -323,7 +311,7 @@ const Navbar = () => {
                     <TwitterLogoIcon />
                 </Link>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -188,7 +188,7 @@ const Regions = () => {
   const countryData = selectedCountry && countries[selectedCountry];
 
   return (
-    <div className='flex pt-20 pb-10 flex-col justify-center items-center align-middle px-5 w-full h-full'>
+    <div className='flex pt-24 pb-10 flex-col justify-center items-center align-middle px-5 w-full h-full'>
       <h1 className='text-primary font-bold text-3xl text-center pb-5'>
         ROLE OF NGARA IN THE REGION
       </h1>
@@ -203,7 +203,7 @@ const Regions = () => {
         </p>
       </div>
 
-      <div className='flex flex-col md:flex-row justify-center align-middle items-center w-full'>
+      <div className='flex flex-col md:flex-row justify-center align-middle items-start w-full'>
         {/* Left */}
         <div className='md:w-1/5 w-full'>
           <Accordion type="single" collapsible className="w-full">

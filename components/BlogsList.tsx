@@ -38,6 +38,8 @@ const BlogsList = () => {
             const commentRef = doc(db, "Comments", comment.id);
             await deleteDoc(commentRef);
 
+            console.log(commentRef)
+
             // Update comments state to reflect deletion
             setComments(comments.filter((c) => c.id !== comment.id));
         } catch (error) {
