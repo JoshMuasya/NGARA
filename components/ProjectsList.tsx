@@ -4,7 +4,7 @@ import { ArrowDown } from 'lucide-react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Button, buttonVariants } from './ui/button'
-import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore'
+import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
 interface Props {
@@ -55,15 +55,30 @@ const ProjectsList = () => {
         return date.toLocaleDateString('en-US', options);
     }
 
-    const handleDelete = async (projectItem: Props) => {
+    const handleDeleteProject = async (projectId: string) => {
         try {
-            const projectRef = doc(db, "Projects", projectItem.id); // Assuming you have an "id" field in each blog document
-            await deleteDoc(projectRef);
+            const projectQuery = query(collection(db, "Projects"), where("id", "==", projectId))
 
-            // Update the blogData state to reflect the deletion
-            setProjectData(projectData.filter((item) => item.id !== projectItem.id)); // Assuming "id" field for filtering
+            await getDocs(projectQuery)
+                .then((querySnapshot) => {
+                    if (querySnapshot.size === 1) {
+                        const projectRef = querySnapshot.docs[0].ref;
+                        console.log("Project found:", projectRef); // Log after successful query
+
+                        return deleteDoc(projectRef);
+                    } else {
+                        console.log("Project not found with the provided ID:", projectId);
+                    }
+                })
+                .then(() => {
+                    // Update UI after successful deletion
+                    setProjectData(projectData.filter((item) => item.id !== projectId));
+                })
+                .catch((error) => {
+                    console.error("Error deleting comment", error);
+                });
         } catch (error) {
-            console.error("Error deleting project:", error);
+            console.error("Error deleting comment", error)
         }
     }
 
@@ -111,7 +126,7 @@ const ProjectsList = () => {
                     <div className='w-full pt-8'>
                         <Button
                             variant={'destructive'}
-                            onClick={() => handleDelete(projectItem)}
+                            onClick={() => handleDeleteProject(projectItem.id)}
                         >
                             Delete
                         </Button>

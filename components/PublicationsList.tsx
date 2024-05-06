@@ -4,7 +4,7 @@ import { ArrowDown } from 'lucide-react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Button, buttonVariants } from './ui/button'
-import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore'
+import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
 interface Props {
@@ -56,29 +56,45 @@ const PublicationsList = () => {
         return date.toLocaleDateString('en-US', options);
     }
 
-    const handleDelete = async (publicationItem: Props) => {
+    const handleDeletePublication = async (publicationId: string) => {
+        console.log(publicationId)
         try {
-          const publicationRef = doc(db, "Publications", publicationItem.id); // Assuming you have an "id" field in each blog document
-          await deleteDoc(publicationRef);
-    
-          // Update the blogData state to reflect the deletion
-          setPublicationData(publicationData.filter((item) => item.id !== publicationItem.id)); // Assuming "id" field for filtering
+            const publicationQuery = query(collection(db, "Publication"), where("id", "==", publicationId))
+
+            await getDocs(publicationQuery)
+                .then((querySnapshot) => {
+                    if (querySnapshot.size === 1) {
+                        const publicationRef = querySnapshot.docs[0].ref;
+                        console.log("publication found:", publicationRef); // Log after successful query
+
+                        return deleteDoc(publicationRef);
+                    } else {
+                        console.log("publication not found with the provided ID:", publicationId);
+                    }
+                })
+                .then(() => {
+                    // Update UI after successful deletion
+                    setPublicationData(publicationData.filter((item) => item.id !== publicationId));
+                })
+                .catch((error) => {
+                    console.error("Error deleting publication", error);
+                });
         } catch (error) {
-          console.error("Error deleting publication:", error);
+            console.error("Error deleting publication", error)
         }
-      } 
+    }
 
     return (
         <div className='flex flex-col justify-center align-middle items-center w-full pb-10'>
             {publicationData.map((publicationItem, index) => (
-                <div 
-                key={index}
-                className='py-5'
+                <div
+                    key={index}
+                    className='py-5'
                 >
                     {/* Title */}
-                    <Link 
-                    className='font-bold text-lg md:text-xl'
-                    href={publicationItem?.pdf}
+                    <Link
+                        className='font-bold text-lg md:text-xl'
+                        href={publicationItem?.pdf}
                     >
                         {publicationItem?.title}
                     </Link>
@@ -107,13 +123,13 @@ const PublicationsList = () => {
                     {/* Links */}
                     <div className='w-full pt-8'>
                         <Button
-                        variant={'destructive'}
-                        onClick={() => handleDelete(publicationItem)}
+                            variant={'destructive'}
+                            onClick={() => handleDeletePublication(publicationItem.id)}
                         >
                             Delete
                         </Button>
                     </div>
-                    </div>
+                </div>
             ))}
         </div>
     )

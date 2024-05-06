@@ -33,20 +33,6 @@ const BlogsList = () => {
     const [blogData, setBlogData] = useState<Props[]>([])
     const [comments, setComments] = useState<Comments[]>([])
 
-    const handleDeleteComment = async (comment: Comments) => {
-        try {
-            const commentRef = doc(db, "Comments", comment.id);
-            await deleteDoc(commentRef);
-
-            console.log(commentRef)
-
-            // Update comments state to reflect deletion
-            setComments(comments.filter((c) => c.id !== comment.id));
-        } catch (error) {
-            console.error("Error deleting comment:", error);
-        }
-    };
-
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -99,15 +85,58 @@ const BlogsList = () => {
         return date.toLocaleDateString('en-US', options);
     }
 
-    const handleDelete = async (blogItem: Props) => {
+    const handleDeleteBlog = async (blogId: string) => {
+        console.log(blogId)
         try {
-            const blogRef = doc(db, "Blogs", blogItem.id); // Assuming you have an "id" field in each blog document
-            await deleteDoc(blogRef);
+            const blogQuery = query(collection(db, "Blogs"), where("id", "==", blogId))
 
-            // Update the blogData state to reflect the deletion
-            setBlogData(blogData.filter((item) => item.id !== blogItem.id)); // Assuming "id" field for filtering
+            await getDocs(blogQuery)
+                .then((querySnapshot) => {
+                    if (querySnapshot.size === 1) {
+                        const blogRef = querySnapshot.docs[0].ref;
+                        console.log("Blog found:", blogRef); // Log after successful query
+
+                        return deleteDoc(blogRef);
+                    } else {
+                        console.log("Blog not found with the provided ID:", blogId);
+                    }
+                })
+                .then(() => {
+                    // Update UI after successful deletion
+                    setBlogData(blogData.filter((blog) => blog.id !== blogId));
+                })
+                .catch((error) => {
+                    console.error("Error deleting blog", error);
+                });
         } catch (error) {
-            console.error("Error deleting blog:", error);
+            console.error("Error deleting blog", error)
+        }
+    }
+
+    const handleDeleteComments = async (commentId: string) => {
+        try {
+            const commentQuery = query(collection(db, "Comments"), where("id", "==", commentId))
+
+            await getDocs(commentQuery)
+                .then((querySnapshot) => {
+                    if (querySnapshot.size === 1) {
+                        const commentRef = querySnapshot.docs[0].ref;
+                        console.log("Comment found:", commentRef); // Log after successful query
+
+                        return deleteDoc(commentRef);
+                    } else {
+                        console.log("Blog not found with the provided ID:", commentId);
+                    }
+                })
+                .then(() => {
+                    // Update UI after successful deletion
+                    setComments(comments.filter((comment) => comment.id !== commentId));
+                })
+                .catch((error) => {
+                    console.error("Error deleting comment", error);
+                });
+        } catch (error) {
+            console.error("Error deleting comment", error)
         }
     }
 
@@ -183,7 +212,8 @@ const BlogsList = () => {
                                 <Button
                                     variant={'destructive'}
                                     className='ml-2' // Add margin for spacing
-                                    onClick={() => handleDeleteComment(comment)}
+                                    onClick={() => handleDeleteComments(comment.id)}
+
                                 >
                                     <DeleteIcon />
                                 </Button>
@@ -195,7 +225,7 @@ const BlogsList = () => {
                     <div className='w-full pt-8'>
                         <Button
                             variant={'destructive'}
-                            onClick={() => handleDelete(blogItem)}
+                            onClick={() => handleDeleteBlog(blogItem.id)}
                         >
                             Delete
                         </Button>
