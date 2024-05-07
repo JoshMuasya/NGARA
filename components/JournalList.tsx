@@ -4,7 +4,7 @@ import { ArrowDown } from 'lucide-react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Button, buttonVariants } from './ui/button'
-import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore'
+import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
 interface Props {
@@ -56,29 +56,45 @@ const JournalList = () => {
         return date.toLocaleDateString('en-US', options);
     }
 
-    const handleDelete = async (journalItem: Props) => {
+    const handleDeleteJournal = async (journalId: string) => {
+        console.log(journalId)
         try {
-          const journalRef = doc(db, "Journals", journalItem.id); // Assuming you have an "id" field in each blog document
-          await deleteDoc(journalRef);
-    
-          // Update the blogData state to reflect the deletion
-          setJournalData(journalData.filter((item) => item.id !== journalItem.id)); // Assuming "id" field for filtering
+            const journalQuery = query(collection(db, "Journals"), where("id", "==", journalId))
+
+            await getDocs(journalQuery)
+                .then((querySnapshot) => {
+                    if (querySnapshot.size === 1) {
+                        const journalRef = querySnapshot.docs[0].ref;
+                        console.log("journal found:", journalRef); // Log after successful query
+
+                        return deleteDoc(journalRef);
+                    } else {
+                        console.log("journal not found with the provided ID:", journalId);
+                    }
+                })
+                .then(() => {
+                    // Update UI after successful deletion
+                    setJournalData(journalData.filter((item) => item.id !== journalId));
+                })
+                .catch((error) => {
+                    console.error("Error deleting journal", error);
+                });
         } catch (error) {
-          console.error("Error deleting journal:", error);
+            console.error("Error deleting journal", error)
         }
-      }
+    }
 
     return (
         <div className='flex flex-col justify-center align-middle items-center w-full pb-10'>
             {journalData.map((publicationItem, index) => (
-                <div 
-                key={index}
-                className='py-5'
+                <div
+                    key={index}
+                    className='py-5'
                 >
                     {/* Title */}
-                    <Link 
-                    className='font-bold text-lg md:text-xl'
-                    href={publicationItem?.pdf}
+                    <Link
+                        className='font-bold text-lg md:text-xl'
+                        href={publicationItem?.pdf}
                     >
                         {publicationItem?.title}
                     </Link>
@@ -107,8 +123,8 @@ const JournalList = () => {
                     {/* Links */}
                     <div className='w-full pt-8'>
                         <Button
-                        variant={'destructive'}
-                        onClick={() => handleDelete(publicationItem)}
+                            variant={'destructive'}
+                            onClick={() => handleDeleteJournal(publicationItem?.id)}
                         >
                             Delete
                         </Button>

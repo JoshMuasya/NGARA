@@ -59,7 +59,7 @@ const PublicationsList = () => {
     const handleDeletePublication = async (publicationId: string) => {
         console.log(publicationId)
         try {
-            const publicationQuery = query(collection(db, "Publication"), where("id", "==", publicationId))
+            const publicationQuery = query(collection(db, "Publications"), where("id", "==", publicationId))
 
             await getDocs(publicationQuery)
                 .then((querySnapshot) => {
@@ -124,7 +124,7 @@ const PublicationsList = () => {
                     <div className='w-full pt-8'>
                         <Button
                             variant={'destructive'}
-                            onClick={() => handleDeletePublication(publicationItem.id)}
+                            onClick={() => handleDeletePublication(publicationItem?.id)}
                         >
                             Delete
                         </Button>

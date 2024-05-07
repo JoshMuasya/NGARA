@@ -4,7 +4,7 @@ import { ArrowDown } from 'lucide-react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Button, buttonVariants } from './ui/button'
-import { collection, deleteDoc, doc, getDocs, orderBy, query } from 'firebase/firestore'
+import { collection, deleteDoc, doc, getDocs, orderBy, query, where } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
 interface Props {
@@ -43,23 +43,39 @@ const GalleryList = () => {
         fetchData()
     }, [])
 
-    const handleDelete = async (galleryItem: Props) => {
+    const handleDeleteGallery = async (galleryId: string) => {
+        console.log(galleryId)
         try {
-          const galleryRef = doc(db, "Gallery", galleryItem.id); // Assuming you have an "id" field in each blog document
-          await deleteDoc(galleryRef);
-    
-          // Update the blogData state to reflect the deletion
-          setGalleryData(galleryData.filter((item) => item.id !== galleryItem.id)); // Assuming "id" field for filtering
+            const galleryQuery = query(collection(db, "Gallery"), where("id", "==", galleryId))
+
+            await getDocs(galleryQuery)
+                .then((querySnapshot) => {
+                    if (querySnapshot.size === 1) {
+                        const galleryRef = querySnapshot.docs[0].ref;
+                        console.log("gallery found:", galleryRef); // Log after successful query
+
+                        return deleteDoc(galleryRef);
+                    } else {
+                        console.log("gallery not found with the provided ID:", galleryId);
+                    }
+                })
+                .then(() => {
+                    // Update UI after successful deletion
+                    setGalleryData(galleryData.filter((item) => item.id !== galleryId));
+                })
+                .catch((error) => {
+                    console.error("Error deleting gallery", error);
+                });
         } catch (error) {
-          console.error("Error deleting Image:", error);
+            console.error("Error deleting gallery", error)
         }
-      }
+    }
 
     return (
         <div className='flex flex-row flex-wrap justify-center align-middle items-center w-full'>
             {galleryData.map((galleryItem, index) => (
                 <div key={index}
-                    className='flex flex-col justify-center items-center align-middle px-5'
+                    className='flex flex-col justify-center items-center align-middle px-5 pt-5'
                 >
                     {/* Image */}
                     <div>
@@ -76,8 +92,8 @@ const GalleryList = () => {
                     {/* Button */}
                     <div className='w-full pt-8'>
                         <Button
-                        variant={'destructive'}
-                        onClick={() => handleDelete(galleryItem)}
+                            variant={'destructive'}
+                            onClick={() => handleDeleteGallery(galleryItem?.id)}
                         >
                             Delete
                         </Button>

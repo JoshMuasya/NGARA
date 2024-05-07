@@ -4,7 +4,7 @@ import { ArrowDown } from 'lucide-react'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { Button, buttonVariants } from './ui/button'
-import { collection, deleteDoc, doc, getDocs, query } from 'firebase/firestore'
+import { collection, deleteDoc, doc, getDocs, query, where } from 'firebase/firestore'
 import { db } from '@/lib/firebase'
 
 interface Props {
@@ -57,17 +57,33 @@ const EventsList = () => {
         return date.toLocaleDateString('en-US', options);
     }
 
-    const handleDelete = async (eventItem: Props) => {
+    const handleDeleteEvent = async (eventId: string) => {
+        console.log(eventId)
         try {
-          const eventRef = doc(db, "Events", eventItem.id); // Assuming you have an "id" field in each blog document
-          await deleteDoc(eventRef);
-    
-          // Update the blogData state to reflect the deletion
-          setEventData(eventData.filter((item) => item.id !== eventItem.id)); // Assuming "id" field for filtering
+            const eventQuery = query(collection(db, "Events"), where("id", "==", eventId))
+
+            await getDocs(eventQuery)
+                .then((querySnapshot) => {
+                    if (querySnapshot.size === 1) {
+                        const eventRef = querySnapshot.docs[0].ref;
+                        console.log("event found:", eventRef); // Log after successful query
+
+                        return deleteDoc(eventRef);
+                    } else {
+                        console.log("event not found with the provided ID:", eventId);
+                    }
+                })
+                .then(() => {
+                    // Update UI after successful deletion
+                    setEventData(eventData.filter((item) => item.id !== eventId));
+                })
+                .catch((error) => {
+                    console.error("Error deleting event", error);
+                });
         } catch (error) {
-          console.error("Error deleting blog:", error);
+            console.error("Error deleting event", error)
         }
-      }
+    }
 
     return (
         <div className='flex flex-col justify-center align-middle items-center w-full'>
@@ -119,8 +135,8 @@ const EventsList = () => {
                     {/* Links */}
                     <div className='w-full pt-8'>
                         <Button
-                        variant={'destructive'}
-                        onClick={() => handleDelete(eventItem)}
+                            variant={'destructive'}
+                            onClick={() => handleDeleteEvent(eventItem?.id)}
                         >
                             Delete
                         </Button>
