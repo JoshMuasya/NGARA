@@ -1,6 +1,7 @@
 'use client'
 
 import Publication from '@/components/Publication'
+import { Skeleton } from '@/components/ui/skeleton'
 import { db } from '@/lib/firebase'
 import { collection, getDocs, orderBy, query } from 'firebase/firestore'
 import React, { useEffect, useState } from 'react'
@@ -99,7 +100,7 @@ const PublicationsPage = () => {
     }
 
     return (
-        <div className='pt-20 px-5 pb-10 '>
+        <div className='pt-24 px-5 pb-10 '>
             {/* Title */}
             <h1 className='text-primary font-bold text-3xl text-center pb-5'>
                 PUBLICATIONS BY NGARA
@@ -150,7 +151,14 @@ const PublicationsPage = () => {
                     </div>
                 )}
 
-                {isLoading && <p>Loading publications...</p>}
+                {isLoading && publicationsToShow.length < 1 && (
+                    <div className='w-full'>
+                        <Skeleton className='h-6 w-full pb-3' />
+                        <Skeleton className='h-6 w-full pb-3' />
+                        <Skeleton className='h-6 w-full pb-3' />
+                        <Skeleton className='h-6 w-full pb-3' />
+                    </div>
+                )}
             </div>
         </div>
     )
