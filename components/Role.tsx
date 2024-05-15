@@ -1,9 +1,10 @@
 import React from 'react'
 import { Card, CardContent } from './ui/card'
+import AfricaMap from './Map'
 
 const Role = () => {
     return (
-        <div className='pb-14 px-5 flex flex-col md:flex-row justify-center align-middle items-center pt-10 w-full'>
+        <div className='pb-14 px-5 flex flex-col md:flex-row justify-around align-middle items-center pt-10 w-full '>
             {/* Left */}
             <div className='flex flex-col justify-center items-center align-middle md:w-1/2 pr-10'>
                 {/* Heading */}
@@ -20,9 +21,8 @@ const Role = () => {
             {/* Right */}
             <div className='pt-3 md:pt-0'>
                 <Card className="h-1/4 rounded-3xl p-2">
-                    <CardContent>
-                        <img src="/africa.jpg" alt="Gum Picture" className="object-cover"
-                        style={{ height: '300px' }}/>
+                    <CardContent className='w-full p-3'>
+                        <AfricaMap />
                     </CardContent>
                 </Card>
             </div>
