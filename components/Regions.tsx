@@ -190,16 +190,16 @@ const Regions = () => {
   return (
     <div className='flex pt-24 pb-10 flex-col justify-center items-center align-middle px-5 w-full h-full'>
       <h1 className='text-primary font-bold text-3xl text-center pb-5'>
-        ROLE OF NGARA IN THE REGION
+        ROLE OF NEFEA IN THE REGION
       </h1>
 
       <h2 className='font-bold text-2xl text-center pb-5'>
-        NGARA has implemented projects with partners at the country level and regionally.
+        NEFEA has implemented projects with partners at the country level and regionally.
       </h2>
 
       <div className='w-full py-5'>
         <p className='text-center'>
-          NGARA is playing an increasingly important role in encouraging the exchange of information on gum and resin production and trade; training; technology transfer; the assessment of resources and their sustainable use; enhancing the capacities of stakeholders in member countries; and harnessing the efficient use of available resources by strengthening synergies. The establishment of NGARA was a significant step in the development of the commercial gums and resins sector in African dry-lands as a way of increasing food security, assisting rural development and alleviating poverty.
+          NEFEA is playing an increasingly important role in encouraging the exchange of information on gum and resin production and trade; training; technology transfer; the assessment of resources and their sustainable use; enhancing the capacities of stakeholders in member countries; and harnessing the efficient use of available resources by strengthening synergies. The establishment of NEFEA was a significant step in the development of the commercial gums and resins sector in African dry-lands as a way of increasing food security, assisting rural development and alleviating poverty.
         </p>
       </div>
 
@@ -255,7 +255,7 @@ const Regions = () => {
 
         {/* Right */}
         <div className='flex flex-col justify-center items-center align-middle h-full md:w-4/5 w-full'>
-          {publicationsData.length > 0 && (
+          {publicationsData && (
             <Region
               countryname={selectedCountry}
               cname={countryData ? countryData?.cname : ''}

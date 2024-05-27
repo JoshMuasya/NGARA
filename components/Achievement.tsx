@@ -11,7 +11,7 @@ const Achievement = () => {
                 <div className='md:w-1/3 w-full'>
                     {/* Title */}
                     <h3 className='text-primary font-lg'>
-                        <span className='font-bold text-2xl text-accent'>NGARA’s Impact:</span>
+                        <span className='font-bold text-2xl text-accent'>NEFEA’s Impact:</span>
                         Transforming
                         African communities through
                         sustainable gum and resin
@@ -20,7 +20,7 @@ const Achievement = () => {
 
                     {/* content */}
                     <p>
-                        NGARA has achieved significant milestones in promoting
+                        NEFEA has achieved significant milestones in promoting
                         the sustainable production of natural gums and resins in Africa.
                         Through our collaborative efforts with local communities,
                         we have created economic opportunites, preserved biodiversity,

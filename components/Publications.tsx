@@ -108,7 +108,7 @@ const Publications = () => {
                 <CardContent>
                     {/* Title */}
                     <h1 className='text-primary font-bold text-xl md:text-3xl text-center pb-5 pt-3'>
-                        RECENT PUBLICATIONS BY NGARA
+                        RECENT PUBLICATIONS BY NEFEA
                     </h1>
 
                     {/* Subtitle */}

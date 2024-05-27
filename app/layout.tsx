@@ -8,8 +8,8 @@ import BackTop from "@/components/BackTop";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "NGARA",
-  description: "Natural Gums and Resins in Africa",
+  title: "NEFEA",
+  description: "Network on Forest Enterprises in Africa",
 };
 
 export default function RootLayout({
