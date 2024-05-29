@@ -25,6 +25,11 @@ export function NavbarDropdown() {
         setOpen(!open);
     }
 
+    const downloadPDF = () => {
+        const pdfUrl = "../../public/NGARA-CONSTITUTION.pdf";
+        window.location.assign(pdfUrl);
+    }
+
     return (
         <div>
             <DropdownMenu>
@@ -42,10 +47,6 @@ export function NavbarDropdown() {
                 {open && (
                     <DropdownMenuContent className="w-56">
                         <DropdownMenuLabel>
-                            <Link href='/about/constitution' onClick={handleClick}>The Constitution</Link>
-                        </DropdownMenuLabel>
-                        <DropdownMenuSeparator />
-                        <DropdownMenuLabel>
                             <Link href='/about/vision' onClick={handleClick}>Mission and Vision</Link>
                         </DropdownMenuLabel>
                         <DropdownMenuSeparator />
@@ -57,6 +58,9 @@ export function NavbarDropdown() {
                             <Link href='/about/board' onClick={handleClick}>The Executive Board</Link>
                         </DropdownMenuLabel>
                         <DropdownMenuSeparator />
+                        <DropdownMenuLabel>
+                            <Button onClick={downloadPDF}>The Constitution</Button>
+                        </DropdownMenuLabel>
                     </DropdownMenuContent>
                 )}
 

@@ -14,6 +14,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Button } from './ui/button'
 import NavDropdownMenu from './Dropdown'
+import { storage } from '@/lib/firebase'
+import { getDownloadURL, ref } from 'firebase/storage'
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false)
@@ -22,6 +24,18 @@ const Navbar = () => {
 
     const handleClick = () => {
         setIsOpen(false)
+    }
+
+    const downloadPDF = async () => {
+        try {
+            const pdfRef = ref(storage, 'constitution/NEFEA CONSTITUTION - Final and in PDF (1).pdf')
+            const downloadURL = await getDownloadURL(pdfRef);
+            window.open(downloadURL, '_blank');
+            return downloadURL;
+        } catch (error) {
+            console.error('Error getting PDF from storage:', error);
+            return null; // Or throw an error if needed
+          }
     }
 
     const handleMouseEnter = () => setDropdownOpen(true)
@@ -69,15 +83,7 @@ const Navbar = () => {
                                         </h1>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent className="w-40">
-                                        <DropdownMenuItem>
-                                            <Link
-                                                href='/about/constitution'
-                                                className='hover:italic hover:text-primary px-4 font-semibold'
-                                                onClick={handleClick}
-                                            >
-                                                The Constitution
-                                            </Link>
-                                        </DropdownMenuItem>
+                                        
                                         <DropdownMenuItem>
                                             <Link
                                                 href='/about/vision'
@@ -103,6 +109,15 @@ const Navbar = () => {
                                                 onClick={handleClick}
                                             >
                                                 The Executive Board
+                                            </Link>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Link
+                                                href='#'
+                                                onClick={downloadPDF}
+                                                className='hover:italic hover:text-primary px-4 font-semibold'
+                                            >
+                                                The Constitution
                                             </Link>
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
@@ -209,12 +224,6 @@ const Navbar = () => {
                         About Us
                         {dropdownOpen && (
                             <ul className="w-56 bg-white rounded-md shadow-sm absolute top-5 left-0">
-                                <Link href='/about/constitution'>
-                                    <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
-                                        The Constitution
-                                    </li>
-                                </Link>
-
                                 <Link href='/about/vision'>
                                     <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
                                         Mission and Vision
@@ -233,6 +242,14 @@ const Navbar = () => {
                                     </li>
                                 </Link>
 
+                                <Link 
+                                href='#'
+                                onClick={downloadPDF}
+                                >
+                                    <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
+                                        The Constitution
+                                    </li>
+                                </Link>
                             </ul>
                         )}
                     </div>
