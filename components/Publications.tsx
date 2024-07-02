@@ -103,8 +103,8 @@ const Publications = () => {
     }, [])
 
     return (
-        <div className='py-5 w-full back-pic px-5'>
-            <Card className='w-full rounded-xl flex flex-col justify-center align-middle items-center'>
+        <div className='py-5 w-full back-pic px-5 flex flex-col items-center align-middle justify-center'>
+            <Card className='w-3/5 rounded-xl flex flex-col justify-center align-middle items-center'>
                 <CardContent>
                     {/* Title */}
                     <h1 className='text-primary font-bold text-xl md:text-3xl text-center pb-5 pt-3'>
@@ -116,49 +116,49 @@ const Publications = () => {
                         Stay updated with our latest publications
                     </h6>
                 </CardContent>
+
+                {/* Details */}
+                <div className='pb-5 flex flex-row flex-wrap justify-around items-start align-middle w-full pt-5'>
+                    <Card className="w-4/5 border-none">
+                        <CardContent className="w-full h-full pt-2 flex flex-col justify-start items-start align-middle">
+                            {/* Title */}
+                            <Link
+                                href='/publications'
+                                className='text-primary font-bold text-lg md:text-2xl text-center'>
+                                Recent Publications
+                            </Link >
+
+                            {/* List */}
+                            {recentPublications.map((publication, index) => (
+                                <div
+                                    key={index}
+                                    className='flex flex-col justify-center align-middle items-center py-2'>
+                                    {/* Title */}
+                                    <Link
+                                        href={publication?.pdf}
+                                        className='font-bold text-primary text-base hover:underline'
+                                    >
+                                        {publication?.title}
+                                    </Link>
+
+                                    {/* Author */}
+                                    <h3
+                                        className='text-sm'
+                                    >
+                                        {publication?.author}
+                                    </h3>
+
+                                    {/* Abstract */}
+                                    <p>
+                                        {publication?.abstract}
+                                    </p>
+
+                                </div>
+                            ))}
+                        </CardContent>
+                    </Card>
+                </div>
             </Card>
-
-            {/* Details */}
-            <div className='pb-5 flex flex-row flex-wrap justify-around items-start align-middle w-full pt-5'>
-                <Card className="w-4/5 border-none">
-                    <CardContent className="w-full h-full pt-2 flex flex-col justify-start items-start align-middle">
-                        {/* Title */}
-                        <Link
-                            href='/publications'
-                            className='text-primary font-bold text-lg md:text-2xl text-center'>
-                            Recent Publications
-                        </Link >
-
-                        {/* List */}
-                        {recentPublications.map((publication, index) => (
-                            <div
-                                key={index}
-                                className='flex flex-col justify-center align-middle items-center py-2'>
-                                {/* Title */}
-                                <Link
-                                    href={publication?.pdf}
-                                    className='font-bold text-primary text-base hover:underline'
-                                >
-                                    {publication?.title}
-                                </Link>
-
-                                {/* Author */}
-                                <h3
-                                    className='text-sm'
-                                >
-                                    {publication?.author}
-                                </h3>
-
-                                {/* Abstract */}
-                                <p>
-                                    {publication?.abstract}
-                                </p>
-
-                            </div>
-                        ))}
-                    </CardContent>
-                </Card>
-            </div>
         </div>
     )
 }

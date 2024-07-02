@@ -120,16 +120,16 @@ const AboutSection = () => {
             </div>
 
             {/* Main Objectives */}
-            <div>
+            <div className='pt-14'>
                 {/* Title */}
-                <h1 className='font-bold text-xl md:text-2xl p-3'>
+                <h1 className='font-bold text-xl md:text-2xl pt-12 pb-3 px-3'>
                     NEFEA has four main objectives
                 </h1>
             </div>
 
             {/* Cards */}
             <div className='flex flex-row flex-wrap justify-around align-middle items-start w-full'>
-                <Card className='mx-2 my-3 w-52'>
+                <Card className='mx-1 my-3 w-1/3 md:w-1/5 h-[420px] md:h-[368px] lg:h-[320px]'>
                     <CardContent>
                         <div className='flex flex-col justify-center align-middle items-center py-2'>
                             {/* Icon */}
@@ -151,7 +151,7 @@ const AboutSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card className='mx-2 my-3 w-52'>
+                <Card className='mx-1 my-3 w-1/3 md:w-1/5 h-[420px] md:h-[368px] lg:h-[320px]'>
                     <CardContent>
                         <div className='flex flex-col justify-center align-middle items-center py-2'>
                             {/* Icon */}
@@ -173,7 +173,7 @@ const AboutSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card className='mx-2 my-3 w-52'>
+                <Card className='mx-1 my-3 w-1/3 md:w-1/5 h-[420px] md:h-[368px] lg:h-[320px]'>
                     <CardContent>
                         <div className='flex flex-col justify-center align-middle items-center py-2'>
                             {/* Icon */}
@@ -195,7 +195,7 @@ const AboutSection = () => {
                     </CardContent>
                 </Card>
 
-                <Card className='mx-2 my-3 w-52'>
+                <Card className='mx-1 my-3 w-1/3 md:w-1/5 h-[420px] md:h-[368px] lg:h-[320px]'>
                     <CardContent>
                         <div className='flex flex-col justify-center align-middle items-center py-2'>
                             {/* Icon */}
@@ -219,7 +219,7 @@ const AboutSection = () => {
             </div>
 
             {/* Gums */}
-            <div className='flex flex-row flex-wrap justify-around items-center md:items-start align-middle w-full pt-5'>
+            <div className='flex flex-row flex-wrap justify-around items-center md:items-start align-middle w-full pt-12'>
                 <div className='flex flex-col justify-center align-middle items-center md:w-1/2 w-full md:pr-5'>
                     {/* Title */}
                     <h1 className='font-bold text-xl md:text-2xl p-3'>
