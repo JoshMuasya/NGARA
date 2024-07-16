@@ -54,8 +54,8 @@ export function HomeCarousel() {
     ]
 
     return (
-        <div>
-            <Carousel setApi={setApi} className="w-full max-w-lg py-3">
+        <div className="flex justify-center align-middle">
+            <Carousel setApi={setApi} className="lg:w-full md:w-1/2 w-full max-w-lg py-3">
                 <CarouselContent>
                     {Images.map((image, index) => (
                         <CarouselItem key={index}>

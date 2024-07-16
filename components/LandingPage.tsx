@@ -6,15 +6,15 @@ import { HomeCarousel } from './HomeCarousel'
 
 const LandingPage = () => {
     return (
-        <div className='flex flex-col md:flex-row justify-center md:justify-around align-middle items-start w-full h-full md:px-5 pt-8 pb-5 px-3'
+        <div className='flex flex-col-reverse lg:flex-row justify-center md:justify-around align-middle items-start w-full h-full md:px-5 pt-8 pb-5 px-3'
         id='home'>
             {/* Left */}
-            <div className='md:w-1/2 bg-ring bg-gradient-to-r from-primary to-ring hover:bg-primary flex flex-row justify-center items-center align-middle rounded-xl'>
+            <div className='lg:w-1/2 w-full bg-ring bg-gradient-to-r from-primary to-ring hover:bg-primary flex flex-row justify-center items-center align-middle rounded-xl mt-10 lg:mt-0'>
                 <HomeCarousel />
             </div>
 
             {/* Right */}
-            <div className='md:w-1/2 flex flex-col justify-center items-center align-middle pt-5 md:pl-7'>
+            <div className='lg:w-1/2 w-full flex flex-col justify-center items-center align-middle pt-5 lg:pl-7'>
                 {/* Title */}
                 <h2 className='text-4xl font-bold text-center pb-4'>
                     Network on Forest Enterprises in Africa (NEFEA)
