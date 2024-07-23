@@ -10,7 +10,6 @@ export default function Home() {
     <main className="flex flex-col justify-center items-center align-middle pt-20 w-full">
       <LandingPage />
       <Publications />
-      <Blogs />
       <Achievement />
       <Role />
       <Partners />
