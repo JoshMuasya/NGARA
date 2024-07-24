@@ -33,24 +33,29 @@ export function HomeCarousel() {
     const Images = [
         {
             id: 1,
-            image: '/gum.jpg',
-            text: 'Gum 1'
+            image: '/boswella.jpg',
+            text: 'Boswelia neglecta Kenya'
         },
         {
             id: 2,
-            image: '/gum 1.jpeg',
-            text: 'Gum 2'
+            image: '/women.jpg',
+            text: 'Women cleaning Gum Arabic in Somali land'
         },
         {
             id: 3,
-            image: '/gum2.jpg',
-            text: 'Gum 2'
+            image: '/cleaned.jpg',
+            text: 'Woman and children cleaning Gum Arabic in Niger'
         },
         {
             id: 4,
-            image: '/gum 3.jpg',
-            text: 'Gum 3'
+            image: '/team.jpg',
+            text: 'The NEFEA team with President Yoweri Museveni in Uganda'
         },
+        {
+            id: 5,
+            image: '/arabic.jpg',
+            text: 'Cleaned Gum Arabic in Niger'
+        }
     ]
 
     return (
