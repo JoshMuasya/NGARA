@@ -77,7 +77,7 @@ const PublicationsPage = () => {
     }, [publicationData])
 
     const handleShowRecentPublications = () => {
-        const recentPublications = publicationData.slice(0, 3); // Get the first 3 elements (most recent)
+        const recentPublications = publicationData.slice(0, 4); // Get the first 3 elements (most recent)
         setPublicationsToShow(recentPublications);
         setActivePublication("recent");
         console.log(publicationsToShow)
@@ -103,7 +103,7 @@ const PublicationsPage = () => {
         <div className='pt-24 px-5 pb-10 '>
             {/* Title */}
             <h1 className='text-primary font-bold text-3xl text-center pb-5'>
-                PUBLICATIONS BY NGARA
+                PUBLICATIONS
             </h1>
 
             {/* Subtitle */}

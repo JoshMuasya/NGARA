@@ -26,12 +26,16 @@ const Achievement = () => {
                         we have created economic opportunites, preserved biodiversity,
                         and supported the livelihoods of thousands of people.
                     </p>
+
+                    <p className='pt-5'>
+                    NEFEA intends to build on the achievements of NGARA by working with communities, companies in the forest sector and governments in enhancing value addition to various forest commodities locally and regionally to high standards for local and international markets 
+                    </p>
                 </div>
 
                 {/* Right */}
-                <div className='md:w-1/3 pt-5 md:pl-5 md:pt-0 pl:0 w-full'>
+                {/* <div className='md:w-1/3 pt-5 md:pl-5 md:pt-0 pl:0 w-full'>
                     <AchievementCard />
-                </div>
+                </div> */}
 
             </div>
         </div>

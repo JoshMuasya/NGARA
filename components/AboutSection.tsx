@@ -17,7 +17,7 @@ const AboutSection = () => {
                         content='The NEFEA vision is to position African producer
                 countries and partners as major global players in
                 the sustainable production, processing and
-                marketing of gums and resins.'
+                marketing of forest commodities.'
                     />
                 </Link>
 
@@ -42,7 +42,7 @@ const AboutSection = () => {
                         title='OBJECTIVES'
                         content={
                             <ul style={{ listStyleType: 'disc', paddingLeft: '20px' }}>
-                                <li>To promote the exchange of information on the production, marketing, processing, and quality control of gums and resins in producer countries and with partners.</li>
+                                <li>To promote the exchange of information on the production, marketing, processing, and quality control of forest resources and commodities in producer countries and with partners.</li>
                                 <li>To facilitate access to technological development and training.</li>
                                 <li>To support relevant research in the key areas of the sector.</li>
                                 <li>To promote links between primary producers, processors, and end users.</li>
@@ -94,9 +94,9 @@ const AboutSection = () => {
 
                         {/* Paragraph */}
                         <p className='pt-3 text-justify'>
-                            Networ on Forest Enterprises in Africa (NEFEA) is a Pan African organization assisting African producing countries and partners formulate a coordinated strategy for the sustainable development of their natural gums, resins and allied dryland resources, for improving rural livelihood and environmental conservation. The organization focuses more on enhancing value chains for improving rural livelihood and environmental conservation.
+                            Networ on Forest Enterprises in Africa (NEFEA) is a Pan African organization assisting African producing countries and partners formulate a coordinated strategy for the sustainable development of their forest/tree resources and commodities and allied dryland resources, for improving rural livelihood and environmental conservation. The organization focuses more on enhancing value chains for improving rural livelihood and environmental conservation.
 
-                            The mission of NEFEA is to position African producer countries and partners as major global players in the production, processing and marketing of gums, resins and allied tree based commodities from the drylands of Sub Saharan Africa.
+                            The mission of NEFEA is to position African producer countries and partners as major global players in the production, processing and marketing of forest/tree based resources and commodities and allied tree based commodities from the drylands of Sub Saharan Africa.
                         </p>
                     </div>
 
@@ -112,7 +112,7 @@ const AboutSection = () => {
 
                         {/* Paragraph */}
                         <p className='pt-3 text-justify'>
-                            NEFEA brings together a broad set of stakeholders – farmers, collectors, traders, governments, non governmental organizations, exporters and importers – with a common desire to improve the production and quality of locally produced gums and resins for domestic, regional and global markets. NGARA has 16 member countries (Map below), and it aims to also bring on board other countries in Africa with gum and resin resources.
+                            NEFEA brings together a broad set of stakeholders – farmers, collectors, traders, governments, non governmental organizations, exporters and importers – with a common desire to improve the production and quality of locally produced gums and resins for domestic, regional and global markets. NGARA has 16 member countries (Map below), and it aims to also bring on board other countries in Africa with forest/tree based commodities for resources.
                         </p>
                     </div>
 
@@ -216,26 +216,6 @@ const AboutSection = () => {
                         </div>
                     </CardContent>
                 </Card>
-            </div>
-
-            {/* Gums */}
-            <div className='flex flex-row flex-wrap justify-around items-center md:items-start align-middle w-full pt-12'>
-                <div className='flex flex-col justify-center align-middle items-center md:w-1/2 w-full md:pr-5'>
-                    {/* Title */}
-                    <h1 className='font-bold text-xl md:text-2xl p-3'>
-                        The Gums
-                    </h1>
-
-                    <p className='text-justify'>
-                        Commercial gum resins – myrrh, frankincense and hagar – are also known as oleo gum resins; they contain an essential oil component, a water-soluble gum and an alcohol-soluble resin.
-                    </p>
-                </div>
-
-                {/* Image */}
-                <div className='md:w-1/3 w-full md:pl-5 pl-0 md:pt-5 pt-0'>
-                    <img src="/gum 2.jpg" alt="Gums" />
-                </div>
-
             </div>
         </div>
     )
