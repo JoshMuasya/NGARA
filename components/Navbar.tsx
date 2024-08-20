@@ -113,8 +113,7 @@ const Navbar = () => {
                                         </DropdownMenuItem>
                                         <DropdownMenuItem>
                                             <Link
-                                                href='#'
-                                                onClick={downloadPDF}
+                                                href='/about/constitution'
                                                 className='hover:italic hover:text-primary px-4 font-semibold'
                                             >
                                                 The Constitution
@@ -243,8 +242,7 @@ const Navbar = () => {
                                 </Link>
 
                                 <Link 
-                                href='#'
-                                onClick={downloadPDF}
+                                href='/about/constitution'
                                 >
                                     <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
                                         The Constitution

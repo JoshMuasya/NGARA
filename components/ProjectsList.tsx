@@ -83,7 +83,7 @@ const ProjectsList = () => {
     }
 
     return (
-        <div className='flex flex-col justify-center align-middle items-center w-full'>
+        <div className='flex flex-col justify-center align-middle items-start w-full'>
             {projectData.map((projectItem, index) => (
                 <div key={index}
                     className='pb-10'

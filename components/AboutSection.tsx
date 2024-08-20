@@ -17,7 +17,7 @@ const AboutSection = () => {
                         content='The NEFEA vision is to position African producer
                 countries and partners as major global players in
                 the sustainable production, processing and
-                marketing of forest commodities.'
+                marketing of forest commodities and products.'
                     />
                 </Link>
 
@@ -29,7 +29,7 @@ const AboutSection = () => {
                         content='The NEFEA mission is to assist African producer countries
                 and partners to formulate and implement a coordinated
                 strategy for the sustainable development of their natural
-                gum and resin resources to improve rural livelihoods and
+                forest resources to improve rural livelihoods and
                 increase resilience to climate change and desertification.
                 '
                     />
@@ -94,9 +94,7 @@ const AboutSection = () => {
 
                         {/* Paragraph */}
                         <p className='pt-3 text-justify'>
-                            Networ on Forest Enterprises in Africa (NEFEA) is a Pan African organization assisting African producing countries and partners formulate a coordinated strategy for the sustainable development of their forest/tree resources and commodities and allied dryland resources, for improving rural livelihood and environmental conservation. The organization focuses more on enhancing value chains for improving rural livelihood and environmental conservation.
-
-                            The mission of NEFEA is to position African producer countries and partners as major global players in the production, processing and marketing of forest/tree based resources and commodities and allied tree based commodities from the drylands of Sub Saharan Africa.
+                            Networ on Forest Enterprises in Africa (NEFEA) is a Pan African organization assisting African producing countries and partners formulate a coordinated strategy for the sustainable development of their forest/tree resources and commodities, for improving rural livelihood and environmental conservation. The organization focuses more on enhancing value chains for improving rural livelihood and environmental conservation.
                         </p>
                     </div>
 
@@ -112,7 +110,7 @@ const AboutSection = () => {
 
                         {/* Paragraph */}
                         <p className='pt-3 text-justify'>
-                            NEFEA brings together a broad set of stakeholders – farmers, collectors, traders, governments, non governmental organizations, exporters and importers – with a common desire to improve the production and quality of locally produced gums and resins for domestic, regional and global markets. NGARA has 16 member countries (Map below), and it aims to also bring on board other countries in Africa with forest/tree based commodities for resources.
+                            NEFEA brings together a broad set of stakeholders – farmers, collectors, traders, governments, non governmental organizations, exporters and importers – with a common desire to improve the production and quality of locally produced forest and tree comodities for domestic, regional and global markets. NGARA has 16 member countries (Map below), and it aims to also bring on board other countries in Africa with forest/tree based commodities for resources.
                         </p>
                     </div>
 
