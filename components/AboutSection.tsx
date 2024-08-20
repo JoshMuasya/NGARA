@@ -110,7 +110,7 @@ const AboutSection = () => {
 
                         {/* Paragraph */}
                         <p className='pt-3 text-justify'>
-                            NEFEA brings together a broad set of stakeholders – farmers, collectors, traders, governments, non governmental organizations, exporters and importers – with a common desire to improve the production and quality of locally produced forest and tree comodities for domestic, regional and global markets. NGARA has 16 member countries (Map below), and it aims to also bring on board other countries in Africa with forest/tree based commodities for resources.
+                            NEFEA brings together a broad set of stakeholders – farmers, collectors, traders, governments, non governmental organizations, exporters and importers – with a common desire to improve the production and quality of locally produced forest and tree comodities for domestic, regional and global markets.
                         </p>
                     </div>
 

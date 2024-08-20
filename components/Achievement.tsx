@@ -8,20 +8,20 @@ const Achievement = () => {
             {/* Top */}
             <div className='flex flex-col md:flex-row justify-around items-center align-middle w-full'>
                 {/* Left */}
-                <div className='md:w-1/3 w-full'>
+                <div className='md:w-5/6 w-full'>
                     {/* Title */}
                     <h3 className='text-primary font-lg'>
                         <span className='font-bold text-2xl text-accent'>NEFEA’s Impact:</span>
                         Transforming
                         African communities through
-                        sustainable gum and resin
+                        sustainable forest commodities and products
                         production.
                     </h3>
 
                     {/* content */}
                     <p>
                         NEFEA has achieved significant milestones in promoting
-                        the sustainable production of natural gums and resins in Africa.
+                        the sustainable production of natural forest commodities and products in Africa.
                         Through our collaborative efforts with local communities,
                         we have created economic opportunites, preserved biodiversity,
                         and supported the livelihoods of thousands of people.

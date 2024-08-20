@@ -293,7 +293,415 @@ const Constitution = () => {
 
                 {/* Content */}
                 <p className='text-justify pt-3'>
-                The Board may by two-third resolution remove any member of their body from office, but if such a member should be aggrieved at his removal, he may appeal to the General Meeting to be called for this purpose. In the meantime, he shall cease to act as a member of the Board and to hold any other office under this Network, and members for the time being of the Board may act notwithstanding any vacancy in their body; provided always that in case the members of the Board shall at any time be reduced in number to less than the minimum number prescribed by this constitution, that number shall be the quorum for the purpose of filling up vacancies in their body and of summoning a General Meeting, but not for any other purpose. Provided also that the Board may co-opt any person to advise the Board in any capacity which the Board shall think fit.
+                    The Board may by two-third resolution remove any member of their body from office, but if such a member should be aggrieved at his removal, he may appeal to the General Meeting to be called for this purpose. In the meantime, he shall cease to act as a member of the Board and to hold any other office under this Network, and members for the time being of the Board may act notwithstanding any vacancy in their body; provided always that in case the members of the Board shall at any time be reduced in number to less than the minimum number prescribed by this constitution, that number shall be the quorum for the purpose of filling up vacancies in their body and of summoning a General Meeting, but not for any other purpose. Provided also that the Board may co-opt any person to advise the Board in any capacity which the Board shall think fit.
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-xl font-bold pt-5'>
+                        PART IV – MEETINGS AND QUORUM
+                    </h2>
+                </div>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        4.1 Calling of Meetings of the Board
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(1)</strong> Normal Meetings
+                    All normal meetings of the Board shall be summoned by the Secretary, acting in consultation with the Chairman, by giving at least fifteen (15) days’ notice accompanied by the proposed agenda.<br />
+
+                    <strong>(1)</strong> Requisitioned Meetings
+                    A member of the Board may, and on the request of at least two (2) Committee members, request the Secretary at any time to summon a meeting of the Board by at least twenty-one (21) days of notice served upon the several Committee members, with an indication of the proposed agenda.<br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        4.1 Proceedings of the Board Meetings
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(i)</strong> The quorum for meetings of the Board shall be five (5) members of the Board.<br />
+                    <strong>(ii)</strong> The Board may meet of the dispatch of business, adjourn and otherwise regulate their meetings as they think fit.<br />
+                    <strong>(iii)</strong> Questions arising at any meeting shall be decided by a simple majority of votes. In case of a tie in the number of votes cast on any issue, the Chairman shall have a casting vote.<br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        4.3 Formation of Committees
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(1)</strong> The Board may delegate any of their powers to committees consisting of such members of the Board as they think fit, and any committee so formed shall, in the exercise of the power so delegated, conform to any regulations prescribed by the Board. The meetings and proceedings of any such committee shall be governed by the provisions of this constitution for the time being regulating the meetings and proceedings of the Board so far as applicable and so far as the same shall not be superseded by any rules made by the Board.<br />
+                    <strong>(2)</strong> All acts bona fide done by any meeting of the Board or of any committee of the Board or by any person acting as a member of the Board, shall, notwithstanding that it be afterwards discovered that there was some defect in the appointment or continuance in office of any such member or person acting as aforesaid or that they or any of them were disqualified, be as valid as if every such person had been duly appointed or had duly continued in office and was qualified to be a member of the Board.<br />
+                    <strong>(3)</strong> A resolution in writing signed by not less than two- thirds (2/3) of the members for the time being of the Board or of any committee who are duly entitled to receive notice of a meeting of the Board or of such committees shall be as valid and effectual as if it had been passed at a meeting of the Board or of such committee duly convened and constituted.<br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        4.4 General Meetings
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(1)</strong> There shall be two classes of General Meetings – Annual General Meetings and Extraordinary General Meetings.<br />
+                    <strong>(2)</strong> The Network shall in each year hold a General Meeting as the Annual General Meeting in addition to any other meetings in that year, and shall specify the meeting as such in the notice calling it. Not more than fifteen (15) months shall elapse between the date of the Annual General Meeting of the Network and that of the next. The Annual General Meeting shall be held at such time and place as the Board shall appoint.<br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        4.5 Manner of Convening Extraordinary General Meetings
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(1)</strong> The Board may, whenever it thinks fit, convene an Extraordinary General Meeting for any specific purpose. <br />
+                    <strong>(2)</strong> The Board shall also, on the requisition of not less than one-third (1/3) of the members of the Network, proceed to convene an Extraordinary General Meeting provided that the requisition must state the objects of the meeting and must be signed by the requisitionists and deposited at the office. Notice in writing of such Extraordinary General Meeting shall be sent to all members not less than twenty-one (21) days before the date thereof.<br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        4.6 Notice of General Meetings
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    Twenty-one (21) days’ written notice at least (exclusive of the day on which the notice is served or deemed to be served and of the day for which it is given) and, where practicable, by press advertisement not less than fourteen (14) days before the date of the meeting, specifying the place, the day and the hour of the General Meeting shall, notwithstanding that it is called by shorter notice than that specified in the constitution, be deemed to have been duly called if it is so agreed by all members entitled to attend and vote thereat.
+                    Provided also that the accidental omission to give notice to or the non-receipt of notice of a meeting by any person entitled to receive such notice shall not invalidate the proceedings of those meetings. Such notice shall be accompanied by the annual statement of accounts and the proposed agenda for the meeting.
+
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        4.7 Proceedings at General Meetings
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(1)</strong> All business shall be deemed special that is transacted at an Extraordinary General Meeting and also all that is transacted at an Annual General Meeting with the exception of consideration of the accounts and balance sheets, the reports of the Board and Auditors, the elections of the Board, the appointment of Auditors and the fixing of remunerations of the Auditors.
+                    Provided that no business shall be transacted at any General Meeting unless a quorum of members is present at the time when the meeting proceeds to business. Members present in person or by proxy shall constitute a quorum. The quorum for the General Meetings shall be not less than two-thirds (2/3) of the registered members of the Network.<br />
+                    <strong>(2)</strong> If within half an hour from the time appointed for the meeting a quorum is not present, the meeting, if convened upon the requisition of members shall be dissolved, and in any other case it shall stand adjourned to the same day in the next week at the same time and place and if at such adjourned meeting, the meeting shall then be dissolved.<br />
+                    <strong>(3)</strong> The Chairman, or in his absence an appointed member of the Board, if present shall preside at every General Meeting. If there is no such Chairman at the meeting, the members present shall delegate one of their members to chair the meeting.<br />
+                    <strong>(4)</strong> The chairman of the meeting at which a quorum is present may, with the consent of the meeting adjourn the meeting from time to time and from place but no business shall be transacted at any adjourned meeting other than the business left unfinished. When such adjournments extend to more than thirty (30) days since the original scheduled date of the meeting, notice of the adjournment meeting shall be given as in a case of an original meeting.<br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        4.8 Voting at General Meetings
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(1)</strong> Every member shall have one (1) vote, provided that when any matter affecting a member personally comes before the meeting, although he may be present at it, he shall not be entitled to vote on the question and the Chairman may require him to withdraw during the discussion, and he shall in that case withdraw accordingly. <br />
+                    <strong>(2)</strong> Votes may be presented personally or by proxy provided that the instrument appointing the proxy shall be in writing under the hand of the appointer. The instrument appointing a proxy shall be deposited at the Network’s office not less than forty-eight (48) hours before time of holding any such meeting where the person so appointed intends to act as proxy.<br />
+                    <strong>(3)</strong> At a General Meeting a resolution put to the vote of the meeting shall be decided by a show of hands. A poll may be demanded by two or more members. In case of equality of votes, the Chairman shall be entitled to a casting vote.<br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        4.9 Corporations or Associations Acting by Representatives at Meetings
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    Any corporation or association which is a member may, by resolution of its directors or other governing body or by notification in writing under the hand of some officer of such corporation as may be duly authorized on that behalf, authorize such person as it thinks fit to act as its representative at any meeting of the Network, and the persons so authorized shall be entitled to exercise the same power on behalf of the corporation or association which the person represents as that corporation or association could exercise if it were an individual member of the Network.
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-xl font-bold pt-5'>
+                        PART V – THE SECRETARIAT AND REGIONAL OFFICES
+                    </h2>
+                </div>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        5.1 The Secretariat
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    The Secretariat shall consist of the staff of the Network and shall be headed by the Chief Executive Officer, who shall be subject to the authority of the Board.
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        5.2 Appointment of Secretariat Staff
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(1)</strong> The Chief Executive Officer shall appoint the staff of the Secretariat in accordance with staff rules formulated by the Chief Executive Officer and approved by the Board. Staff selection shall be on the basis of merit, equal opportunity, gender equity and geographic balance, and be without discrimination on grounds of race or creed.
+                    <br />
+                    <strong>(2)</strong> In the performance of their duties, the Chief Executive Officer and the staff shall not seek or receive instructions from any source external to the Network. They shall refrain from any action incompatible with their position as staff members of a regional network. Each member of the Network shall respect the exclusively international character of the responsibilities of the Chief Executive Officer and the staff, and not seek to influence them unduly in the discharge of their responsibilities.
+                    <br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        5.3 Regional Offices
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(1)</strong> There shall be such regional offices as the Secretary with the approval of the Board may decide.
+                    <br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-xl font-bold pt-5'>
+                        PART VI - FUND AND RESOURCE UTILIZATION
+                    </h2>
+                </div>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        6.1 Funds and Assets
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(1)</strong> The Network shall source funds from membership fees and annual subscriptions as determined by the Board; international organizations, donor agencies, non-governmental organizations, private sector, well-wishers and any other source approved by the Board.
+                    <br />
+                    <strong>(2)</strong> The Network shall acquire such assets and utilize its funds as the Board may deem fit in furthering its objectives.
+                    <br />
+                    <strong>(3)</strong> All assets, funds and long-term leases shall be held in the name of the Network. All funds shall be paid to and received by the Treasurer and shall be deposited in the name of the Network in any bank or banks approved by the Board.
+                    <br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        6.2 Application of Funds and Assets
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(1)</strong> The funds and assets of the Network shall be applied solely towards the promotion of the objectives of the Network as set in this constitution. No portion thereof shall be paid or transferred directly or indirectly by way of dividend, gift, bonus or otherwise profit to the member of the Network provided that nothing herein shall prevent payment, in good faith, of proper remuneration to any officer, member or servant of the Network in return for services actually rendered to the Network.
+                    <br />
+                    <strong>(2)</strong> Considering that the Board comprises of professionals in forestry and related areas, they can be asked to perform services for the organization in the areas of their profession and be compensated appropriately, provided proper procurement procedures are followed.
+                    <br />
+                    <strong>(3)</strong> No payments shall be made out of the bank account(s) without a resolution of the Board authorizing such payment and all cheques on such bank account(s) shall be signed by the Treasurer and two other office bearers of the Network as directed by the Board.
+                    <br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        6.3 Disclosure of Interest in Contracts
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    A member of the Board who is in any way whether directly or indirectly interested in a contract or proposed contract with the Network shall disclose the nature of his interest at a meeting of the Board at which the question of entering into contract with the Network is taken into consideration. A member of the Board who has interest may not vote on the matter in which he has declared interest and if he shall do so his vote shall not be counted.
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        6.4 Disposal of Assets
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    If upon the winding up or dissolution of the Network there remains, after satisfaction of all its debts and liabilities, any property whatsoever, the same shall not be paid to or distributed amongst the members to the Network but shall be given or transferred to some other institution or institutions having objectives similar to the objectives of the Network and which shall prohibit the distribution of its or their income and property amongst its or their members to an extent at least as is imposed on the organizations.
+                    Provided that such institution or institutions is/or are to be determined by the members of the Network at or before dissolution, and in default thereof, by a Judge of the High Court of Kenya, and if so far as effect cannot be given to the aforesaid provisions, then to some other charitable objects.
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        6.5 Indemnity of Board Members
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    Every member of the Board and other officers or servants of the Network shall be indemnified against all costs, losses and expenses which such person may incur or become liable by reason of contract, act or thing done in good faith in the capacity aforesaid in any way in the discharge of his duties and the Board may give to any officer or servant of the Network who has incurred or is to incur liability at the request or benefit of the Board such security by way of indemnity as it may think proper.
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        6.6 Members Contribution to Assets on Winding Up
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    Every member of the Network undertakes to contribute to the assets of the Network in the event of its being dissolved or wound up while he is a member, or within one (1) year of his ceasing to be a member, for the payment of the debts and liabilities of the Network contracted before he ceases to be a member, and the cost, charges and expenses of dissolution or winding up and for the adjustments of the rights of the contributories amongst themselves, such sum as may be required.
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        6.7 Accounts
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(1)</strong> It shall be the duty of the Treasurer to cause the accounts to be kept and in particular as regards:<br />
+                    <strong className='pl-8'>(a)</strong> The sums of money received and expended by the Network and the matters in respect of which such receipts and expenditures take place;<br />
+                    <strong className='pl-8'>(b)</strong> The assets and liabilities of the Network.<br />
+                    <br />
+                    <strong>(2)</strong> The books of accounts shall be kept at the office or at such other place as the Board thinks fit and shall always be open to the inspection of the members of the Board during business hours;
+                    <br />
+                    <strong>(3)</strong> At the Annual General Meeting in every year, the Board shall lay before the present a proper income and expenditure account for the period since the last preceding account made up to a date more than nine (9) months before such meeting.
+                    <br />
+                    <strong>(4)</strong> A proper Balance Sheet as at the date on which the income-expenditure account is made up shall be prepared every year, and laid before the members present at the Annual General Meeting. Every such Balance Sheet shall be accompanied by proper reports of the Board and the Auditors.
+                    <br />
+                    <strong>(5)</strong> Copies of the income and expenditure account, Balance Sheet and reports, all of which shall be framed in accordance with any statutory requirements for the time being in force, and of any other documents required by law to be annexed thereto or to accompany the same shall, not less than twenty one (21) clear days before the date of the Annual General Meeting, be sent to the Auditors and to all other persons entitled to receive notices of such meetings in the prescribed manner.
+                    <br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        6.8 Auditors
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    The Network shall at each Annual General Meeting appoint an Auditor or Auditors to hold office until the next Annual General Meeting.  No member of the Board or officer of the Network shall qualify to be appointed as Auditor of the Network. The remuneration of the Auditors shall be fixed at the Annual General Meeting. Auditors shall have a right to see all relevant vouchers and have access to all books and records of the Network. The Auditors shall table their reports at the Annual General Meeting stating if they have obtained all information they require and if the balance sheet of the Network is a true and accurate representation of the state of the Network’s affairs.
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        6.9 Inspection of Books of Accounts and List of Members
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    The books of accounts, list of members and all documents relating thereto shall be open to inspection by the Board of the Network during all business hours and open to any member of the Network by giving not less than seven (7) days’ notice in writing to the Network.
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        6.10 Financial Year
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    The financial year of the Network shall consist of a calendar twelve (12) months beginning on the first day of January until the thirty-first day of December.
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-xl font-bold pt-5'>
+                        PART VII – AMENDMENT TO THE CONSTITUTION
+                    </h2>
+                </div>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        7.1 Amendments
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    Subject to the provisions of Regulation 21(1) of the NGO Regulations (1992), Laws of Kenya, the Network may by way of Special Resolution passed at a General Meeting of the members by votes of two-thirds of the members present alter, amend, modify or repeal this constitution or adopt a new constitution or change the name of the Network provided that no such alteration, amendment, modification, or deletion made shall impair the prohibitions contained in this constitution against distribution of income, property or assets of the Network to the members.
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-xl font-bold pt-5'>
+                        PART VIII – DISSOLUTION AND DISPOSAL OF PROPERTY
+                    </h2>
+                </div>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        8.1 Dissolution
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    <strong>(1)</strong> The Network shall not be dissolved or wound up except by a resolution passed at a General Meeting of the members by votes of two-thirds of the members present. The quorum at such meeting shall be fifty per cent (50%) of all members of the Network. If no quorum is obtained, the proposal to dissolve or wind up the Network shall be submitted to a further next General Meeting which shall be held one (1) month later. Notice of this meeting shall be given to all members of the Network at least fourteen (14) days before the date of the meeting. The quorum of this second meeting shall be the number of members present.
+                    <br />
+                    <strong>(2)</strong> The Network will not be dissolved without prior consent in writing from the Non-Governmental Organizations Co-ordination Board obtained upon a written application addressed to the Executive Director of the Non-Governmental Organizations Co-ordination Board and signed by three (3) of the officials of the Network.
+                    <br />
+                    <strong>(3)</strong> Upon dissolution of the Network, its remaining assets shall be distributed to other organisation(s) with similar objectives.
+                    <br />
+                </p>
+
+                {/* Subtitle */}
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <h2 className='text-lg font-bold pt-5'>
+                        8.2 Disposal of Assets upon Dissolution or Winding Up
+                    </h2>
+                </div>
+
+                {/* Content */}
+                <p className='text-justify pt-3'>
+                    Upon consent obtained from the Non-Governmental Organizations Co-ordination Board to dissolve or wind up, the Network shall satisfy all its debts and liabilities. Any remaining assets and property shall be transferred to another organization(s) with similar objects and which prohibits the distribution of property and assets amongst its members.<br />
+
+                    Dated at …………………….this …… (date)…………………….….Day of (Month & Year)…….…<br />
+
+
+
+
+                    <strong>Chairman</strong><br />
+                    (Name) 	<strong>HRM CHIDUME OKORO</strong>	Signature: _________________________<br />
+
+
+
+                    <strong>Secretary</strong>
+                    (Name) <strong>BEN ELIJAH NANDI CHIKAMAI</strong> 	Signature: _________________________<br />
+                    
+
+                    <strong>Treasurer</strong><br />
+                    (Name) <strong>SHEILA SHEFO MBIRU</strong>	Signature: _________________________<br />
+
+                    <strong>Other Board Members</strong><br />
+                    <strong>(Prof. Godwin Kowero)</strong>	Signature __________________________<br />
+
+                    <strong>(Mr. Maisharou Abdou)</strong>			Signature ___________________________<br />
+
+
                 </p>
             </div>
         </div>
