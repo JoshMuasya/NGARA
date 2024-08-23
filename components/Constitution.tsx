@@ -675,34 +675,40 @@ const Constitution = () => {
                     </h2>
                 </div>
 
-                {/* Content */}
-                <p className='text-justify pt-3'>
-                    Upon consent obtained from the Non-Governmental Organizations Co-ordination Board to dissolve or wind up, the Network shall satisfy all its debts and liabilities. Any remaining assets and property shall be transferred to another organization(s) with similar objects and which prohibits the distribution of property and assets amongst its members.<br />
+                <div className='flex flex-col justify-center align-middle items-center w-full'>
+                    <div  className='flex flex-col justify-center align-middle items-start'>
+                        {/* Content */}
+                        <p className='pt-5'>
+                            Upon consent obtained from the Non-Governmental Organizations Co-ordination Board to dissolve or wind up, the Network shall satisfy all its debts and liabilities. Any remaining assets and property shall be transferred to another organization(s) with similar objects and which prohibits the distribution of property and assets amongst its members.<br />
+                        </p>
 
-                    Dated at …………………….this …… (date)…………………….….Day of (Month & Year)…….…<br />
+                        <p className='pt-7'>
+                            Dated at …………………….this …… (date)…………………….….Day of (Month & Year)…….…<br />
+                        </p>
 
+                        <p className='pt-5'>
+                            <strong>Chairman</strong><br />
+                            (Name) 	<strong>HRM CHIDUME OKORO</strong>	Signature: _________________________<br />
+                        </p>
 
+                        <p className='pt-5'>
+                            <strong>Secretary</strong> <br />
+                            (Name) <strong>BEN ELIJAH NANDI CHIKAMAI</strong> 	Signature: _________________________<br />
+                        </p>
 
+                        <p className='pt-5'>
+                            <strong>Treasurer</strong><br />
+                            (Name) <strong>SHEILA SHEFO MBIRU</strong>	Signature: _________________________<br />
+                        </p>
 
-                    <strong>Chairman</strong><br />
-                    (Name) 	<strong>HRM CHIDUME OKORO</strong>	Signature: _________________________<br />
+                        <p className='pt-5 pb-10'>
+                            <strong>Other Board Members</strong><br />
+                            <strong>(Prof. Godwin Kowero)</strong>	Signature __________________________<br />
 
-
-
-                    <strong>Secretary</strong>
-                    (Name) <strong>BEN ELIJAH NANDI CHIKAMAI</strong> 	Signature: _________________________<br />
-                    
-
-                    <strong>Treasurer</strong><br />
-                    (Name) <strong>SHEILA SHEFO MBIRU</strong>	Signature: _________________________<br />
-
-                    <strong>Other Board Members</strong><br />
-                    <strong>(Prof. Godwin Kowero)</strong>	Signature __________________________<br />
-
-                    <strong>(Mr. Maisharou Abdou)</strong>			Signature ___________________________<br />
-
-
-                </p>
+                            <strong>(Mr. Maisharou Abdou)</strong>			Signature ___________________________<br />
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     )
