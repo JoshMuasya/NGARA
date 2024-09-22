@@ -14,7 +14,7 @@ const Role = () => {
 
                 {/* Paragraph */}
                 <p>
-                    NEFEA is playing an increasingly important role in encouraging the exchange of information on  forest commodities and products production and trade; training; technology transfer; the assessment of resources and their sustainable use; enhancing the capacities of stakeholders in member countries; and harnessing the efficient use of available resources by strengthening synergies. The establishment of NEFEA was a significant step in the development of the commercial forest commodities and products sector in African dry-lands as a way of increasing food security, assisting rural development and alleviating poverty.
+                    NEFEA is playing an increasingly important role in encouraging the exchange of information on  forest commodities and products production and trade; training; technology transfer; the assessment of resources and their sustainable use; enhancing the capacities of stakeholders in member countries; and harnessing the efficient use of available resources by strengthening synergies. The establishment of NEFEA was a significant step in the development of the commercial forest commodities and products sector in Africa as a way of increasing food security, assisting rural development and alleviating poverty.
                 </p>
             </div>
 

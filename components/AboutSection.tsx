@@ -94,7 +94,7 @@ const AboutSection = () => {
 
                         {/* Paragraph */}
                         <p className='pt-3 text-justify'>
-                            Networ on Forest Enterprises in Africa (NEFEA) is a Pan African organization assisting African producing countries and partners formulate a coordinated strategy for the sustainable development of their forest/tree resources and commodities, for improving rural livelihood and environmental conservation. The organization focuses more on enhancing value chains for improving rural livelihood and environmental conservation.
+                            Network on Forest Enterprises in Africa (NEFEA) is a Pan African organization assisting African producing countries and partners formulate a coordinated strategy for the sustainable development of their forest/tree resources and commodities, for improving rural livelihood and environmental conservation. The organization focuses more on enhancing value chains for improving rural livelihood and environmental conservation.
                         </p>
                     </div>
 
@@ -143,7 +143,7 @@ const AboutSection = () => {
                             </h1>
 
                             <p className='text-justify'>
-                                To promote the exchange of information on the production, marketing, processing and quality control of gums and resins in producer countries and with partners
+                                To promote the exchange of information on the production, marketing, processing and quality control of forest commodities and products in producer countries and with partners
                             </p>
                         </div>
                     </CardContent>

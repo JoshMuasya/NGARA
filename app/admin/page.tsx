@@ -63,7 +63,7 @@ const Dashboard = () => {
   return (
     <div className="pt-20 pb-5 w-full">
       <h1 className="text-primary font-bold text-3xl text-center pb-5">
-        Welcome to NGARA Dashboard
+        Welcome to NEFEA Dashboard
       </h1>
 
       {/* Underline */}
