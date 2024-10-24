@@ -18,13 +18,13 @@ interface Props {
 }
 
 const dummyData: Props[] = [
-    //{
-        //title: 'Production',
-        //content: 'The sustainable production and restoration of forest resources and commodities promoted',
-        //src: '/production.png',
-        //alt: 'Production',
-        //href: '/production'
-    //},
+    {
+        title: 'Production',
+        content: 'The sustainable production and restoration of forest resources and commodities promoted',
+        src: '/production.png',
+        alt: 'Production',
+        href: '/production'
+    },
     {
         title: 'Marketing',
         content: 'Marketing and investment of forest resources and commodities enhanced',
