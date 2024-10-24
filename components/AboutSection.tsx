@@ -14,7 +14,7 @@ const AboutSection = () => {
                 >
                     <AboutCard
                         title='OUR VISION'
-                        content='The NEFEA vision is to position African producer
+                        content='To position African producer
                 countries and partners as major global players in
                 the sustainable production, processing and
                 marketing of forest commodities and products.'
@@ -26,7 +26,7 @@ const AboutSection = () => {
                 >
                     <AboutCard
                         title='OUR MISSION'
-                        content='The NEFEA mission is to assist African producer countries
+                        content='To assist African producer countries
                 and partners to formulate and implement a coordinated
                 strategy for the sustainable development of their natural
                 forest resources to improve rural livelihoods and
