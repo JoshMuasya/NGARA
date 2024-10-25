@@ -91,7 +91,7 @@ const Priorities = () => {
 
                         {/* Paragraph */}
                         <p className='pt-3 text-justify'>
-                            Since its establishment in 2000, NEFEA has collaborated with various key partners in the development and implementation of a wide range of projects.
+                            Since its establishment in 2000, NEFEA (rebranded from NGARA) has collaborated with various key partners in the development and implementation of a wide range of projects.
                         </p>
                     </div>
 
