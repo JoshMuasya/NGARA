@@ -207,29 +207,6 @@ const Regions = () => {
         {/* Left */}
         <div className='md:w-1/5 w-full'>
           <Accordion type="single" collapsible className="w-full">
-            {/* SADC */}
-            <AccordionItem value="item-1">
-              <AccordionTrigger className='font-bold text-lg'>SADC</AccordionTrigger>
-              <AccordionContent className="w-full flex flex-row flex-wrap">
-                <div className="flex flex-col w-1/2"> {/* First Column */}
-                  <Button onClick={() => handleCountrySelect('angola')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Angola</Button>
-                  <Button onClick={() => handleCountrySelect('botswana')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Botswana</Button>
-                  <Button onClick={() => handleCountrySelect('lesotho')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Lesotho</Button>
-                  <Button onClick={() => handleCountrySelect('madagascar')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Madagascar</Button>
-                  <Button onClick={() => handleCountrySelect('malawi')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Malawi</Button>
-                  <Button onClick={() => handleCountrySelect('zambia')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Zambia</Button>
-                </div>
-                <div className="flex flex-col w-1/2"> {/* Second Column */}
-                  <Button onClick={() => handleCountrySelect('mozambique')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Mozambique</Button>
-                  <Button onClick={() => handleCountrySelect('namibia')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Namibia</Button>
-                  <Button onClick={() => handleCountrySelect('south africa')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>South Africa</Button>
-                  <Button onClick={() => handleCountrySelect('swaziland')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Swaziland</Button>
-                  <Button onClick={() => handleCountrySelect('zimbabwe')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Zimbabwe</Button>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-
-
             {/* Central Africa */}
             <AccordionItem value="item-2">
               <AccordionTrigger className='font-bold text-lg'>Central Africa</AccordionTrigger>
@@ -271,6 +248,44 @@ const Regions = () => {
               </AccordionContent>
             </AccordionItem>
 
+            {/* Humid West Africa */}
+            <AccordionItem value="item-5">
+              <AccordionTrigger className='font-bold text-lg'>Humid West Africa</AccordionTrigger>
+              <AccordionContent className="w-full flex flex-row flex-wrap">
+                <div className="flex flex-col w-1/2">  {/* First Column */}
+                  <Button onClick={() => handleCountrySelect('benin')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Benin</Button>
+                  <Button onClick={() => handleCountrySelect('cote divoire')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Côte d'Ivoire</Button>
+                  <Button onClick={() => handleCountrySelect('ghana')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Ghana</Button>
+                  <Button onClick={() => handleCountrySelect('liberia')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Liberia</Button>
+                </div>
+                <div className="flex flex-col w-1/2">  {/* Second Column */}
+                  <Button onClick={() => handleCountrySelect('sierra leone')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Sierra Leone</Button>
+                  <Button onClick={() => handleCountrySelect('togo')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Togo</Button>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+
+            {/* SADC */}
+            <AccordionItem value="item-1">
+              <AccordionTrigger className='font-bold text-lg'>SADC</AccordionTrigger>
+              <AccordionContent className="w-full flex flex-row flex-wrap">
+                <div className="flex flex-col w-1/2"> {/* First Column */}
+                  <Button onClick={() => handleCountrySelect('angola')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Angola</Button>
+                  <Button onClick={() => handleCountrySelect('botswana')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Botswana</Button>
+                  <Button onClick={() => handleCountrySelect('lesotho')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Lesotho</Button>
+                  <Button onClick={() => handleCountrySelect('madagascar')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Madagascar</Button>
+                  <Button onClick={() => handleCountrySelect('malawi')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Malawi</Button>
+                  <Button onClick={() => handleCountrySelect('zambia')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Zambia</Button>
+                </div>
+                <div className="flex flex-col w-1/2"> {/* Second Column */}
+                  <Button onClick={() => handleCountrySelect('mozambique')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Mozambique</Button>
+                  <Button onClick={() => handleCountrySelect('namibia')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Namibia</Button>
+                  <Button onClick={() => handleCountrySelect('south africa')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>South Africa</Button>
+                  <Button onClick={() => handleCountrySelect('swaziland')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Swaziland</Button>
+                  <Button onClick={() => handleCountrySelect('zimbabwe')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Zimbabwe</Button>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
 
             {/* West Africa Sahel */}
             <AccordionItem value="item-4">
@@ -291,25 +306,6 @@ const Regions = () => {
                 </div>
               </AccordionContent>
             </AccordionItem>
-
-
-            {/* Humid West Africa */}
-            <AccordionItem value="item-5">
-              <AccordionTrigger className='font-bold text-lg'>Humid West Africa</AccordionTrigger>
-              <AccordionContent className="w-full flex flex-row flex-wrap">
-                <div className="flex flex-col w-1/2">  {/* First Column */}
-                  <Button onClick={() => handleCountrySelect('benin')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Benin</Button>
-                  <Button onClick={() => handleCountrySelect('cote divoire')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Côte d'Ivoire</Button>
-                  <Button onClick={() => handleCountrySelect('ghana')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Ghana</Button>
-                  <Button onClick={() => handleCountrySelect('liberia')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Liberia</Button>
-                </div>
-                <div className="flex flex-col w-1/2">  {/* Second Column */}
-                  <Button onClick={() => handleCountrySelect('sierra leone')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Sierra Leone</Button>
-                  <Button onClick={() => handleCountrySelect('togo')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Togo</Button>
-                </div>
-              </AccordionContent>
-            </AccordionItem>
-
           </Accordion>
 
         </div>
