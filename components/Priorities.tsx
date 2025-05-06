@@ -20,14 +20,14 @@ interface Props {
 const dummyData: Props[] = [
     {
         title: 'Production',
-        content: 'The sustainable production and restoration of gum, resin and allied resources promoted',
+        content: 'The sustainable production and restoration of forest resources and commodities promoted',
         src: '/production.png',
         alt: 'Production',
         href: '/production'
     },
     {
         title: 'Marketing',
-        content: 'Marketing and investment of gum, resin and allied products enhanced',
+        content: 'Marketing and investment of forest resources and commodities enhanced',
         src: '/marketing.png',
         alt: 'Marketing',
         href: '/marketing'
@@ -55,14 +55,14 @@ const dummyData: Props[] = [
     },
     {
         title: 'Coordination strengthening',
-        content: 'To strengthen the coordination of national  and regional activities in support of the gums and resins sector.',
+        content: 'Coordination of national  and regional activities strengthened.',
         src: '/coordination.png',
         alt: 'Coordination strengthening',
         href: '/coordination'
     },
     {
         title: 'Communication, advocacy and visibility enhancement',
-        content: 'To enhance communication among NGARA’s key stakeholders',
+        content: 'To enhance communication among NEFEA\'s key stakeholders strengthened',
         src: '/communication.png',
         alt: 'Communication',
         href: '/communication'
@@ -91,7 +91,7 @@ const Priorities = () => {
 
                         {/* Paragraph */}
                         <p className='pt-3 text-justify'>
-                            Since its establishment in 2000, NEFEA has collaborated with various key partners in the development and implementation of a wide range of projects.
+                            Since its establishment in 2000, NEFEA (rebranded from NGARA) has collaborated with various key partners in the development and implementation of a wide range of projects.
                         </p>
                     </div>
 
@@ -144,7 +144,7 @@ const Priorities = () => {
                         {/* Content */}
                         <div className='pt-3'>
                             <p className='text-justify'>
-                                In an effort to contribute to Sustainable Forest Management (SFM) in the region, United Nations Strategic Plan on Forests (UNSPF) 2030 and the Sustainable Development Goals (SDGs) while putting in place strong institutional mechanisms for better coordination of the sector, NGARA has developed a Framework of Priorities 2030. Through the support of the African Union Commission (AUC), FAO and Africa Forest Forum (AFF) NEFEA organized two regional workshops in Nairobi (August 2015) and Dakar (March 2016) that resulted in the development of the NGARA Strategy: Overview and Framework of Priorities 2017–2030. The NEFEA strategy has identiﬁed seven key result areas and resulting ojectives as follows;
+                                In an effort to contribute to Sustainable Forest Management (SFM) in the region, United Nations Strategic Plan on Forests (UNSPF) 2030 and the Sustainable Development Goals (SDGs) while putting in place strong institutional mechanisms for better coordination of the sector, NGARA has developed a Framework of Priorities 2030. Through the support of the African Union Commission (AUC), FAO and Africa Forest Forum (AFF), NGARA organized two regional workshops in Nairobi (August 2015) and Dakar (March 2016) that resulted in the development of the NGARA Strategy: Overview and Framework of Priorities 2017–2030. The NGARA strategy, which NEFEA will continue to implement, has identiﬁed seven key result areas and resulting ojectives as follows;
                             </p>
                         </div>
 

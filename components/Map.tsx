@@ -11,13 +11,11 @@ const AfricaMap = () => {
     const router = useRouter();
 
     const handleCountryHover = (event: any, countryName: any) => {
-        event.target.style.fill = "#2ca25f"; // Change the fill color on hover
         setTooltipText(`Click to see more about programs in ${countryName}`);
         setTooltipPosition({ x: event.clientX, y: event.clientY });
     };
 
     const handleCountryHoverEnd = (event: any) => {
-        event.target.style.fill = "#99d8c9"; // Reset the fill color when not hovering
         setTooltipText("");
     };
 
@@ -55,7 +53,7 @@ const AfricaMap = () => {
                     <path
                         id="Benin"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#32CD32",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -65,12 +63,12 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Benin")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Benin</title>
-                        </path>
+                        <title className='bg-white text-accent'>Benin</title>
+                    </path>
                     <path
                         id="Burkina_Faso"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#EDC9AF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -105,7 +103,7 @@ const AfricaMap = () => {
                     <path
                         id="Gambia"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#EDC9AF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -115,12 +113,12 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Gambia")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Gambia</title>
-                        </path>
+                        <title className='bg-white text-accent'>Gambia</title>
+                    </path>
                     <path
                         id="Ghana"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#32CD32",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -130,12 +128,12 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Ghana")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Ghana</title>
-                        </path>
+                        <title className='bg-white text-accent'>Ghana</title>
+                    </path>
                     <path
                         id="Guinea"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#EDC9AF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -145,8 +143,8 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Guinea")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Guinea</title>
-                        </path>
+                        <title className='bg-white text-accent'>Guinea</title>
+                    </path>
                     <path
                         id="Guinea-Bissau"
                         style={{
@@ -162,12 +160,12 @@ const AfricaMap = () => {
                         }
                         onClick={() => handleCountryClick("Guinea-Bissau")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Guinea Bissau</title>
-                        </path>
+                        <title className='bg-white text-accent'>Guinea Bissau</title>
+                    </path>
                     <path
                         id="Kamerun"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#FF4500",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -177,12 +175,12 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Kamerun")}
                         cursor="pointer" >
-                            <title className='bg-white text-accent'>Cameroon</title>
-                        </path>
+                        <title className='bg-white text-accent'>Cameroon</title>
+                    </path>
                     <path
                         id="Liberia"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#32CD32",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -192,12 +190,12 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Liberia")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Liberia</title>
-                        </path>
+                        <title className='bg-white text-accent'>Liberia</title>
+                    </path>
                     <path
                         id="Mali"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#EDC9AF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -207,12 +205,12 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Mali")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Mali</title>
-                        </path>
+                        <title className='bg-white text-accent'>Mali</title>
+                    </path>
                     <path
                         id="Niger"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#EDC9AF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -222,12 +220,12 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Niger")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Niger</title>
-                        </path>
+                        <title className='bg-white text-accent'>Niger</title>
+                    </path>
                     <path
                         id="Nigeria"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#FF4500",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -237,12 +235,12 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Nigeria")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Nigeria</title>
-                        </path>
+                        <title className='bg-white text-accent'>Nigeria</title>
+                    </path>
                     <path
                         id="Senegal"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#EDC9AF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -252,12 +250,12 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Senegal")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Senegal</title>
-                        </path>
+                        <title className='bg-white text-accent'>Senegal</title>
+                    </path>
                     <path
                         id="Sierra_Leone"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#32CD32",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -269,12 +267,12 @@ const AfricaMap = () => {
                         }
                         onClick={() => handleCountryClick("Sierra_Leone")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Sierra Leone</title>
-                        </path>
+                        <title className='bg-white text-accent'>Sierra Leone</title>
+                    </path>
                     <path
                         id="Togo"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#32CD32",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -284,13 +282,13 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Togo")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Togo</title>
-                        </path>
+                        <title className='bg-white text-accent'>Togo</title>
+                    </path>
                     <g id="g4863">
                         <path
                             id="Mauretanien"
                             style={{
-                                fill: "#99d8c9",
+                                fill: "#EDC9AF",
                                 stroke: "#dd901c",
                                 strokeLinecap: "round",
                                 fillOpacity: 1,
@@ -302,11 +300,11 @@ const AfricaMap = () => {
                             }
                             onClick={() => handleCountryClick("Mauretanien")}
                             cursor="pointer">
-                                <title className='bg-white text-accent'>Mauritania</title>
-                            </path>
+                            <title className='bg-white text-accent'>Mauritania</title>
+                        </path>
                         <path
                             style={{
-                                fill: "#99d8c9",
+                                fill: "#FF4500",
                                 stroke: "#dd901c",
                                 strokeLinecap: "round",
                                 fillOpacity: 1,
@@ -317,8 +315,8 @@ const AfricaMap = () => {
                             onMouseLeave={(event) => handleCountryHoverEnd(event)}
                             onClick={() => handleCountryClick("Chad")}
                             cursor="pointer">
-                                <title className='bg-white text-accent'>Chad</title>
-                            </path>
+                            <title className='bg-white text-accent'>Chad</title>
+                        </path>
                         <path
                             style={{
                                 fill: "#cccccc",
@@ -343,7 +341,7 @@ const AfricaMap = () => {
                     <g transform="translate(-111.5439,-93.00714)" id="Aequatorialguinea">
                         <path
                             style={{
-                                fill: "#cccccc",
+                                fill: "#EDC9AF",
                                 stroke: "#000000",
                                 strokeLinecap: "round",
                                 fillOpacity: 1,
@@ -374,7 +372,7 @@ const AfricaMap = () => {
                     </g>
                     <path
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#1E90FF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -383,10 +381,11 @@ const AfricaMap = () => {
                         id="Aethopien"
                         onMouseEnter={(event) => handleCountryHover(event, "Ethiopia")}
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
-                        onClick={() => handleCountryClick("Aethopien")}
+                        onClick={() => handleCountryClick("Ethiopia")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Ethiopia</title>
-                        </path>
+                        <title className='bg-white text-accent'>Ethiopia</title>
+                            
+                    </path>
                     <path
                         style={{
                             fill: "#cccccc",
@@ -400,14 +399,20 @@ const AfricaMap = () => {
                     <g transform="translate(-111.5439,-93.00714)" id="Angola">
                         <path
                             style={{
-                                fill: "#cccccc",
-                                stroke: "#000000",
+                                fill: "#006400",
+                                stroke: "#dd901c",
                                 strokeLinecap: "round",
                                 fillOpacity: 1,
                             }}
                             id="path73"
                             d="m 620.675,1020.46 c 3.59,-0.953 7.473,-5.715 10.694,-1.889 3.199,-3.956 12.082,-11.785 26.44,2.873 l 72.149,-0.987 7.729,6.738 45.478,5.883 28.766,-6.477 -19.444,-17.353 1.488,-61.456 34.695,1.03 -3.771,-4.022 4.086,-32.499 c -0.467,0.117 -1.002,-0.121 -1.457,0.044 -8.363,3.047 -17.254,2.343 -26.225,2.522 l -3.118,6.113 -5.688,-4.792 6.342,-8.448 -8.562,-17.347 -1.308,-38.929 -14.822,1.052 0.005,-7.029 -6.585,-0.963 -1.729,3.127 -12.104,-0.623 -4.598,17.622 c -6.009,-1.083 -11.558,-2.562 -20.559,1.988 -7.952,-2.557 -15.151,3.402 -26.407,-36.529 l -4.259,-2.545 -45.582,-0.734 -20.738,7.119 c 5.194,14.939 16.164,23.424 15.793,45.519 l -3.566,3.42 c 2.944,9.978 5.57,20.415 12.124,25.179 0.646,2.794 -0.769,4.825 -0.952,6.924 -0.672,7.678 -4.708,29.441 -6.48,25.562 0,0 -7.309,1.597 -7.964,7.482 -0.319,2.867 -3.857,3.272 -5.172,6.806 -3.676,9.879 -7.55,25.549 -10.342,39.794 -0.324,1.65 -2.477,0.926 -2.742,2.5 -0.767,4.536 0.086,7.759 -0.199,12.572 -0.086,1.439 -1.915,-0.972 -2.269,0.809 -0.435,2.2 1.337,8.436 0.853,9.944 z"
-                        />
+
+                            onMouseEnter={(event) => handleCountryHover(event, "Angola")}
+                            onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                            onClick={() => handleCountryClick("Angola")}
+                            cursor="pointer">
+                            <title className='bg-white text-accent'>Angola</title>
+                        </path>
                         <path
                             style={{
                                 fill: "#cccccc",
@@ -421,48 +426,68 @@ const AfricaMap = () => {
                     </g>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#006400",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 729.9821,935.02186 -10.629,5.971 c -10.491,0.061 -11.139,6.235 -15.068,9.555 l -2.956,-8.311 -39.729,3.481 -2.265,61.54004 -16.272,-0.382 -1.096,44.416 c 4.444,5.455 10.449,11.396 13.457,15.37 2.931,3.87 1.058,11.428 -1.788,18.487 7.871,3.331 15.508,3.494 23.086,1.524 1.127,-2.99 2.672,-5.145 4.715,-6.305 3.285,-1.887 5.992,-4.293 7.001,-8.228 l 9.899,-8.256 c 6.102,0.532 10.795,2.953 15.558,6.444 10.09,0.14 16.091,-1.696 20.278,-3.827 l 1.957,-9.3 58.094,-46.425 c -7.313,-5.316 -10.963,-4.104 -15.139,-5.082 -4.207,-0.984 -9.396,-8.46004 -8,-21.31304 -4.028,-0.793 -6.607,-3.037 -8.82,-5.646 -2.528,-4.236 -5.831,-3.829 -8.769,-5.613 -4.553,-6.331 -12.927,-14.461 -13.571,-19.349 -0.312,-2.371 -1.56,-2.244 -3.336,-4.885 -2.051,-3.045 -4.751,-10.126 -6.607,-13.866 z"
                         id="Botsuana"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Botswana")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Botswana")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Botswana</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
-                            stroke: "#000000",
+                            fill: "#1E90FF",
+                            stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 803.6511,681.39986 2.431,-2.283 2.946,0.146 1.473,4.125 8.249,-1.62 0.441,-5.156 10.312,-0.589 c -3.407,5.925 1.67,9.157 3.83,12.152 -6.907,16.138 -12.787,21.808 -18.127,22.071 -7.077,0.031 -6.15,2.623 -6.915,4.886 -0.513,-7.175 -0.141,-13.867 0.311,-19.741 0.551,-7.184 -1.839,-12.474 -4.951,-13.991 z"
                         id="Burundi"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Burundi")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Burundi")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Burundi</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#FF4500",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 628.0061,575.85086 c -2.924,8.719 -6.41,14.906 -10.053,24.391 -4.778,12.44 -3.716,31.616 -6.152,48.579 -12.636,5.728 -16.636,14.911 -23.103,23.106 l -5.042,24.127 c -9.122,8.927 -17.609,20.394 -28.599,21.853 -0.668,-13.458 -12.326,-6.99 -13.608,-1.691 -5.552,3.668 -7.364,-0.144 -10.501,-1.306 -4.012,2.888 -6.919,6.327 -6.959,11.2 0.565,7.784 -2.972,7.364 -5.53,8.9 l 1.496,5.934 20.842,-7.131 45.581,0.818 4.23,2.473 c 10.361,38.416 18.766,34.628 26.198,36.502 11.58,-4.846 14.677,-2.151 20.834,-2.178 l 4.476,-17.472 12.168,0.686 1.556,-3.188 6.758,1.053 0.103,7.062 14.669,-1.074 1.525,38.683 8.365,17.41 -6.382,8.647 5.815,4.917 3.108,-6.221 19.238,-0.341 6.976,-2.339 6.035,-0.108 2.186,8.598 11.216,-3.706 c 0.603,2.583 1.713,4.473 3.193,5.857 3.64,3.402 10.445,8.086 16.512,8.18 4.276,0.065 7.718,-4.329 11.464,-3.541 5.108,7.083 11.16,9.136 17.498,9.662 4.711,7.307 7.876,16.159 21.271,14.782 l 5.246,3.646 -0.373,-18.698 c -9.303,2.99 -14.946,-1.338 -19.754,-7.339 0.949,-7.38 3.934,-14.081 7.332,-20.645 0.297,-7.589 -0.726,-14.579 -2.589,-22.179 -0.408,-1.664 1.763,-7.865 4.533,-11.496 l 30.167,-7.387 c -3.123,-16.906 -14.109,-20.339 -17.261,-32.307 -3.857,-14.649 -5.742,-32.213 -3.688,-49.347 -0.571,-8.021 -4.244,-12.268 -9.549,-14.527 l 9.001,-12.896 7.292,-8.002 1.131,-28.029 10.226,-15.525 16.454,-14.81 -9.923,-6.454 0.05,-17.679 -20.555,-17.432 c -1.835,0.172 -2.684,1.987 -3.969,3.073 -4.141,1.288 -7.954,-0.704 -11.912,-1.244 -2.13,4.768 -10.908,2.265 -11.945,-0.456 -0.303,-0.793 0.386,-2.391 -0.813,-2.837 -2.59,-3.497 -5.258,-5.86 -7.849,-8.064 l -8.559,0.415 -2.787,3.207 -3.149,-2.61 -1.961,3.064 -4.095,-5.354 -18.48,1.604 0.007,2.978 -8.225,1.513 -1.3,-3.161 -20.962,7.428 c -5.869,-4.257 -8.025,-1.945 -11.463,-2.087 l -3.69,8.031 c -17.411,-0.658 -24.684,-0.665 -27.553,-4.545 -5.513,6.072 -6.854,-1.412 -10.23,-2.277 -1.907,-8.876 -6.953,-6.244 -10.465,-9.238 -6.499,4.362 -10.047,8.725 -13.087,13.086 0.04,6.07 -0.926,11.136 -2.637,15.456 z"
                         id="Demokratische_Republik_Kongo"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Democratic Republic of Congo")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Democratic Republic of Congo")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Democratic Republic of Congo</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#1E90FF",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 1029.8601,413.43086 -9.844,7.346 c -1.705,4.956 -0.769,8.946 -2.163,11.304 -5.647,9.551 -4.932,10.292 -3.179,12.409 2.362,2.853 8.584,0.819 11.807,-1.088 l 5.142,2.204 5.729,-8.668 c -3.525,-2.994 -7.052,-1.445 -10.577,-1.616 0.961,-4.318 5.809,-5.305 9.255,-7.493 2.542,-7.866 -2.861,-12.882 -6.17,-14.398 z"
                         id="Dschibuti"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Djibouti")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Djibouti")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Djibouti</title>
+                    </path>
                     <path
                         id="Eritrea"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#1E90FF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -472,21 +497,26 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Eritrea")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Eritrea</title>
-                        </path>
+                        <title className='bg-white text-accent'>Eritrea</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#FF4500",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 497.6751,699.92586 -30.107,-31.152 -7.179,-18.34 6.617,-6.352 1.853,-10.322 8.469,1.853 c 0.487,-0.507 1.248,-0.876 0.794,-1.853 l -7.349,-3.767 2.32,-10.525 28.193,-1.446 0.126,-18.139 h 34.936 l -2.708,3.814 -0.313,11.833 c 3.153,1.203 5.258,-1.399 7.301,-5.139 5.37,-0.836 15.228,4.015 12.549,13.278 -4.474,5.031 -6.51,9.717 -4.913,13.996 1.176,3.151 2.59,6.212 3.496,10.883 l -2.708,24.646 -5.619,4.063 c -2.525,-4.172 -7.185,-5.676 -13.701,-4.857 -2.004,-2.51 -3.971,-5.716 -7.77,-0.652 l -14.572,8.966 1.262,12.049 -10.977,7.163 z"
                         id="Gabun"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Gabon")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Gabon")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Gabon</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#1E90FF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -497,8 +527,8 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Kenya")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Kenya</title>
-                        </path>
+                        <title className='bg-white text-accent'>Kenya</title>
+                    </path>
                     <path
                         style={{
                             fill: "#cccccc",
@@ -511,24 +541,34 @@ const AfricaMap = () => {
                     />
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#006400",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 1069.9931,1078.4809 47.992,-102.13904 c 3.67,-11.525 5.846,-23.05 11.263,-34.575 3.674,-4.858 8.334,-9.365 5.401,-16.583 l 1.043,-9.907 c 0.538,-2.994 2.188,-2.932 4.692,-0.521 l 1.47,5.983 c 1.784,-0.566 3.534,-1.174 3.396,-4.143 l -4.865,-52.939 -9.175,-9.944 -5.304,4.393 -1.38,13.589 -3.065,2.696 c -1.61,-0.49 -3.966,-2.918 -3.271,2.586 l -4.551,4.993 c -5.176,-9.601 -5.941,-1.083 -4.54,3.065 -0.137,1.812 0.372,4.914 -2.085,2.086 l -3.708,5.983 5.271,3.923 h -3.128 l -6.778,4.909 1.043,-5.951 -6.779,6.778 1.564,8.343 -4.571,0.184 0.896,-3.739 c -4.223,-2.776 -7.658,3.104 -11.445,5.119 l 4.172,6.778 -5.215,0.521 -2.086,-6.257 -8.405,1.38 c 0.263,2.956 -3.135,3.82 -6.194,4.877 l -0.521,-4.171 -4.692,4.692 -8.19,0.4 -1.596,7.053 -11.07,16.011 c 8.457,7.434 5.03,24.204 7.3,36.5 -3.114,9.919 -9.16,17.491 -14.6,25.55004 -6.326,4.177 -9.182,8.354 -10.144,12.531 -0.923,4.008 -2.866,11.887 -1.692,15.895 1.369,4.677 3.956,3.086 4.072,7.763 l 1.539,7.671 c -7.738,29.794 11.519,29.348 15.668,36.623 1.887,-0.858 4.285,0.602 6.128,-0.393 4.093,-2.208 9.326,-7.662 14.795,-5.85 4.574,1.517 8.006,-0.218 11.345,-1.763 z"
                         id="Madagaskar"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Madagascar")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Madagascar")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Madagascar</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#006400",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 882.7691,801.72186 9.959,32.83 -2.939,29.147 c 5.91,5.324 11.79,9.645 20.084,23.483 1.041,1.737 2.131,6.079 1.764,9.561 l -3.609,15.409 -9.016,3.926 0.699,13.48 -4.787,0.073 c 2.466,-6.329 0.105,-5.147 -0.958,-5.531 -6.536,-4.128 -8.985,-10.204 -10.188,-15.653 5.347,-8.23 5.03,-14.844 4.42,-21.206 l -8.847,-1.636 c -6.83,1.669 -8.158,-0.837 -8.817,-3.115 -3.706,-8.681 -5.409,-5.336 -6.769,-5.923 l -5.276,-7.262 9.254,-17.156 7.219,-0.811 -4.913,-6.4 4.302,-22.312 4.096,-3.021 -11.83,-23.379 c 3.439,3.017 7.242,4.044 16.152,5.496 z"
                         id="Malawi"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Malawi")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Malawi")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Malawi</title>
+                    </path>
                     <path
                         style={{
                             fill: "#cccccc",
@@ -541,54 +581,79 @@ const AfricaMap = () => {
                     />
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#006400",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 813.2681,893.00386 3.532,9.24 -0.271,4.62 12.23,0.919 28.652,11.15 c 2.934,16.013 1.055,29.401 -3.597,41.277 -0.126,2.325 -0.901,4.547 -0.62,6.677 0.529,3.994 2.498,9.5 0.263,14.083 -5.755,11.799 -11.131,23.61004 -12.518,24.37804 -4.752,2.63 -10.658,10.319 -10.822,16.479 l 2.86,70.741 10.833,0.698 2.886,-10.018 -4.349,1.631 c 0.665,-3.963 -0.249,-7.926 3.914,-11.889 l 34.763,-13.74 c 4.305,-3.16 6.978,-7.95 9.972,-12.42 l -4.059,-1.402 7.198,-27.168 -3.698,-1.256 -2.991,-22.86504 c -9.848,-6.039 -4.15,-15.426 -0.177,-17.621 l 21.013,-17.856 1.733,3.559 7.794,-8.61 -1.719,-2.654 5.066,-0.928 1.505,-4.36 25.749,-12.671 6.431,0.066 c 4.876,-3.693 8.792,-7.66 15.901,-10.716 l -0.455,-3.816 8.579,-6.638 c 2.059,-2.113 3.827,-5.242 6.521,-5.132 l 0.376,-4.254 -1.632,-1.809 4.694,-7.039 1.188,-4.698 -0.749,-3.071 -2.875,-4.371 0.995,-17.214 c -2.193,-2.131 -0.982,-3.581 0.191,-5.038 l -0.567,-19.004 6.902,-11.628 c 0.178,-3.186 0.436,-6.371 -0.727,-9.557 -10.592,6.303 -28.314,17.276 -37.271,11.647 -3.924,0.479 -8.328,0.472 -12.125,5.409 -3.224,-0.301 -6.136,-0.913 -9.992,-0.583 l -12.677,2.296 c -2.301,-2.75 -4.612,-5.479 -9.948,-2.497 l -18.494,-0.603 -2.889,28.912 c 9.122,7.341 17.152,16.784 21.162,26.46 2.441,5.892 -1.979,14.385 -2.833,21.907 l -9.176,3.97 0.479,12.881 -4.52,0.685 c 1.1,-2.69 2.316,-5.436 -1.628,-5.772 -4.992,-4.232 -8.817,-9.003 -9.345,-15.296 3.822,-6.22 5.361,-13.253 4.349,-21.199 l -8.897,-1.63 c -3.464,0.84 -7.48,0.769 -8.385,-1.99 -2.401,-7.333 -4.728,-7.72 -7.449,-6.979 l -50.276,16.307 z"
                         id="Mosambik"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Mozambique")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Mozambique")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Mozambique</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#006400",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 509.1891,927.45086 c 0.711,9.319 1.581,18.582 10.126,25.159 l 35.296,62.85504 0.898,28.845 6.298,13.35 c 0.354,5.198 -1.563,10.396 1.631,15.595 l 4.385,24.552 19.168,21.345 c 11.908,-12.789 16.241,-2.46 19.225,5.732 7.288,-0.69 14.576,-1.362 21.864,-0.097 3.414,-3.085 6.904,-6.14 12.28,-8.439 l 2.804,-109.556 16.209,0.525 2.328,-61.69204 39.576,-3.492 3.042,8.273 c 2.849,-3.128 6.746,-8.887 12.57,-9.152 5.261,-0.239 7.833,-3.649 13.013,-6.405 l -3.793,-5.519 -25.482,4.242 -28.45,6.621 -46.047,-6.146 -7.71,-6.483 -72.52,0.839 c -3.463,-4.587 -16.584,-15.031 -26.068,-2.716 -3.208,-3.831 -7.079,0.967 -10.643,1.764 z"
                         id="Namibia"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Namibia")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Namibia")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Namibia</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#FF4500",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 514.3811,721.62186 -16.807,-21.696 11.248,-7.146 -1.323,-12.175 13.763,-8.337 c 2.35,-1.847 4.112,-6.328 8.337,0.265 7.311,-0.866 11.57,1.012 13.896,4.632 l 5.822,-3.97 2.382,-24.217 c -0.111,-8.343 -9.448,-13.792 1.721,-25.673 1.878,-7.81 -5.108,-13.157 -12.836,-12.837 -1.891,2.418 -2.602,6.31 -7.259,5.269 l 0.245,-11.62 2.778,-4.234 22.497,0.265 10.868,3.864 c 4.055,-2.072 9.484,4.083 13.258,4.715 l -0.571,-18.637 c 8.525,-10.861 14.807,-14.104 21.835,-15.747 l 10.719,4.896 13.233,-3.705 c -3.249,8.694 -6.792,15.831 -10.083,24.362 -5.642,14.62 -3.757,32.442 -6.326,48.817 -12.219,5.357 -16.649,14.764 -23.025,23.158 l -5.271,24.256 c -11.503,12.324 -21.654,22.202 -28.21,21.664 -0.044,-6.928 -7.563,-13.072 -13.701,-1.682 -4.28,2.834 -7.36,1.363 -10.648,-1.759 -4.757,-6.284 -6.322,-0.959 -8.469,2.249 l -8.073,5.023 z"
                         id="Republik_Kongo"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Congo")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Congo")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Congo</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#1E90FF",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 827.2191,653.85386 -7.365,5.892 h -2.504 l -1.473,-2.062 c -6.532,6.518 -11.413,13.86 -16.425,21.138 1.807,0.431 3.251,1.313 4.271,2.725 l 2.431,-2.283 2.799,0.222 1.399,3.756 8.47,-1.694 0.368,-5.082 10.533,-0.589 c 1.545,-2.111 2.919,-4.223 5.229,-6.334 l -7.733,-15.689 z"
                         id="Ruanda"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Rwanda")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Rwanda")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Rwanda</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#006400",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 830.0431,774.90486 -30.442,7.507 c -1.979,3.619 -3.382,5.708 -4.15,9.809 -0.198,1.063 0.718,3.249 1.041,6.238 0.64,5.917 2.644,16.292 0.83,19.093 -4.251,6.562 -7.125,18.679 -6.883,19.025 2.427,3.477 7.353,7.026 10.257,7.793 4.004,1.059 8.501,0.559 9.475,-0.945 l 0.479,19.216 c -1.561,-1.288 -3.8,-2.19 -4.905,-3.592 -6.389,-0.544 -12.151,2.875 -21.546,-14.896 -6.174,-0.53 -12.276,-2.331 -17.551,-9.674 -2.558,-0.67 -6.826,2.83 -10.675,3.692 -11.009,-1.054 -14.173,-6.273 -16.982,-7.879 -1.909,-1.768 -3.116,-3.827 -3.488,-6.235 l -11.329,3.758 -2.034,-8.764 -4.687,0.153 -4.029,32.823 3.707,3.738 -34.558,-0.894 -1.665,61.512 19.249,17.013 26.087,-4.094 3.817,5.733 1.653,3.862 20.415,0.216 2.786,2.448 3.813,-1.004 c 11.007,-14.394 21.04,-18.073 31.173,-22.86 l 0.416,-9.56 c 7.995,-4.95 16.618,-7.732 26.601,-5.819 l -3.74,-9.466 50.708,-15.888 -5.403,-7.897 9.144,-17.041 7.066,-0.832 -4.572,-6.234 4.156,-22.444 4.156,-2.909 -8.313,-16.21 -3.786,-7.507 -19.442,-6.523 c -6.612,-9.398 -8.161,-7.63 -10.221,-7.081 l -6.628,-7.381 z"
                         id="Sambia"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Zambia")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Zambia")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Zambia</title>
+                    </path>
                     <path
                         style={{
                             fill: "#cccccc",
@@ -602,7 +667,7 @@ const AfricaMap = () => {
                     <path
                         id="Somalia"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#1E90FF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -612,8 +677,8 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Somalia")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Somalia</title>
-                        </path>
+                        <title className='bg-white text-accent'>Somalia</title>
+                    </path>
                     <path
                         id="path3246"
                         d="m 887.21875,477.4375 -0.0313,0 -7.71875,2.84375 0,-11.78125 L 875,460 867.53125,457.15625 861.5,423.625 855,421 l 0,5.6875 -11.4375,0 5.9375,4.4375 1,13.875 -17.15625,22 -16.15625,-10.625 -10.6875,3.9375 0,5.6875 -9.34375,3 L 797,463.15625 776.5625,462.5 l 0,7.375 -19.5625,0 -6.5,0.625 -4.5,-8.625 -5.5,0 -8,0 -14.53125,28.4375 -0.0313,0.28125 c 0.16422,0.072 0.37409,0.0739 0.53125,0.15625 2.096,2.935 2.97025,6.51925 12.65625,5.40625 l 5.59375,5.125 c -1.209,8.49 11.36575,13.16925 18.71875,19.28125 l 6.84375,13.5 c 5.889,2.861 12.96775,4.08875 13.84375,13.96875 3.921,2.228 5.46275,5.492 8.34375,8.375 1.324,1.325 0.0912,2.593 1.40625,3.625 3.729,2.928 10.452,3.6445 11.375,-0.5625 0,0 6.22175,2.3555 10.71875,1.8125 2.792,-0.337 2.5355,-2.9725 5.3125,-3.5625 l 20,17.5 3.5625,-2.59375 c 13.728,3.185 27.4605,1.358 41.1875,-0.625 l 16.375,-14.03125 22.65625,-0.8125 0.2188,-11.78125 L 905.625,541.34375 897.5625,523.5 885.875,513.625 c 2.043,-3.146 -3.536,-6.2915 -6.25,-9.4375 -3.678,1 -7.669,0.19625 -11.875,-1.96875 l 3,-3.84375 -0.0625,-5.53125 10.71875,-0.1875 c 2.084,-1.311 4.3455,-1.88025 5.9375,-5.15625 l -0.125,-10.0625 z"
@@ -627,7 +692,7 @@ const AfricaMap = () => {
                     <path
                         id="Sudan"
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#1E90FF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -637,31 +702,41 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Sudan")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Sudan</title>
-                        </path>
+                        <title className='bg-white text-accent'>Sudan</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#006400",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 586.9911,1119.1599 26.844,54.016 0.352,12.35 c -1.357,2.971 -3.582,3.058 -6.071,2.577 -1.008,1.417 -1.953,3.251 0.258,4.632 3.326,5.905 5.733,13.087 9.971,18.147 3.481,4.158 8.646,6.333 12.741,9.921 l 10.659,0.852 c 2.194,-1.541 0.199,-3.642 8.15,-4.416 l 15.613,-0.101 c 4.929,-1.936 -0.617,-6.811 15.459,-5.617 2.641,0.334 3.785,3.232 7.927,0.993 7.463,-1.203 14.589,1.642 21.86,2.736 2.155,-1.722 1.353,-4.65 13.46,-2.311 l 1.238,-4.709 14.189,0.223 84.114,-78.167 c 13.34,-5.536 16.289,-21.69 20.027,-37.039 l -10.561,-0.707 c -0.109,-1.279 -10.139,5.896 -11.411,6.037 -5.423,0.604 -8.553,-1.149 -7.773,-10.649 0.581,-7.081 8.167,-12.721 10.172,-14.031 2.675,-1.748 5.343,4.839 8.006,3.099 0,0 -0.941,-30.122 -2.067,-55.32 -5.664,-3.446 -9.726,-9.368 -19.815,-5.973 -5.297,-3.958 -10.594,-3.553 -15.89,-4.789 l -58.19,46.15 -2.136,9.643 c -6.611,3.495 -13.223,3.02 -19.834,3.723 -5.008,-3.808 -10.404,-6.057 -16.273,-6.414 l -9.707,8.497 c -0.908,4.679 -3.628,5.127 -5.712,7.061 -3.303,1.915 -5.029,4.355 -5.746,7.132 -9.782,2.419 -16.644,0.821 -23.017,-1.448 1.229,-5.72 4.907,-9.435 1.839,-18.669 l -13.531,-15.135 -1.76,64.997 c -4.093,1.772 -8.186,4.463 -12.278,8.392 -6.822,-0.584 -12.491,-1.531 -21.953,0.177 -1.534,-7.177 -8.09,-19.044 -19.154,-5.86 z"
                         id="Suedafrika"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "South Africa")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("South Africa")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>South Africa</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#006400",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 832.3051,1077.5389 0.757,14.712 c -4.398,2.2 -7.667,4.4 -11.413,6.601 -4.11,-0.103 -6.742,-1.181 -7.393,-4.471 -1.037,-5.241 -0.446,-8.811 2.463,-13.216 2.114,-3.203 5.937,-7.245 8.501,-7.674 1.319,-0.221 3.267,1.759 4.404,3.429 l 2.681,0.619 z"
                         id="Swasiland"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Swaziland")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Swaziland")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Swaziland"</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#1E90FF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -672,8 +747,8 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Tanzania")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Tanzania</title>
-                        </path>
+                        <title className='bg-white text-accent'>Tanzania</title>
+                    </path>
                     <path
                         style={{
                             fill: "#cccccc",
@@ -686,7 +761,7 @@ const AfricaMap = () => {
                     />
                     <path
                         style={{
-                            fill: "#99d8c9",
+                            fill: "#1E90FF",
                             stroke: "#dd901c",
                             strokeLinecap: "round",
                             fillOpacity: 1,
@@ -697,28 +772,38 @@ const AfricaMap = () => {
                         onMouseLeave={(event) => handleCountryHoverEnd(event)}
                         onClick={() => handleCountryClick("Uganda")}
                         cursor="pointer">
-                            <title className='bg-white text-accent'>Uganda</title>
-                        </path>
+                        <title className='bg-white text-accent'>Uganda</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#FF4500",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 571.3631,511.99486 -15.382,25.232 2.063,18.345 c 6.573,12.911 14.235,24.841 24.452,34.473 6.34,-7.057 9.128,-12.498 21.686,-15.749 l 10.926,4.75 12.254,-3.449 c 3.037,-3.527 2.791,-9.108 3.029,-14.387 4.211,-6.869 8.748,-10.479 13.319,-13.749 3.388,2.621 9.387,0.601 9.839,8.439 4.014,4.516 7.8,7.208 10.725,3.018 3.392,5.015 17.807,3.414 27.725,4.513 0.572,-1.861 1.624,-4.32 3.654,-8.004 3.321,-0.504 6.307,-1.811 11.373,1.876 l 20.946,-7.328 1.364,3.092 8.378,-1.346 -0.146,-3.12 18.507,-1.537 4.121,5.291 1.909,-2.861 3.161,2.307 2.664,-3.061 8.625,-0.337 c -1.764,-4.888 -1.012,-10.684 -14.083,-13.765 l -6.721,-13.729 c -6.738,-6.45 -18.681,-9.431 -19.552,-19.793 l -5.165,-4.99 c -4.377,0.204 -8.188,2.101 -13.065,-5.813 -7.882,-1.198 -13.231,-2.433 -8.054,-18.396 -4.049,-9.774 -10.235,-14.402 -15.604,-21.867 -11.3,2.161 -15.836,1.584 -16.234,13.267 -3.589,2.858 -8.86,4.315 -10.5,8.799 -1.422,3.313 -2.597,5.865 -7.624,6.294 -1.434,0.885 -3.173,2.686 -4.968,4.655 l -21.414,2.233 c 1.122,4.028 0.688,7.659 -3.921,12.155 -1.229,1.201 -2.112,2.672 -3.261,3.964 l -15.42,1.435 c -17.826,7.865 -26.773,6.195 -39.606,9.143 z"
                         id="Zentralafrikanische_Republik"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Central African Republic")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Central African Republic")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Central African Republic</title>
+                    </path>
                     <path
                         style={{
-                            fill: "#cccccc",
+                            fill: "#006400",
                             stroke: "#000000",
                             strokeLinecap: "round",
                             fillOpacity: 1,
                         }}
                         d="m 778.1011,1147.3989 c -1.207,0.114 -3.313,0.468 -4.825,1.072 -1.113,0.445 -2.119,0.913 -2.949,1.743 -0.674,0.674 -0.854,1.673 -1.072,2.547 -0.229,0.914 -2.082,2.096 -2.815,2.279 -1.027,0.257 -2.413,0 -3.485,0 -2.145,0 -3.166,-0.469 -4.424,-2.146 -1.534,-2.046 -3.46,-3.622 -4.825,-5.897 -0.967,-1.61 -1.848,-2.593 -2.413,-4.29 -0.425,-1.273 -0.269,-2.688 -0.269,-4.021 0,-1.714 0.789,-3.276 2.279,-4.021 0.179,-0.09 0.357,-0.179 0.536,-0.269 1.752,-0.876 2.188,-2.857 3.485,-4.155 1.429,-1.429 3.281,-2.697 4.826,-4.021 0.981,-0.842 2.383,-1.594 3.484,-2.145 1.693,-0.847 3.308,-1.296 5.095,-1.743 1.341,-0.335 2.903,-0.793 4.021,-1.072 0.221,-0.055 0.446,-0.089 0.67,-0.134 0.224,-0.045 0.447,-0.09 0.67,-0.134 1.58,-0.316 3.572,0.473 4.424,1.608 1.167,1.556 2.628,3.057 3.754,4.558 0.588,0.785 0.553,2.714 1.072,3.753 0.741,1.484 1.622,2.588 2.145,4.156 0.535,1.605 -0.235,3.286 -0.938,4.691 -0.836,1.673 -1.967,2.638 -3.217,3.888 -1.023,1.023 -2.116,1.854 -3.218,2.681 -0.581,0.436 -1.365,0.685 -2.011,1.072 z"
                         id="Lesotho"
-                    />
+                        onMouseEnter={(event) => handleCountryHover(event, "Lesotho")}
+                        onMouseLeave={(event) => handleCountryHoverEnd(event)}
+                        onClick={() => handleCountryClick("Lesotho")}
+                        cursor="pointer">
+                        <title className='bg-white text-accent'>Lesotho</title>
+                    </path>
                 </svg>
             </div>
             {tooltipText && (

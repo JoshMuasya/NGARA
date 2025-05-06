@@ -14,35 +14,23 @@ const RegionAccordion = () => {
             <AccordionItem value="item-1">
                 <AccordionTrigger className='font-bold text-lg'>Eastern Africa</AccordionTrigger>
                 <AccordionContent className="w-full flex flex-row flex-wrap justify-center items-center align-middle text-base">
-                    <Link
-                        href='/regions/Kenya'
+                <Link
+                        href='/regions/eritrea'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
-                        Kenya
-                    </Link>
-                    <Link
-                        href='/regions/tanzania'
-                        className='p-5 font-semibold hover:font-bold hover:italic'
-                    >
-                        Tanzania
-                    </Link>
-                    <Link
-                        href='/regions/uganda'
-                        className='p-5 font-semibold hover:font-bold hover:italic'
-                    >
-                        Uganda
-                    </Link>
-                    <Link
+                        Eritrea
+                </Link>
+                <Link
                         href='/regions/ethiopia'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
                         Ethiopia
                     </Link>
                     <Link
-                        href='/regions/eritrea'
+                        href='/regions/Kenya'
                         className='p-5 font-semibold hover:font-bold hover:italic'
                     >
-                        Eritrea
+                        Kenya
                     </Link>
                     <Link
                         href='/regions/somalia'
@@ -62,6 +50,19 @@ const RegionAccordion = () => {
                     >
                         Sudan
                     </Link>
+                    <Link
+                        href='/regions/tanzania'
+                        className='p-5 font-semibold hover:font-bold hover:italic'
+                    >
+                        Tanzania
+                    </Link>
+                    <Link
+                        href='/regions/uganda'
+                        className='p-5 font-semibold hover:font-bold hover:italic'
+                    >
+                        Uganda
+                    </Link>
+                    
                 </AccordionContent>
             </AccordionItem>
             <AccordionItem value="item-2">

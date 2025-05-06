@@ -47,7 +47,7 @@ const Contact = () => {
                         </h1>
 
                         <p>
-                            The NGARA Secretariat is hosted by the Kenya Forestry Research Institute, Forest Research Resource Centre which also serves as Kenya's National Focal Point.
+                            The NEFEA Secretariat is hosted by the Kenya Forestry Research Institute, Forest Research Resource Centre which also serves as Kenya's National Focal Point.
                         </p>
 
                         <h3 className='font-bold text-base text-center pt-5 pb-3'>
@@ -55,11 +55,11 @@ const Contact = () => {
                         </h3>
 
                         <p>
-                            The Network for Natural Gums and Resins in Africa (NGARA) <br />
+                            The Network on Forest Enterprises in Africa (NEFEA) <br />
                             C/o KEFRI, Karura <br />
                             P. O. Box 64636 - 00620 <br />
                             Mobil Plaza, Nairobi, Kenya. <br />
-                            E-mail: info@ngara.net <br />
+                            E-mail: bchikamai@nefea.org <br />
                             Tel: +254 722 756483
                         </p>
                     </div>

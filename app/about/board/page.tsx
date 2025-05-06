@@ -87,7 +87,7 @@ const Board = () => {
                                 </p>
 
                                 <p>
-                                    Email: bnchikamai@gmail.com
+                                    Email: bchikamai@nefea.org
                                 </p>
                             </div>
                         </div>

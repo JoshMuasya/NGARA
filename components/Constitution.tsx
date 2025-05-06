@@ -112,7 +112,7 @@ const Constitution = () => {
 
                 {/* Content */}
                 <p className='text-justify pt-3'>
-                    Until otherwise varied by a special resolution passed at a general meeting, the Board shall consist of the honorary posts of Chairman, Secretary, Treasurer and other Board members, provided that the Chief Executive may serve as the Secretary, and even where the Chief Executive shall not be the Secretary, he shall be a member of the Board ex-officio. The Board shall be the policy-making organ of the Network. The minimum number of the Board members shall be eight (8).
+                    Until otherwise varied by a special resolution passed at a general meeting, the Board shall consist of the honorary posts of Chairman, Secretary, Treasurer and other Board members, provided that the Chief Executive may serve as the Secretary, and even where the Chief Executive shall not be the Secretary, he shall be a member of the Board ex-officio. The Board shall be the policy-making organ of the Network. The maximum number of the Board members shall be eight (8).
 
                 </p>
 
@@ -683,29 +683,29 @@ const Constitution = () => {
                         </p>
 
                         <p className='pt-7'>
-                            Dated at …………………….this …… (date)…………………….….Day of (Month & Year)…….…<br />
+                            Dated at 19th June 2024<br />
                         </p>
 
                         <p className='pt-5'>
                             <strong>Chairman</strong><br />
-                            (Name) 	<strong>HRM CHIDUME OKORO</strong>	Signature: _________________________<br />
+                            (Name) 	<strong>HRM CHIDUME OKORO</strong><br />
                         </p>
 
                         <p className='pt-5'>
                             <strong>Secretary</strong> <br />
-                            (Name) <strong>BEN ELIJAH NANDI CHIKAMAI</strong> 	Signature: _________________________<br />
+                            (Name) <strong>BEN ELIJAH NANDI CHIKAMAI</strong><br />
                         </p>
 
                         <p className='pt-5'>
                             <strong>Treasurer</strong><br />
-                            (Name) <strong>SHEILA SHEFO MBIRU</strong>	Signature: _________________________<br />
+                            (Name) <strong>SHEILA SHEFO MBIRU</strong><br />
                         </p>
 
                         <p className='pt-5 pb-10'>
                             <strong>Other Board Members</strong><br />
-                            <strong>(Prof. Godwin Kowero)</strong>	Signature __________________________<br />
+                            <strong>(Prof. Godwin Kowero)</strong><br />
 
-                            <strong>(Mr. Maisharou Abdou)</strong>			Signature ___________________________<br />
+                            <strong>(Mr. Maisharou Abdou)</strong><br />
                         </p>
                     </div>
                 </div>
