@@ -221,6 +221,7 @@ const Regions = () => {
                   <Button onClick={() => handleCountrySelect('somalia')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Somalia</Button>
                   <Button onClick={() => handleCountrySelect('south sudan')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>South Sudan</Button>
                   <Button onClick={() => handleCountrySelect('sudan')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Sudan</Button>
+                  <Button onClick={() => handleCountrySelect('djibouti')} className='w-28 m-2 font-semibold hover:font-bold hover:italic'>Djibouti</Button>
                 </div>
               </AccordionContent>
             </AccordionItem>
