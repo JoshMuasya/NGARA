@@ -23,7 +23,7 @@ const ProjectsCard = ({ title, link, author, datepublication, datecompletion, ab
             {/* Details */}
             <div className='px-3'>
                 <Card className="md:w-[350px] w-[250px] border-none">
-                    <CardContent className="w-full h-full p-3 md:p-5 flex flex-col justify-start items-start align-middle">
+                    <CardContent className="w-full h-full p-3 md:p-5 flex flex-col justify-center items-center align-middle text-center">
                         {/* Title */}
                         <h1 className='text-xl font-bold'>
                             {title}
