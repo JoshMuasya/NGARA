@@ -252,6 +252,12 @@ const Navbar = () => {
                                         The Constitution
                                     </li>
                                 </Link>
+
+                                <Link href='https://nefea.co.ke/'>
+                                    <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
+                                        NGARA
+                                    </li>
+                                </Link>
                             </ul>
                         )}
                     </div>
