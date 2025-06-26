@@ -117,7 +117,7 @@ const Navbar = () => {
                                         </DropdownMenuItem>
                                         <DropdownMenuItem>
                                             <Link
-                                                href='https://nefea.co.ke/'
+                                                href='https://nefea.co.ke/' target="_blank" rel="noopener noreferrer"
                                                 className='hover:italic hover:text-primary px-4 font-semibold'
                                             >
                                                 NGARA
@@ -253,7 +253,7 @@ const Navbar = () => {
                                     </li>
                                 </Link>
 
-                                <Link href='https://nefea.co.ke/'>
+                                <Link href='https://nefea.co.ke/' target="_blank" rel="noopener noreferrer">
                                     <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
                                         NGARA
                                     </li>
