@@ -4,19 +4,12 @@ import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
     DropdownMenuContent,
-    DropdownMenuGroup,
-    DropdownMenuItem,
     DropdownMenuLabel,
-    DropdownMenuPortal,
     DropdownMenuSeparator,
-    DropdownMenuShortcut,
-    DropdownMenuSub,
-    DropdownMenuSubContent,
-    DropdownMenuSubTrigger,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
-import { useEffect, useState, MouseEvent } from "react"
+import { useState } from "react"
 
 export function NavbarDropdown() {
     const [open, setOpen] = useState(true)
@@ -60,6 +53,9 @@ export function NavbarDropdown() {
                         <DropdownMenuSeparator />
                         <DropdownMenuLabel>
                             <Button onClick={downloadPDF}>The Constitution</Button>
+                        </DropdownMenuLabel>
+                        <DropdownMenuLabel>
+                            <Link href='https://nefea.co.ke/' onClick={handleClick}>NGARA</Link>
                         </DropdownMenuLabel>
                     </DropdownMenuContent>
                 )}

@@ -8,12 +8,8 @@ import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Button } from './ui/button'
-import NavDropdownMenu from './Dropdown'
 import { storage } from '@/lib/firebase'
 import { getDownloadURL, ref } from 'firebase/storage'
 
@@ -117,6 +113,14 @@ const Navbar = () => {
                                                 className='hover:italic hover:text-primary px-4 font-semibold'
                                             >
                                                 The Constitution
+                                            </Link>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Link
+                                                href='https://nefea.co.ke/'
+                                                className='hover:italic hover:text-primary px-4 font-semibold'
+                                            >
+                                                NGARA
                                             </Link>
                                         </DropdownMenuItem>
                                     </DropdownMenuContent>
