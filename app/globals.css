@@ -62,6 +62,11 @@ p {
   }
 }
 
+.underline-important {
+  text-decoration: underline !important;
+  font-weight: bold;
+}
+
 @layer base {
   * {
     @apply border-border;

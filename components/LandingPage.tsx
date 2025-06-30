@@ -20,7 +20,10 @@ const Popup: React.FC<PopupProps> = ({ show, onClose }) => {
                 <h3 className="text-xl font-bold mb-4">The Network for Natural Gums and Resins in Africa (NGARA) has been re-branded to The Network on Forest Enterprises in Africa (NEFEA)
                 </h3>
                 <p className="mb-4">
-                    I am happy to inform you that <a href="https://example.com/ngara" className="underline font-bold">“The Network for Natural Gums and Resins in Africa (NGARA)”</a> has been rebranded as <strong>“The Network on Forest Enterprises in Africa (NEFEA)”</strong>. Established in 2000 by sixteen member countries in the Sahel and Horn of Africa and nurtured by FAO in collaboration with the African Union Commision (AUC) until 2018 when it was formally registered as an International NGO by the Kenya NGOs Coordination Board, NGARA has played a great role of raising the profile of the African gums and resins among the key NTFPs to the global arena...
+                    I am happy to inform you that <a 
+                    href="https://example.com/ngara" 
+                    className="underline-important"
+                    >“The Network for Natural Gums and Resins in Africa (NGARA)”</a> has been rebranded as <strong>“The Network on Forest Enterprises in Africa (NEFEA)”</strong>. Established in 2000 by sixteen member countries in the Sahel and Horn of Africa and nurtured by FAO in collaboration with the African Union Commision (AUC) until 2018 when it was formally registered as an International NGO by the Kenya NGOs Coordination Board, NGARA has played a great role of raising the profile of the African gums and resins among the key NTFPs to the global arena...
                 </p>
 
                 <ul>
