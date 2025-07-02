@@ -125,6 +125,14 @@ const Navbar = () => {
                                         </DropdownMenuItem>
                                         <DropdownMenuItem>
                                             <Link
+                                                href='/about/gums-resin'
+                                                className='hover:italic hover:text-primary px-4 font-semibold'
+                                            >
+                                                Gums and Resins
+                                            </Link>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Link
                                                 href='https://nefea.co.ke/' target="_blank" rel="noopener noreferrer"
                                                 className='hover:italic hover:text-primary px-4 font-semibold'
                                             >
@@ -266,6 +274,14 @@ const Navbar = () => {
                                 >
                                     <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
                                         Member Countries
+                                    </li>
+                                </Link>
+
+                                <Link 
+                                href='/about/gums-resin'
+                                >
+                                    <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
+                                        Gums and Resins
                                     </li>
                                 </Link>
 
