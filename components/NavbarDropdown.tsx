@@ -55,6 +55,9 @@ export function NavbarDropdown() {
                             <Button onClick={downloadPDF}>The Constitution</Button>
                         </DropdownMenuLabel>
                         <DropdownMenuLabel>
+                            <Link href='/about/member-countries' onClick={handleClick}>Member Countries</Link>
+                        </DropdownMenuLabel>
+                        <DropdownMenuLabel>
                             <Link href='https://nefea.co.ke/' onClick={handleClick}>NGARA</Link>
                         </DropdownMenuLabel>
                     </DropdownMenuContent>
