@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import './Achievements.css'
+import './achievements.css'
 import { motion } from 'framer-motion'
 
 const achievements = [
