@@ -318,7 +318,9 @@ const Regions = () => {
               countryname={selectedCountry}
               cname={countryData ? countryData?.cname : ''}
               email={countryData ? countryData?.email : ''}
-              phone={countryData ? countryData?.phone : ''} publications={publicationsData} />
+              phone={countryData ? countryData?.phone : ''}
+              publications={publicationsData}
+            />
           )}
         </div>
       </div>
