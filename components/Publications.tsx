@@ -104,7 +104,7 @@ const Publications = () => {
 
     return (
         <div className='py-5 w-full back-pic px-5 flex flex-col items-center align-middle justify-center'>
-            <Card className='w-3/5 rounded-xl flex flex-col justify-center align-middle items-center'>
+            <Card className='md:w-3/5 w-11/12 rounded-xl flex flex-col justify-center align-middle items-center'>
                 <CardContent>
                     {/* Title */}
                     <h1 className='text-primary font-bold text-xl md:text-3xl text-center pb-5 pt-3'>
