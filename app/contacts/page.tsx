@@ -25,7 +25,7 @@ const Contact = () => {
             setStatus('Please fill in all fields')
             return
         }
-        
+
         // Basic email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
         if (!emailRegex.test(formData.email)) {
@@ -34,12 +34,29 @@ const Contact = () => {
         }
 
         try {
-            setStatus('Thank you for your feedback!')
-            setFormData({ name: '', email: '', message: '' })
-            setTimeout(() => setStatus(''), 3000)
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+
+            const data = await res.json();
+
+            if (data.success) {
+                setStatus('Thank you for your feedback!');
+                setFormData({ name: '', email: '', message: '' });
+            } else {
+                setStatus('Error: ' + (data.error || 'Something went wrong.'));
+            }
+
+            setTimeout(() => setStatus(''), 5000);
         } catch (error) {
-            setStatus('Error submitting form. Please try again.')
+            console.error(error);
+            setStatus('Error submitting form. Please try again later.');
         }
+
     }
 
     return (
@@ -53,7 +70,7 @@ const Contact = () => {
             <div className='flex flex-col md:flex-row justify-center align-middle items-center px-5 py-10 w-full'>
                 {/* Map */}
                 <div className='w-full md:w-1/2'>
-                    <iframe 
+                    <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.869017602017!2d36.8399583740979!3d-1.2498907355855917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173166db1675%3A0x525ca3793243bc8c!2sKenya%20Forestry%20Research%20Institute%20(Kefri)-Karura!5e0!3m2!1sen!2ske!4v1712211479662!5m2!1sen!2ske"
                         width="600"
                         height="450"
