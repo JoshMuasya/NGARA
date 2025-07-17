@@ -10,7 +10,7 @@ interface country {
     email: string,
     cname: string,
     phone: string,
-    publications: { abstract: string; pdf: string }[];
+    publications: { abstract: string; pdf: string; title: string }[];
 }
 
 interface Props {
@@ -42,22 +42,22 @@ const Region = ({ countryname, email, cname, phone, publications }: country) => 
                     <div className="md:w-1/2 w-full">
                         <h1 className="font-bold text-2xl pb-2 pt-5">Recent Publications</h1>
 
-                        {publications.length > 0 && (
-                            <div className="w-full">
+                        {publications.length > 0 ? (
+                            <ul className="list-disc pl-6">
                                 {publications.map((publication, index) => (
-                                    <div
-                                        key={index}
-                                        className="w-full pr-0 md:pr-5 flex flex-col justify-center items-center align-middle"
-                                    >
+                                    <li key={index} className="mb-4">
                                         <Link
                                             href={publication.pdf}
-                                            className="hover:underline pb-3 text-ring font-bold"
+                                            className="hover:underline text-ring font-bold"
                                         >
-                                            {publication.abstract}
+                                            {publication.title}
                                         </Link>
-                                    </div>
+                                        <p className="pt-1">{publication.abstract}</p>
+                                    </li>
                                 ))}
-                            </div>
+                            </ul>
+                        ) : (
+                            <p className="italic text-muted-foreground pt-3">Coming soon...</p>
                         )}
                     </div>
 

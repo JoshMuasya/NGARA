@@ -1,6 +1,5 @@
 import Achievement from "@/components/Achievement";
 import AchievementsSection from "@/components/AchievementSection";
-import Blogs from "@/components/Blogs";
 import LandingPage from "@/components/LandingPage";
 import Partners from "@/components/Partners";
 import Publications from "@/components/Publications";

@@ -1,8 +1,6 @@
 'use client'
 
 import React from 'react'
-import './achievements.css'
-import { motion } from 'framer-motion'
 
 const achievements = [
   {
@@ -31,17 +29,15 @@ const AchievementsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 justify-items-center">
           {achievements.map((item, index) => (
-            <div key={index} className="flip-card w-64 h-40">
-              <div className="flip-card-inner">
-                {/* Front */}
-                <div className="flip-card-front bg-[hsl(var(--primary)/.2)] backdrop-blur-md border border-[hsl(var(--primary)/.4)] flex items-center justify-center text-5xl font-extrabold text-[hsl(var(--primary-foreground))] rounded-xl shadow-xl">
-                  {item.number}
-                </div>
-
-                {/* Back */}
-                <div className="flip-card-back bg-[hsl(var(--accent)/.3)] backdrop-blur-md border border-[hsl(var(--accent)/.4)] flex items-center justify-center text-center px-4 text-lg font-medium text-[hsl(var(--primary-foreground))] rounded-xl shadow-xl">
-                  {item.label}
-                </div>
+            <div
+              key={index}
+              className="w-64 h-40 bg-[hsl(var(--primary)/.2)] backdrop-blur-md border border-[hsl(var(--primary)/.4)] rounded-xl shadow-xl flex flex-col items-center justify-center text-center p-4"
+            >
+              <div className="text-5xl font-extrabold text-[hsl(var(--primary-foreground))]">
+                {item.number}
+              </div>
+              <div className="mt-2 text-lg font-medium text-[hsl(var(--primary-foreground))]">
+                {item.label}
               </div>
             </div>
           ))}

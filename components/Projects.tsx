@@ -113,14 +113,14 @@ const Projects: React.FC = () => {
       <div className="w-full mt-10 mb-10">
         <h2 className="text-primary font-bold text-2xl text-center pb-5">Completed Projects</h2>
         <h6 className="text-center text-sm mb-6">Explore our completed projects</h6>
-        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-6">
+        <div className="flex flex-col md:flex-row flex-wrap justify-center items-stretch gap-6">
           {staticProjects.map((project, index) => (
-            <Card key={`completed-${index}`} className="max-w-lg">
+            <Card key={`completed-${index}`} className="max-w-lg w-full flex flex-col justify-between min-h-[400px]">
               <CardHeader>
                 <CardTitle>{project.title}</CardTitle>
                 <CardDescription>By {project.author}</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <p className="text-sm text-muted-foreground">{project.abstract}</p>
                 <div className="mt-4 space-y-2">
                   <p><strong>Published:</strong> {project.datepublication}</p>
@@ -148,14 +148,14 @@ const Projects: React.FC = () => {
       <div className="w-full mt-10 mb-10">
         <h2 className="text-primary font-bold text-2xl text-center pb-5">Ongoing Projects</h2>
         <h6 className="text-center text-sm mb-6">Explore our current projects in progress</h6>
-        <div className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-6">
+        <div className="flex flex-col md:flex-row flex-wrap justify-center items-stretch gap-6">
           {staticOngoingProjects.map((project, index) => (
-            <Card key={`ongoing-${index}`} className="max-w-lg">
+            <Card key={`ongoing-${index}`} className="max-w-lg w-full flex flex-col justify-between min-h-[400px]">
               <CardHeader>
                 <CardTitle>{project.title}</CardTitle>
                 <CardDescription>By {project.author}</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <p className="text-sm text-muted-foreground">{project.abstract}</p>
                 <div className="mt-4 space-y-2">
                   <p><strong>Published:</strong> {project.datepublication}</p>
