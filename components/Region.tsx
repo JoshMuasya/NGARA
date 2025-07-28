@@ -52,7 +52,17 @@ const Region = ({ countryname, email, cname, phone, publications }: country) => 
                                         >
                                             {publication.title}
                                         </Link>
-                                        <p className="pt-1">{publication.abstract}</p>
+                                        <div className="pt-1">
+                                            <p className="line-clamp-2 text-sm text-muted-foreground">
+                                                {publication.abstract}
+                                            </p>
+                                            <Link
+                                                href={publication.pdf}
+                                                className="text-ring font-semibold text-sm hover:underline"
+                                            >
+                                                Read More
+                                            </Link>
+                                        </div>
                                     </li>
                                 ))}
                             </ul>
