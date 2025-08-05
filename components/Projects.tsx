@@ -135,9 +135,7 @@ const Projects: React.FC = () => {
                       Download Report
                     </a>
                   </Button>
-                ) : (
-                  <p className="text-base text-primary">Report Coming Soon</p>
-                )}
+                ) : null}
               </CardFooter>
             </Card>
           ))}

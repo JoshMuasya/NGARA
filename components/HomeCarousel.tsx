@@ -57,32 +57,36 @@ export function HomeCarousel() {
 
     return (
         <div className="flex justify-center items-center w-full">
-            <Carousel
-                setApi={setApi}
-                className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl px-2"
-            >
-                <CarouselContent>
-                    {Images.map((image, index) => (
-                        <CarouselItem key={index}>
-                            <Card className="rounded-lg overflow-hidden shadow-md">
-                                <CardContent className="flex flex-col items-center justify-center p-4">
-                                    <img
-                                        src={image.image}
-                                        alt={image.text}
-                                        className="w-full h-auto object-cover rounded-md"
-                                    />
-                                    <span className="text-sm text-accent font-bold pt-3 text-center">
-                                        {image.text}
-                                    </span>
-                                </CardContent>
-                            </Card>
-                            
-                        </CarouselItem>
-                    ))}
-                </CarouselContent>
-                <CarouselPrevious className="hidden md:flex" />
-                <CarouselNext className="hidden md:flex" />
-            </Carousel>
+            <div className="relative w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl">
+                <Carousel
+                    setApi={setApi}
+                    className="w-full px-2"
+                >
+                    <CarouselContent>
+                        {Images.map((image, index) => (
+                            <CarouselItem key={index}>
+                                <Card className="rounded-lg overflow-hidden shadow-md">
+                                    <CardContent className="flex flex-col items-center justify-center p-4">
+                                        <img
+                                            src={image.image}
+                                            alt={image.text}
+                                            className="w-full h-auto object-cover rounded-md"
+                                        />
+                                        <span className="text-sm text-accent font-bold pt-3 text-center">
+                                            {image.text}
+                                        </span>
+                                    </CardContent>
+                                </Card>
+                            </CarouselItem>
+                        ))}
+                    </CarouselContent>
+
+                    {/* Arrows positioned absolutely in the center left/right */}
+                    <CarouselPrevious className="hidden md:flex absolute left-2 top-1/2 -translate-y-1/2 z-10" />
+                    <CarouselNext className="hidden md:flex absolute right-2 top-1/2 -translate-y-1/2 z-10" />
+                </Carousel>
+            </div>
         </div>
+
     )
 }

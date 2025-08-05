@@ -31,7 +31,7 @@ const Navbar = () => {
         } catch (error) {
             console.error('Error getting PDF from storage:', error);
             return null; // Or throw an error if needed
-          }
+        }
     }
 
     const handleMouseEnter = () => setDropdownOpen(true)
@@ -40,10 +40,12 @@ const Navbar = () => {
     return (
         <div className='flex flex-row justify-between md:justify-around items-center align-middle w-full bg-accent h-8 fixed top-0 left-0 text-primary pb-14 pt-7 md:px-0 px-3 z-20'>
             {/* Logo */}
-            <div>
-                <img src="logo.png" alt="logo"
+            <Link
+                href='/#home'
+                className='pt-6'>
+                <img src="nefea.png" alt="logo"
                     style={{ width: '150px', height: '100px' }} />
-            </div>
+            </Link>
 
             {/* Links */}
             <div>
@@ -79,7 +81,7 @@ const Navbar = () => {
                                         </h1>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent className="w-40">
-                                        
+
                                         <DropdownMenuItem>
                                             <Link
                                                 href='/about/vision'
@@ -235,7 +237,7 @@ const Navbar = () => {
                         Home
                     </Link>
 
-                    <div 
+                    <div
                         className="hover:italic hover:text-primary px-4 relative cursor-pointer"
                         onMouseEnter={handleMouseEnter}
                         onMouseLeave={handleMouseLeave}
@@ -261,24 +263,24 @@ const Navbar = () => {
                                     </li>
                                 </Link>
 
-                                <Link 
-                                href='/about/constitution'
+                                <Link
+                                    href='/about/constitution'
                                 >
                                     <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
                                         The Constitution
                                     </li>
                                 </Link>
 
-                                <Link 
-                                href='/about/member-countries'
+                                <Link
+                                    href='/about/member-countries'
                                 >
                                     <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
                                         Member Countries
                                     </li>
                                 </Link>
 
-                                <Link 
-                                href='/about/gums-resin'
+                                <Link
+                                    href='/about/gums-resin'
                                 >
                                     <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
                                         Gums and Resins
@@ -293,7 +295,7 @@ const Navbar = () => {
                             </ul>
                         )}
                     </div>
-                    
+
                     <Link
                         href='/regions'
                         className='hover:italic hover:text-primary px-4'

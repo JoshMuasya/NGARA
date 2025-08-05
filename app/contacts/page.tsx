@@ -110,7 +110,7 @@ const Contact = () => {
                             C/o KEFRI, Karura <br />
                             P. O. Box 64636 - 00620 <br />
                             Mobil Plaza, Nairobi, Kenya. <br />
-                            E-mail: bchikamai@nefea.org <br />
+                            E-mail: info@nefea.org  <br />
                             Tel: +254 722 756483
                         </p>
                     </div>

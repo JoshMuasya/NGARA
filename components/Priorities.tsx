@@ -75,7 +75,7 @@ const Priorities = () => {
             {/* Partners */}
             <div className=' flex flex-col md:flex-row justify-center align-middle items-center w-full pt-14 pb-10'>
                 {/* Left */}
-                <div className='md:w-1/2'>
+                <div className='md:w-1/3'>
                     <img src="/africa1.jpg" alt="about pic"
                         style={{ width: '300px', height: '250px' }} />
                 </div>
@@ -119,6 +119,11 @@ const Priorities = () => {
 
                             <div className='p-5'>
                                 <img src="/aff.jpg" alt="fao"
+                                    style={{ width: '100px', height: '100px' }} />
+                            </div>
+
+                            <div className='p-5'>
+                                <img src="/terrafund.png" alt="fao"
                                     style={{ width: '100px', height: '100px' }} />
                             </div>
                         </div>

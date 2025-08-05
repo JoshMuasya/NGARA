@@ -3,19 +3,10 @@
 import React from 'react'
 
 const memberCountries = [
-  // Central Africa
-  'Cameroon', 'Congo', 'DRC', 'Gabon', 'CAR', 'Chad', 'Nigeria',
-  // Eastern Africa
-  'Burundi', 'Eritrea', 'Ethiopia', 'Kenya', 'Sudan', 'Djibouti',
-  'Rwanda', 'Somalia', 'South Sudan', 'Tanzania', 'Uganda',
-  // Humid West Africa
-  'Benin', "Ivory Coast", 'Ghana', 'Liberia', 'Sierra Leone', 'Togo',
-  // SADC
-  'Angola', 'Botswana', 'Lesotho', 'Madagascar', 'Malawi', 'Zambia',
-  'Mozambique', 'Namibia', 'South Africa', 'Swaziland', 'Zimbabwe',
-  // West Africa Sahel
-  'Burkina Faso', 'Equatorial Guinea', 'Gambia', 'Guinea', 'Guinea-Bissau',
-  'Mali', 'Mauritania', 'Niger', 'Senegal'
+  'Angola', 'Benin', 'Botswana', 'Burkina Faso', 'Burundi', 'Cameroon', 'Cape Verde', 'CAR', 'Chad', 'Comoros', 
+  'Congo', 'Djibouti', 'DRC', 'Equatorial Guinea', 'Eritrea', 'Ethiopia', 'Gabon', 'Gambia', 'Ghana', 'Guinea', 
+  'Guinea-Bissau', 'Ivory Coast', 'Kenya', 'Lesotho', 'Liberia', 'Madagascar', 'Malawi', 'Mali', 'Mauritania', 
+  'Mauritius', 'Mozambique', 'Namibia', 'Niger', 'Nigeria', 'Rwanda', 'Senegal', 'Seychelles', 'Sierra Leone', 'Somalia', 'South Africa', 'South Sudan', 'Sudan', 'Swaziland', 'Tanzania', 'Togo', 'Uganda', 'Zambia', 'Zimbabwe'
 ];
 
 const MemberCountries = () => {

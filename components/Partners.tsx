@@ -24,6 +24,10 @@ const Partners = () => {
                         <img src="/aff.jpg" alt="fao"
                             style={{ width: '100px', height: '100px' }} />
                     </div>
+                    <div className='p-5'>
+                        <img src="/terrafund.png" alt="fao"
+                            style={{ width: '100px', height: '100px' }} />
+                    </div>
                 </div>
             </div>
         </div>
