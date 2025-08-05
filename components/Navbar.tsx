@@ -44,7 +44,7 @@ const Navbar = () => {
                 href='/#home'
                 className='pt-6'>
                 <img src="nefea.png" alt="logo"
-                    style={{ width: '150px', height: '100px' }} />
+                    style={{ width: '120px', height: '100px' }} />
             </Link>
 
             {/* Links */}
