@@ -67,7 +67,7 @@ const Contact = () => {
                     Contact Us
                 </h1>
             </div>
-            <div className='flex flex-col md:flex-row justify-center align-middle items-center px-5 py-10 w-full'>
+            <div className='flex flex-col md:flex-row justify-center align-middle items-start px-5 py-10 w-full'>
                 {/* Map */}
                 <div className='w-full md:w-1/2'>
                     <iframe
