@@ -5,7 +5,7 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa';
 
 export default function EndFooter() {
   return (
-    <footer className="bg-accent text-primary px-6 md:px-16 lg:px-24 py-12">
+    <footer className="bg-[#014421] text-primary px-6 md:px-16 lg:px-24 py-12">
       {/* Main Footer Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 pb-12">
         {/* About NEFEA */}

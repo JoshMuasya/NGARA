@@ -30,7 +30,7 @@ const BackTop = () => {
   return (
     <div>
       {showButton && (
-        <Button className='fixed right-5 bottom-10 bg-accent hover:bg-primary'>
+        <Button className='fixed right-5 bottom-10 bg-[#014421] hover:bg-primary'>
           <ArrowUpCircle className='w-5 h-5' onClick={handleClick} />
         </Button>
       )}
