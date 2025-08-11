@@ -49,7 +49,7 @@ const Navbar = () => {
 
             {/* Links */}
             <div>
-                <div className='block lg:hidden'>
+                <div className='block lg:hidden '>
                     {isOpen ? (
                         <Cross1Icon
                             onClick={() => setIsOpen(!isOpen)}
@@ -64,7 +64,7 @@ const Navbar = () => {
 
                     {/* Drawer Menu for small screens */}
                     {isOpen && (
-                        <div className="flex flex-col justify-around align-middle items-center lg:hidden bg-accent h-fit fixed top-24 right-0 w-3/5 rounded-s-md">
+                        <div className="flex flex-col justify-around align-middle items-center lg:hidden bg-[#014421] h-fit fixed top-24 right-0 w-3/5 rounded-s-md">
                             <Link
                                 href='/#home'
                                 className='hover:italic hover:text-primary pt-5 pb-2'
