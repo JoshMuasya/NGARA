@@ -131,17 +131,6 @@ export default function EndFooter() {
       <div className="border-t border-primary/30 pt-8 mt-8 text-sm flex flex-col md:flex-row justify-center items-center gap-6">
         <div className="text-center md:text-left">
           <p className="opacity-90">© {new Date().getFullYear()} NEFEA – All rights reserved.</p>
-          <p className="mt-2 opacity-90">
-            Developed by{' '}
-            <a
-              href="https://digimatic2-0.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline hover:text-white transition-colors duration-200"
-            >
-              Digimatic Marketers
-            </a>
-          </p>
         </div>
       </div>
     </footer>

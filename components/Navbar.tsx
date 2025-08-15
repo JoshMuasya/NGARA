@@ -38,7 +38,7 @@ const Navbar = () => {
     const handleMouseLeave = () => setDropdownOpen(false)
 
     return (
-        <div className='flex flex-row justify-between md:justify-around items-center align-middle w-full bg-[#014421] h-8 fixed top-0 left-0 text-primary pb-14 pt-7 md:px-0 px-3 z-20'>
+        <div className='flex flex-row justify-between md:justify-around items-center align-middle w-full bg-[rgba(255,255,255,0.6)] backdrop-blur-md border-b border-[rgba(212,175,55,0.4)] h-8 fixed top-0 left-0 text-primary pb-14 pt-7 md:px-0 px-3 z-20'>
             {/* Logo */}
             <Link
                 href='/#home'
