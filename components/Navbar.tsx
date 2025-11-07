@@ -111,6 +111,15 @@ const Navbar = () => {
                                         </DropdownMenuItem>
                                         <DropdownMenuItem>
                                             <Link
+                                                href='/about/chairmans-remark'
+                                                className='hover:italic hover:text-primary px-4 font-semibold'
+                                                onClick={handleClick}
+                                            >
+                                                Chairman's Remark
+                                            </Link>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Link
                                                 href='/about/constitution'
                                                 className='hover:italic hover:text-primary px-4 font-semibold'
                                             >
@@ -260,6 +269,12 @@ const Navbar = () => {
                                 <Link href='/about/board'>
                                     <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
                                         The Executive Board
+                                    </li>
+                                </Link>
+
+                                <Link href='/about/chairmans-remark'>
+                                    <li className="text-accent hover:text-primary hover:bg-accent hover:italic px-3 py-2">
+                                        Chairman's Remark
                                     </li>
                                 </Link>
 
