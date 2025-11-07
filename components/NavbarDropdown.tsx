@@ -52,6 +52,10 @@ export function NavbarDropdown() {
                         </DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuLabel>
+                            <Link href='/about/chairmans-remark' onClick={handleClick}>Chairman's Remark</Link>
+                        </DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuLabel>
                             <Button onClick={downloadPDF}>The Constitution</Button>
                         </DropdownMenuLabel>
                         <DropdownMenuLabel>
