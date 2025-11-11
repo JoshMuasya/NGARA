@@ -385,7 +385,7 @@ const AfricaMap = () => {
                         onClick={() => handleCountryClick("Ethiopia")}
                         cursor="pointer">
                         <title className='bg-white text-accent'>Ethiopia</title>
-                            
+
                     </path>
                     <path
                         style={{
@@ -833,6 +833,34 @@ const AfricaMap = () => {
                     {tooltipText}
                 </div>
             )}
+
+            <div className="flex flex-wrap gap-4 mt-6 justify-center text-sm">
+                <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-sm bg-[#1E90FF]" />
+                    <span>Eastern Africa</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-sm bg-[#006400]" />
+                    <span>SADC (Southern Africa)</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-sm bg-[#8B008B]" />
+                    <span>Central Africa</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-sm bg-[#32CD32]" />
+                    <span>Humid West Africa</span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-sm bg-[#EDC9AF]" />
+                    <span>West African Sahel</span>
+                </div>
+            </div>
+
         </div>
     )
 }

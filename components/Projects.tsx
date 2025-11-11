@@ -45,6 +45,14 @@ const staticProjects: Project[] = [
 
 const staticOngoingProjects: Project[] = [
   {
+    title: 'TerraFund for AFRI100 Project Half-Year Report',
+    author: 'NEFEA',
+    abstract: 'In June 2024 “The Network for Natural Gums and Resins in Africa (NGARA)” was rebranded as “The Network on Forest Enterprises in Africa (NEFEA)” in order to address a broad range of forest commodities in the continent. Previous work under NGARA in the website has been retained through a dedicated link.',
+    datepublication: 'January – June 2025',
+    datecompletion: 'Ongoing',
+    link: '/jun2025.pdf',
+  },
+  {
     title: 'TerraFund for AFR100 Half Year Report (July - December 2024)',
     author: 'NGARA and KEFRI-Baringo',
     abstract: 'This report details restoration activities in Marigat and Tenges wards, Baringo County, from July to December 2024. It covers the planting of 23,903 tree seedlings and 365 aloe seedlings, restoring 23.9 hectares. The report highlights community engagement, Farmer Managed Natural Regeneration (FMNR), and challenges such as low seedling uptake and nursery flooding.',
