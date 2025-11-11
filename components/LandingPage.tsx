@@ -5,6 +5,7 @@ import { HomeCard } from './Card'
 import Link from 'next/link'
 import { buttonVariants } from './ui/button'
 import { HomeCarousel } from './HomeCarousel'
+import { useRouter } from 'next/navigation'
 
 interface PopupProps {
     show: boolean;
@@ -49,10 +50,11 @@ const Popup: React.FC<PopupProps> = ({ show, onClose }) => {
 
 const LandingPage = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const router = useRouter()
 
     const handleLearnMoreClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
-        setIsPopupOpen(true);
+        router.push("/about/chairmans-remark")
     };
 
     const handleClosePopup = () => {
@@ -71,12 +73,14 @@ const LandingPage = () => {
             <div className='lg:w-1/2 w-full flex flex-col justify-center items-center align-middle pt-5 lg:pl-7'>
                 {/* Title */}
                 <h2 className='text-4xl font-bold text-center pb-4'>
-                    Network on Forest Enterprises in Africa (NEFEA)
+                    Branding of the Network on Forest Enterprises in Africa (NEFEA)
                 </h2>
 
                 {/* Description */}
                 <p className='pb-4'>
-                    I am happy to inform you that <strong><a href="https://nefea.co.ke/" target="_blank" rel="noopener noreferrer">“The Network for Natural Gums and Resins in Africa (NGARA)”</a></strong> has been rebranded as <strong>“The Network on Forest Enterprises in Africa (NEFEA)”</strong>. Established in 2000 by sixteen member countries in the Sahel and Horn of Africa and nurtured by FAO in collaboration with the African Union Commision (AUC) until 2018 when it was formally registered as an International NGO by the Kenya NGOs Coordination Board, NGARA has played a great role of raising the profile of the African gums and resins among the key NTFPs to the global arena. In the process, NGARA has helped develop the gums and resins sector in the member countries by assisting to understand better the gums and reins producing species, characterize the properties of the commodities and how to distinguish them from possible adulterants thereby enhancing quality control, developing and streamlining the value chains and benefit sharing arrangements and linking producers to markets. Livelihoods of most communities and the contribution of gums and resins to the economies of member countries have improved drastically. The role of the resources in environmental conservation and especially with the advent of climate change has become more acknowledged. There is better collaboration between the Anglophone and Francophone speaking African countries and an evolving inter-regional trade. The accrued benefits are many. Thanks to our partners, the members governments and local communities who have been supportive and participated actively.
+                    Following the branding of the Network on Forest Enterprises in Africa (NEFEA) in November 2024, the NEFEA Board discussed the nature of the logo and what it embodies. <strong>The Idea Behind the Logo </strong> The design of the Network on Forest Enterprises in Africa (NEFEA) logo is rooted in the continent’s natural heritage, integrating visual elements that directly speak to NEFEA’s mission: promoting sustainable forest economies by enhancing value chains and empowering stakeholders from grassroots to global markets while mitigating the adverse effects of climate change.
+                    The motif, organic yet structured, symbolizes the partnership and interconnected roles of producers, processors, and consumers, unified under one continental agenda.
+                    The use of earthy tones and natural shapes reflects NEFEA’s deep commitment to ecological integrity, resilience against climate change, and rural empowerment. The symmetry and balance in the logo suggest coordination a key pillar of NEFEA’s work while clean, confident lines evoke professionalism, accountability, and integrity...
                 </p>
 
                 {/* Button */}
